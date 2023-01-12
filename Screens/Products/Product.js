@@ -6,9 +6,9 @@ import Filter from "../../Components/Filter";
 
 const Product = () => {
   return (
-    //Filter
     <View style={styles.screen}>
       <View style={styles.filterWrapper}>
+        <Filter items={Products} />
         <ProductList items={Products} />
       </View>
     </View>

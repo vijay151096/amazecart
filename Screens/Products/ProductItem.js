@@ -2,32 +2,24 @@ import {StyleSheet, Text, View} from "react-native";
 import ProductImage from "../../Components/ProductImage";
 import { AirbnbRating, Rating } from "react-native-ratings";
 import FavoriteBar from "./FavoriteBar";
+import ProductDetails from "./ProductDetails";
+import ShadowComponent from "../../Components/ShadowComponent";
 
 const ProductItem = ({item}) => {
   return (
-    <View style={styles.outerContainer}>
-      <View style={styles.favContainer}>
-        <FavoriteBar />
-      </View>
-      <View style={styles.screen}>
-        <ProductImage image={item.image} />
-      </View>
-      <View style={styles.screen}>
-        <View style={styles.detailContainer}>
-          <Text style={styles.detailText}>{item.title}</Text>
-          <Text style={styles.detailPrice}> $ {item.price}</Text>
-          <View style={styles.detailRate}>
-            <AirbnbRating
-              count={5}
-              defaultRating={item.rating.rate}
-              size={15}
-              showRating={false}
-            />
-            <Text style={styles.rating}>({item.rating.rate})</Text>
-          </View>
+    <ShadowComponent>
+      <View style={styles.outerContainer}>
+        <View style={styles.favContainer}>
+          <FavoriteBar />
+        </View>
+        <View style={styles.screen}>
+          <ProductImage image={item.image} />
+        </View>
+        <View style={styles.screen}>
+          <ProductDetails item={item} />
         </View>
       </View>
-    </View>
+    </ShadowComponent>
   );
 };
 
@@ -38,11 +30,6 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: "white",
     margin: 5,
-    elevation: 5,
-    shadowColor: "grey",
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
   },
   detailText: {
     color: "#460178",
