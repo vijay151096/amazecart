@@ -1,12 +1,13 @@
 import {StyleSheet, Text, View} from "react-native";
 import ProductImage from "../../Components/ProductImage";
 import { AirbnbRating, Rating } from "react-native-ratings";
+import FavoriteBar from "./FavoriteBar";
 
 const ProductItem = ({item}) => {
   return (
     <View style={styles.outerContainer}>
       <View style={styles.favContainer}>
-        <Text>Favourites</Text>
+        <FavoriteBar />
       </View>
       <View style={styles.screen}>
         <ProductImage image={item.image} />
