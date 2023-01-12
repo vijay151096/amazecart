@@ -2,20 +2,29 @@ import React from "react";
 import ProductList from "./ProductList";
 import { Products } from "../../Data/Products";
 import { StyleSheet, View } from "react-native";
+import Filter from "../../Components/Filter";
 
 const Product = () => {
   return (
     //Filter
-    <View style={styles.productsWrapper}>
-    <ProductList items={Products} />
+    <View style={styles.screen}>
+      <View style={styles.filterWrapper}>
+        <ProductList items={Products} />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  productsWrapper: {
+  screen: {
     flex: 1,
+  },
+  productsWrapper: {
+    flex: 20,
     backgroundColor: "#eaeaea",
+  },
+  filterWrapper: {
+    flex: 1,
   },
 });
 

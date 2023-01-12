@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
     elevation: 5,
     shadowColor: "grey",
     shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
   },
   detailText: {
     color: "#460178",
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   detailRate: {
-    fontSize: 10,
+    fontSize: 12,
     padding: 5,
     flexDirection: "row",
     justifyContent: "center",
