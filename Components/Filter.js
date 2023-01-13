@@ -1,6 +1,7 @@
 import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import ShadowComponent from "./ShadowComponent";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 const displayFilter = ({item}) => {
   return (
