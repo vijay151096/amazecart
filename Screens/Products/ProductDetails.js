@@ -1,6 +1,6 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { AirbnbRating } from "react-native-ratings";
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import {AirbnbRating} from 'react-native-ratings';
 
 const ProductDetails = ({item}) => {
   return (
@@ -13,6 +13,7 @@ const ProductDetails = ({item}) => {
           defaultRating={item.rating.rate}
           size={15}
           showRating={false}
+          isDisabled={true}
         />
         <Text style={styles.rating}>({item.rating.rate})</Text>
       </View>
@@ -22,29 +23,29 @@ const ProductDetails = ({item}) => {
 
 const styles = StyleSheet.create({
   detailText: {
-    color: "#460178",
+    color: '#460178',
     fontSize: 14,
     padding: 5,
   },
   detailPrice: {
-    color: "#460178",
+    color: '#460178',
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     padding: 5,
   },
   detailRate: {
     fontSize: 12,
     padding: 5,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  rating:{
+  rating: {
     fontSize: 10,
   },
   detailContainer: {
     flex: 4,
-    alignItems: "center"
+    alignItems: 'center',
   },
   screen: {
     flex: 1,
