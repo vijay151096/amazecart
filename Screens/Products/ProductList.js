@@ -1,14 +1,19 @@
-import { FlatList, Image, StyleSheet, View } from "react-native";
-import ProductItem from "./ProductItem";
+import {FlatList, Image, StyleSheet, View} from 'react-native';
+import ProductItem from './ProductItem';
 
 const singleItemComponent = ({item}) => {
-  return <View style={styles.screen }><ProductItem item={item} /></View>;
+  return <ProductItem item={item} />;
 };
 
 const ProductList = ({items}) => {
   return (
     <View style={[styles.screen, styles.outerContainer]}>
-      <FlatList data={items} renderItem={singleItemComponent} numColumns={2} keyExtractor={(item, index) => index}/>
+      <FlatList
+        data={items}
+        renderItem={singleItemComponent}
+        numColumns={2}
+        keyExtractor={(item, index) => index}
+      />
     </View>
   );
 };
@@ -18,7 +23,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   outerContainer: {
-    borderColor: "grey",
+    borderColor: 'grey',
     padding: 10,
   },
 });
