@@ -34,8 +34,9 @@ const styles = StyleSheet.create({
   },
   title:{
     fontWeight: "bold",
-    fontSize: 14
-  }
+    fontSize: 18,
+    margin: 10,
+  },
 });
 
 export default Filter;

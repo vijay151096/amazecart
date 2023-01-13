@@ -3,6 +3,7 @@ import ProductList from "./ProductList";
 import { Products } from "../../Data/Products";
 import { StyleSheet, View } from "react-native";
 import Filter from "../../Components/Filter";
+import HeaderComponent from "../../Components/HeaderComponent";
 
 const Product = () => {
 
