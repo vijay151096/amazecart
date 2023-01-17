@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
 function Color() {
   return (
@@ -8,5 +8,11 @@ function Color() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  outerContainer: {
+      marginVertical: 20,
+  },
+});
 
 export default Color;
