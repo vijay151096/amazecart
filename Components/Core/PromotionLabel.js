@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
+import {StyleSheet, Text, View} from 'react-native';
 
-const PromotionLabel = () => {
+const PromotionLabel = ({style}) => {
   return (
-    <View style={styles.promotionContainer}>
+    <View style={[styles.promotionContainer, style]}>
       <Text style={styles.offerCent}> 30% </Text>
     </View>
   );
@@ -10,17 +10,16 @@ const PromotionLabel = () => {
 
 const styles = StyleSheet.create({
   promotionContainer: {
-    padding: 2,
-    borderRadius:4,
-    backgroundColor: "#85C1E9",
-    alignItems:"center",
-    justifyContent:"center"
+    padding: 3,
+    borderRadius: 4,
+    backgroundColor: '#85C1E9',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   offerCent: {
     fontSize: 12,
-    fontWeight: "bold"
-  }
+    fontWeight: 'bold',
+  },
 });
-
 
 export default PromotionLabel;

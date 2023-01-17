@@ -10,7 +10,7 @@ const ProductItem = ({item}) => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    navigation.navigate('productDetails');
+    navigation.navigate('productDetails', {item: item});
   };
 
   return (

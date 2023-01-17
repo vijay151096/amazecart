@@ -7,6 +7,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import Title from './Components/Core/Title';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Octicons from 'react-native-vector-icons/Octicons';
+import {color} from './Styles/Color';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,8 +17,8 @@ function Navigation() {
       <Stack.Navigator
         screenOptions={{
           headerShadowVisible: false,
-          headerStyle: {backgroundColor: '#F4F6F6'},
-          contentStyle: {backgroundColor: '#F4F6F6'},
+          headerStyle: {backgroundColor: color.greyBackground},
+          contentStyle: {backgroundColor: color.greyBackground},
           headerTitle: () => <Title />,
         }}>
         <Stack.Screen
@@ -30,7 +31,14 @@ function Navigation() {
             headerRight: () => <Octicons name={'search'} size={30} />,
           }}
         />
-        <Stack.Screen name="productDetails" component={ProductDetails} />
+        <Stack.Screen
+          name="productDetails"
+          component={ProductDetails}
+          options={{
+            headerStyle: {backgroundColor: color.white},
+            contentStyle: {backgroundColor: color.white},
+          }}
+        />
         <Stack.Screen name="cart" component={Cart} />
       </Stack.Navigator>
     </NavigationContainer>

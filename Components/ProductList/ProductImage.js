@@ -1,12 +1,12 @@
-import React from "react";
-import {Image, StyleSheet, View} from "react-native";
+import React from 'react';
+import {Image, StyleSheet, View} from 'react-native';
 
-const ProductImage = ({image}) => {
+const ProductImage = ({image, innerContainerStyle, imageStyle}) => {
   return (
     <View style={styles.imageContainer}>
       <View style={styles.imageOuterContainer}>
-        <View style={styles.imageInnerContainer}>
-          <Image style={styles.image} source={{uri: image}} />
+        <View style={[styles.imageInnerContainer, innerContainerStyle]}>
+          <Image style={[styles.image, imageStyle]} source={{uri: image}} />
         </View>
       </View>
     </View>
@@ -14,21 +14,21 @@ const ProductImage = ({image}) => {
 };
 const styles = StyleSheet.create({
   imageContainer: {
-    flex: 4,
     padding: 15,
-    alignItems: "center",
+    alignItems: 'center',
   },
   imageOuterContainer: {
     padding: 10,
-    backgroundColor: "#FFA07A",
+    backgroundColor: '#FFA07A',
     borderRadius: 1000,
   },
   imageInnerContainer: {
     padding: 5,
     borderWidth: 2,
-    borderColor: "#FF5733",
+    borderColor: '#FF5733',
     borderRadius: 1000,
-    backgroundColor: "white",
+    backgroundColor: 'white',
+    overflow: 'hidden',
   },
   image: {
     width: 100,
