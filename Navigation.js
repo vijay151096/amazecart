@@ -37,7 +37,9 @@ function Navigation() {
           options={{
             headerStyle: {backgroundColor: color.white},
             contentStyle: {backgroundColor: color.white},
+
           }}
+
         />
         <Stack.Screen name="cart" component={Cart} />
       </Stack.Navigator>
