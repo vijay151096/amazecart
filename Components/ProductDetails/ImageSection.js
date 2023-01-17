@@ -39,13 +39,15 @@ const styles = StyleSheet.create({
   },
   marginImage: {
     marginVertical: 15,
+    flex: 10,
   },
-  iconsStyling:{
+  iconsStyling: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
   },
   marginLabel: {
+    flex: 1,
     marginTop: 35,
   },
   innerContainerStyle: {
