@@ -6,18 +6,19 @@
  * @flow strict-local
  */
 
-import React from "react";
-import {
-  SafeAreaView,
-  StyleSheet, Text,
-} from "react-native";
-import ProductDashBoard from "./Screens/ProductDashBoard";
+import React from 'react';
+import {SafeAreaView, StatusBar, StyleSheet, Text} from 'react-native';
+import Navigation from './Navigation';
+import ProductDashBoard from './Screens/ProductDashBoard';
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.outerContainer}>
-      <ProductDashBoard />
-    </SafeAreaView>
+    <>
+      <StatusBar backgroundColor="#F4F6F6" />
+      <SafeAreaView style={styles.outerContainer}>
+        <Navigation />
+      </SafeAreaView>
+    </>
   );
 };
 

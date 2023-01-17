@@ -20,7 +20,7 @@ const ProductDashBoard = () => {
   return (
     <View style={styles.screen}>
       <View style={styles.filterWrapper}>
-        <HeaderComponent />
+        {/*<HeaderComponent />*/}
         {products && <Filter items={products} />}
         {products && <ProductList items={products} />}
       </View>

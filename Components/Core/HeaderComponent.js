@@ -18,17 +18,17 @@ const HeaderComponent = () => {
 };
 
 const styles = StyleSheet.create({
-  heading: {
-    fontWeight: 'bold',
-    fontSize: 30,
-    fontFamily: 'Georgia',
-  },
   outerContainer: {
     flexDirection: 'row',
     padding: 10,
     margin: 10,
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  heading: {
+    fontWeight: 'bold',
+    fontSize: 30,
+    fontFamily: 'Georgia',
   },
   innerContainer: {
     flexDirection: 'row',
