@@ -5,6 +5,7 @@ import ImageSection from '../Components/ProductDetails/ImageSection';
 import ProductImage from '../Components/ProductList/ProductImage';
 import {color} from '../Styles/Color';
 import DetailSection from '../Components/ProductDetails/DetailSection';
+import PriceSection from "../Components/ProductDetails/PriceSection";
 
 function ProductDetails({route}) {
   const item = route.params.item;
@@ -17,7 +18,9 @@ function ProductDetails({route}) {
       <View style={styles.detailsContainer}>
         <DetailSection item={item} />
       </View>
-      <View style={styles.priceContainer}></View>
+      <View style={styles.priceContainer}>
+        <PriceSection item={item} />
+      </View>
     </View>
   );
 }

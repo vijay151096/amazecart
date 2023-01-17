@@ -21,7 +21,7 @@ function Size() {
 }
 const styles = StyleSheet.create({
     outerContainer: {
-        marginVertical: 20,
+        marginVertical: 10,
         flexDirection: "row",
         alignItems: "center",
     },

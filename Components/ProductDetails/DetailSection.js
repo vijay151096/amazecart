@@ -8,8 +8,8 @@ function DetailSection({item}) {
   return (
     <View style={styles.outerContainer}>
       <DetailTitle
-        title="some title"
-        description="this is the description of the product"
+        title={item.description.slice(0, 20) + "..."}
+        description={item.description.slice(0, 100) + "..."}
         rating={4.5}
       />
       <Size />

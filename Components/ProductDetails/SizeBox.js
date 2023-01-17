@@ -10,17 +10,6 @@ const SizeBox = ({boxNo, setSelectBox, selectBox, children}) => {
         setSelectBox(boxNo);
     }
 
-    // const selectedStyle = [styles.sizeBoxOuter, styles.selectedBoxColor];
-    // const unselectedStyle = [styles.sizeBoxOuter];
-    // let finalStyle = []
-    // const handleStyles = () => {
-    //     if (selectBox == boxNo) {
-    //         finalStyle = selectedStyle;
-    //     } else {
-    //         finalStyle = unselectedStyle;
-    //     }
-    // }
-
     useEffect(() => {
         if (selectBox === boxNo) {
             setIsSelected(true)
@@ -41,11 +30,6 @@ const SizeBox = ({boxNo, setSelectBox, selectBox, children}) => {
 };
 
 const styles = StyleSheet.create({
-    outerContainer: {
-        marginVertical: 20,
-        flexDirection: "row",
-        alignItems: "center",
-    },
     selectedBoxColor: {
         backgroundColor: color.lightBlue,
     },
@@ -58,10 +42,6 @@ const styles = StyleSheet.create({
         margin: 5,
         borderRadius: 8,
         overflow: "hidden",
-    },
-    text: {
-        fontSize: 16,
-        fontWeight: "bold",
     },
     sizeBox: {
         marginHorizontal: 14,
