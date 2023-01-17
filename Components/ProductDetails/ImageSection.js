@@ -2,6 +2,9 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import PromotionLabel from '../Core/PromotionLabel';
 import ProductImage from '../ProductList/ProductImage';
+import Octicons from "react-native-vector-icons/Octicons";
+import {color} from "../../Styles/Color";
+import Entypo from "react-native-vector-icons/Entypo";
 
 function ImageSection({image}) {
   return (
@@ -16,8 +19,12 @@ function ImageSection({image}) {
           imageStyle={styles.imageStyle}
         />
       </View>
-      <View>
-        <Text>-----</Text>
+      <View style={styles.iconsStyling}>
+        <Entypo name={"dot-single"} size={30} color={color.lightBlue}/>
+        <Entypo name={"dot-single"} size={30} color={color.lightBlue}/>
+        <Octicons name={"dash"} size={50} color={color.lightBlue}/>
+        <Entypo name={"dot-single"} size={30} color={color.lightBlue}/>
+        <Entypo name={"dot-single"} size={30} color={color.lightBlue}/>
       </View>
     </View>
   );
@@ -31,7 +38,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   marginImage: {
-    marginVertical: 20,
+    marginVertical: 15,
+  },
+  iconsStyling:{
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   marginLabel: {
     marginTop: 35,

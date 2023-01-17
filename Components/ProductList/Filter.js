@@ -5,9 +5,9 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const displayFilter = ({item}) => {
   return (
-    <ShadowComponent style={styles.filterItem}>
+    <View style={styles.filterItem}>
       <Text>{item}</Text>
-    </ShadowComponent>
+    </View>
   );
 };
 
