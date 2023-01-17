@@ -1,14 +1,13 @@
 import {StyleSheet, Text, View} from "react-native";
-import ProductImage from "../../Components/ProductImage";
 import { AirbnbRating, Rating } from "react-native-ratings";
 import FavoriteBar from "./FavoriteBar";
 import ProductDetails from "./ProductDetails";
-import ShadowComponent from "../../Components/ShadowComponent";
+import ShadowComponent from "../Core/ShadowComponent";
+import ProductImage from "./ProductImage";
 
 const ProductItem = ({item}) => {
   return (
     <ShadowComponent style={styles.outerContainer}>
-      
         <View style={styles.favContainer}>
           <FavoriteBar />
         </View>
@@ -18,7 +17,6 @@ const ProductItem = ({item}) => {
         <View style={styles.screen}>
           <ProductDetails item={item} />
         </View>
-
     </ShadowComponent>
   );
 };

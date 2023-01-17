@@ -1,11 +1,11 @@
 import React, {useLayoutEffect, useState} from 'react';
-import ProductList from './ProductList';
-import {Products} from '../../Data/Products';
+import ProductList from '../Components/ProductList/ProductList';
+import {Products} from '../Data/Products';
 import {StyleSheet, View} from 'react-native';
-import Filter from '../../Components/Filter';
-import HeaderComponent from '../../Components/HeaderComponent';
+import Filter from '../Components/ProductList/Filter';
+import HeaderComponent from '../Components/Core/HeaderComponent';
 
-const Product = () => {
+const ProductDashBoard = () => {
   const [products, setProducts] = useState(null);
 
   useLayoutEffect(() => {
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Product;
+export default ProductDashBoard;

@@ -1,6 +1,6 @@
 import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import {useState} from 'react';
-import PromotionLabel from '../../Components/PromotionLabel';
+import PromotionLabel from '../Core/PromotionLabel';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Octicons from 'react-native-vector-icons/Octicons';
 

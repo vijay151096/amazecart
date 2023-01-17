@@ -11,12 +11,12 @@ import {
   SafeAreaView,
   StyleSheet, Text,
 } from "react-native";
-import Product from "./Screens/Products/Product";
+import ProductDashBoard from "./Screens/ProductDashBoard";
 
 const App = () => {
   return (
     <SafeAreaView style={styles.outerContainer}>
-      <Product />
+      <ProductDashBoard />
     </SafeAreaView>
   );
 };
