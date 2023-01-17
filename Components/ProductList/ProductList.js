@@ -13,6 +13,7 @@ const ProductList = ({items}) => {
         renderItem={singleItemComponent}
         numColumns={2}
         keyExtractor={(item, index) => index}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );

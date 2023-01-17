@@ -1,32 +1,36 @@
-import React, {useLayoutEffect, useState} from 'react';
+import React, {useContext, useLayoutEffect, useState} from 'react';
 import ProductList from '../Components/ProductList/ProductList';
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import Filter from '../Components/ProductList/Filter';
-import colors from "react-native/Libraries/NewAppScreen/components/Colors";
-import {color} from "../Styles/Color";
+import colors from 'react-native/Libraries/NewAppScreen/components/Colors';
+import {color} from '../Styles/Color';
+import ProductContext from '../Store/ProductContext';
 
 const ProductDashBoard = () => {
   const [products, setProducts] = useState(null);
   const [categories, setCategories] = useState(null);
 
+  const productCtx = useContext(ProductContext);
+  const productsData = productCtx.products;
+
   useLayoutEffect(() => {
-    const FAKESTORE_API = 'https://fakestoreapi.com/products'
-    const getData = async () => {
-      const response = await fetch(FAKESTORE_API);
-      const data = await response.json();
-      setProducts(data);
-    };
+    setProducts(productsData);
     const getCategory = async () => {
-      const response = await fetch(`${FAKESTORE_API}/categories`);
+      const response = await fetch(
+        `https://fakestoreapi.com/products/categories`,
+      );
       const data = await response.json();
       setCategories(data);
     };
-    getData();
     getCategory();
-  },[]);
+  }, [productsData]);
 
-  if(!products && !categories){
-    return <View style={{alignItems: "center", justifyContent: "center", flex: 1}}><ActivityIndicator size="large" color={color.purple}/></View>;
+  if (!products && !categories) {
+    return (
+      <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
+        <ActivityIndicator size="large" color={color.purple} />
+      </View>
+    );
   }
 
   return (

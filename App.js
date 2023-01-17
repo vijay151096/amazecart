@@ -10,14 +10,17 @@ import React from 'react';
 import {SafeAreaView, StatusBar, StyleSheet, Text, View} from 'react-native';
 import Navigation from './Navigation';
 import ProductDashBoard from './Screens/ProductDashBoard';
+import ProductContextProvider from './Store/ProductContextProvider';
 
 const App = () => {
   return (
     <>
       <StatusBar backgroundColor="#F4F6F6" />
-      <View style={styles.outerContainer}>
-        <Navigation />
-      </View>
+      <ProductContextProvider>
+        <View style={styles.outerContainer}>
+          <Navigation />
+        </View>
+      </ProductContextProvider>
     </>
   );
 };
