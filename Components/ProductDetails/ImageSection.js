@@ -13,11 +13,15 @@ function ImageSection({image}) {
         <PromotionLabel style={styles.labelPadding} />
       </View>
       <View style={styles.marginImage}>
+        <View style={[styles.rippleStyle, {padding: 20}]}>
+        <View style={styles.rippleStyle}>
         <ProductImage
           image={image}
           innerContainerStyle={styles.innerContainerStyle}
           imageStyle={styles.imageStyle}
         />
+        </View>
+        </View>
       </View>
       <View style={styles.iconsStyling}>
         <Entypo name={"dot-single"} size={30} color={color.lightBlue}/>
@@ -26,6 +30,7 @@ function ImageSection({image}) {
         <Entypo name={"dot-single"} size={30} color={color.lightBlue}/>
         <Entypo name={"dot-single"} size={30} color={color.lightBlue}/>
       </View>
+
     </View>
   );
 }
@@ -37,11 +42,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  rippleStyle:{
+    padding: 10,
+    borderRadius: 200,
+    borderLeftWidth: 0.3,
+    borderRightWidth: 0.3,
+    borderColor: color.gold
+  },
   marginImage: {
     marginVertical: 15,
     flex: 10,
   },
   iconsStyling: {
+    flex: 1,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
