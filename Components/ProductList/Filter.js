@@ -6,7 +6,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 const displayFilter = ({item}) => {
   return (
     <ShadowComponent style={styles.filterItem}>
-      <Text>{item.category}</Text>
+      <Text>{item}</Text>
     </ShadowComponent>
   );
 };
