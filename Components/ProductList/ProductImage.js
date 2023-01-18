@@ -1,9 +1,14 @@
 import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 
-const ProductImage = ({image, innerContainerStyle, imageStyle,outerContainerStyle}) => {
+const ProductImage = ({
+  image,
+  innerContainerStyle,
+  imageStyle,
+  outerContainerStyle,
+}) => {
   return (
-    <View style={[styles.imageContainer,outerContainerStyle]}>
+    <View style={[styles.imageContainer, outerContainerStyle]}>
       <View style={styles.imageOuterContainer}>
         <View style={[styles.imageInnerContainer, innerContainerStyle]}>
           <Image style={[styles.image, imageStyle]} source={{uri: image}} />

@@ -3,18 +3,17 @@ import {StyleSheet, Text, View} from 'react-native';
 import ImageSection from '../Components/ProductDetails/ImageSection';
 import {color} from '../Styles/Color';
 import DetailSection from '../Components/ProductDetails/DetailSection';
-import PriceSection from "../Components/ProductDetails/PriceSection";
-import FavoriteBar from "../Components/ProductList/FavoriteBar";
+import PriceSection from '../Components/ProductDetails/PriceSection';
+import FavoriteBar from '../Components/ProductList/FavoriteBar';
 
 function ProductDetails({navigation, route}) {
   const item = route.params.item;
 
   useEffect(() => {
     navigation.setOptions({
-      headerRight: () => <FavoriteBar item={item} size={30} />
+      headerRight: () => <FavoriteBar item={item} size={30} />,
     });
-  },[]);
-
+  }, []);
 
   return (
     <View style={styles.mainContainer}>
@@ -24,7 +23,6 @@ function ProductDetails({navigation, route}) {
       <View style={styles.detailsContainer}>
         <DetailSection item={item} />
       </View>
-
       <View style={styles.priceContainer}>
         <PriceSection item={item} />
       </View>

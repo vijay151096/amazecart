@@ -11,21 +11,21 @@ import {SafeAreaView, StatusBar, StyleSheet, Text, View} from 'react-native';
 import Navigation from './Navigation';
 import ProductDashBoard from './Screens/ProductDashBoard';
 import ProductContextProvider from './Store/ProductContextProvider';
-import FavoriteContextProvider from "./Store/FavoriteContextProvider";
-import CartContextProvider from "./Store/CartContextProvider";
+import FavoriteContextProvider from './Store/FavoriteContextProvider';
+import CartContextProvider from './Store/CartContextProvider';
 
 const App = () => {
   return (
     <>
       <StatusBar backgroundColor="#F4F6F6" />
       <ProductContextProvider>
-          <FavoriteContextProvider>
-              <CartContextProvider>
-                <View style={styles.outerContainer}>
-                  <Navigation />
-                </View>
-              </CartContextProvider>
-          </FavoriteContextProvider>
+        <FavoriteContextProvider>
+          <CartContextProvider>
+            <View style={styles.outerContainer}>
+              <Navigation />
+            </View>
+          </CartContextProvider>
+        </FavoriteContextProvider>
       </ProductContextProvider>
     </>
   );

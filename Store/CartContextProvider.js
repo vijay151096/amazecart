@@ -1,36 +1,32 @@
 import React, {createContext, useState} from 'react';
 
 export const CartContext = createContext({
-    cartProducts: [],
-    addProductToCart: (id) => {},
-    removeProductFromCart: (id) => {},
+  cartProducts: [],
+  addProductToCart: id => {},
+  removeProductFromCart: id => {},
 });
 
 const CartContextProvider = ({children}) => {
-    const [cartProducts, setCartProducts] = useState([1, 2, 3, 6]);
+  const [cartProducts, setCartProducts] = useState([1, 2, 3, 6]);
 
-    const addProductToCart = (id) => {
-        setCartProducts((prevState => {
-            return [id, ...prevState]
-        }));
-    }
+  const addProductToCart = id => {
+    setCartProducts(prevState => {
+      return [id, ...prevState];
+    });
+  };
 
-    const removeProductFromCart = (id) => {
-        setCartProducts((prevState => {
-            return prevState.filter(item => item != id);
-        }));
-    }
+  const removeProductFromCart = id => {
+    setCartProducts(prevState => {
+      return prevState.filter(item => item != id);
+    });
+  };
 
-    const values = {
-        cartProducts: cartProducts,
-        addProductToCart: addProductToCart,
-        removeProductFromCart: removeProductFromCart
-    }
-    return (
-        <CartContext.Provider value={values}>
-            {children}
-        </CartContext.Provider>
-    );
+  const values = {
+    cartProducts: cartProducts,
+    addProductToCart: addProductToCart,
+    removeProductFromCart: removeProductFromCart,
+  };
+  return <CartContext.Provider value={values}>{children}</CartContext.Provider>;
 };
 
 export default CartContextProvider;

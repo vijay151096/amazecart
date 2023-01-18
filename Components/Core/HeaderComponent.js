@@ -2,7 +2,6 @@ import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Octicons from 'react-native-vector-icons/Octicons';
-import Entypo from 'react-native-vector-icons/Entypo';
 
 const HeaderComponent = () => {
   return (

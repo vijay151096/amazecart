@@ -1,36 +1,36 @@
 import React, {createContext, useState} from 'react';
 
 export const FavoriteContext = createContext({
-    favoriteProducts: [],
-    addProductToFavorite: (id) => {},
-    removeProductFromFavorite: (id) => {},
+  favoriteProducts: [],
+  addProductToFavorite: id => {},
+  removeProductFromFavorite: id => {},
 });
 
 const FavoriteContextProvider = ({children}) => {
-    const [favoriteProducts, setFavoriteProducts] = useState([]);
+  const [favoriteProducts, setFavoriteProducts] = useState([]);
 
-    const addProductToFavorite = (id) => {
-        setFavoriteProducts((prevState => {
-            return [id, ...prevState]
-        }));
-    }
+  const addProductToFavorite = id => {
+    setFavoriteProducts(prevState => {
+      return [id, ...prevState];
+    });
+  };
 
-    const removeProductFromFavorite = (id) => {
-        setFavoriteProducts((prevState => {
-            return prevState.filter(item => item != id);
-        }));
-    }
+  const removeProductFromFavorite = id => {
+    setFavoriteProducts(prevState => {
+      return prevState.filter(item => item != id);
+    });
+  };
 
-    const values = {
-        favoriteProducts: favoriteProducts,
-        addProductToFavorite: addProductToFavorite,
-        removeProductFromFavorite: removeProductFromFavorite
-    }
-    return (
-        <FavoriteContext.Provider value={values}>
-            {children}
-        </FavoriteContext.Provider>
-    );
+  const values = {
+    favoriteProducts: favoriteProducts,
+    addProductToFavorite: addProductToFavorite,
+    removeProductFromFavorite: removeProductFromFavorite,
+  };
+  return (
+    <FavoriteContext.Provider value={values}>
+      {children}
+    </FavoriteContext.Provider>
+  );
 };
 
 export default FavoriteContextProvider;

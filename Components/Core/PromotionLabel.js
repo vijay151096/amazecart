@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View} from 'react-native';
-import {color} from "../../Styles/Color";
+import {color} from '../../Styles/Color';
 
 const PromotionLabel = ({style}) => {
   return (
