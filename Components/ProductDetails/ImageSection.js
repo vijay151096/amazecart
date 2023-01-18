@@ -29,6 +29,7 @@ function ImageSection({image}) {
         <Octicons name={"dash"} size={50} color={color.lightBlue}/>
         <Entypo name={"dot-single"} size={30} color={color.lightBlue}/>
         <Entypo name={"dot-single"} size={30} color={color.lightBlue}/>
+        <View></View>
       </View>
 
     </View>

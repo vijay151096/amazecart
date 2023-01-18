@@ -1,10 +1,10 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import {AirbnbRating, Rating} from 'react-native-ratings';
 import FavoriteBar from './FavoriteBar';
 import ProductDetails from './ProductDetails';
 import ShadowComponent from '../Core/ShadowComponent';
 import ProductImage from './ProductImage';
 import {useNavigation} from '@react-navigation/native';
+import PromotionLabel from "../Core/PromotionLabel";
 
 const ProductItem = ({item}) => {
   const navigation = useNavigation();
@@ -17,7 +17,10 @@ const ProductItem = ({item}) => {
     <ShadowComponent style={styles.outerContainer}>
       <Pressable onPress={handlePress}>
         <View style={styles.favContainer}>
-          <FavoriteBar />
+          <View style={styles.favOuterContainer}>
+            <PromotionLabel />
+            <FavoriteBar item={item} size={20}/>
+          </View>
         </View>
         <View style={styles.screen}>
           <ProductImage image={item.image} />
@@ -71,6 +74,12 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
   },
+  favOuterContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flex: 1,
+    height: 25,
+  }
 });
 
 export default ProductItem;

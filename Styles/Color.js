@@ -5,4 +5,5 @@ export const color = {
   lightGrey:"#BDC3C7",
   purple:"#21618C",
   lightBlue: "#85C1E9",
+  red: "red",
 };

@@ -6,9 +6,15 @@ import ProductImage from '../Components/ProductList/ProductImage';
 import {color} from '../Styles/Color';
 import DetailSection from '../Components/ProductDetails/DetailSection';
 import PriceSection from "../Components/ProductDetails/PriceSection";
+import FavoriteBar from "../Components/ProductList/FavoriteBar";
+import ShadowComponent from "../Components/Core/ShadowComponent";
 
-function ProductDetails({route}) {
+function ProductDetails({navigation, route}) {
   const item = route.params.item;
+
+  navigation.setOptions({
+    headerRight: () => <FavoriteBar item={item} size={30} />
+  });
 
   return (
     <View style={styles.mainContainer}>

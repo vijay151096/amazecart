@@ -1,45 +1,54 @@
-import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
-import {useState} from 'react';
-import PromotionLabel from '../Core/PromotionLabel';
+import { Pressable, StyleSheet, Text, View} from 'react-native';
+import {useContext, useState, useEffect} from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Octicons from 'react-native-vector-icons/Octicons';
+import {FavoriteContext} from "../../Store/FavoriteContextProvider";
+import {color} from "../../Styles/Color";
 
-const FavoriteBar = () => {
-  const handlePress = () => {
-    setIsFavourite(prevState => !prevState);
-  };
+const FavoriteBar = ({item, size}) => {
 
-  const [isFavourite, setIsFavourite] = useState(false);
-  return (
-    <View style={styles.favOuterContainer}>
-      <PromotionLabel />
-      {/*<Image
-        style={styles.image}
-        source={require('../../Assets/Icons/favorite.png')}
-  />*/}
+    const {addProductToFavorite, favoriteProducts} = useContext(FavoriteContext);
+    const {id} = item;
+    const handlePress = () => {
+        addProductToFavorite(item.id);
+        setIsFavourite(prevState => !prevState);
+    };
 
-      <Pressable onPress={handlePress}>
-        {isFavourite ? (
-          <Octicons name="feed-heart" size={20} color={'red'} />
-        ) : (
-          <AntDesign name="heart" size={20} color={'grey'} />
-        )}
-      </Pressable>
-    </View>
-  );
+
+    // let favoriteProduct = favoriteProducts.find((productId) => productId === id)
+    // const [isFavourite, setIsFavourite] = useState(!!favoriteProduct);
+
+    const [isFavourite, setIsFavourite] = useState(false);
+    useEffect(() => {
+        let favoriteProduct = favoriteProducts.find((productId) => productId === id)
+        if (favoriteProduct) {
+            setIsFavourite(true)
+        }
+    }, []);
+
+
+    return (
+        <Pressable onPress={handlePress}>
+            {isFavourite ? (
+                <View style={styles.shadowContainer} >
+                    <Octicons name="feed-heart" size={size} color={'red'}/>
+                </View>
+            ) : (
+                <AntDesign name="heart" size={size} color={'grey'}/>
+            )}
+        </Pressable>
+    );
 };
-
 const styles = StyleSheet.create({
-  favOuterContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    flex: 1,
-    height: 25,
-  },
-  image: {
-    width: 20,
-    height: 20,
-  },
-});
+    shadowContainer:{
+        borderRadius: 20,
+        elevation: 5,
+        shadowColor: color.red,
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        backgroundColor: 'white',
+    },
+})
 
 export default FavoriteBar;

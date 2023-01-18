@@ -12,7 +12,7 @@ const ProductList = ({items}) => {
         data={items}
         renderItem={singleItemComponent}
         numColumns={2}
-        keyExtractor={(item, index) => index}
+        keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
       />
     </View>
