@@ -4,7 +4,7 @@ import ProductDetails from './ProductDetails';
 import ShadowComponent from '../Core/ShadowComponent';
 import ProductImage from './ProductImage';
 import {useNavigation} from '@react-navigation/native';
-import PromotionLabel from "../Core/PromotionLabel";
+import PromotionLabel from '../Core/PromotionLabel';
 
 const ProductItem = ({item}) => {
   const navigation = useNavigation();
@@ -19,7 +19,7 @@ const ProductItem = ({item}) => {
         <View style={styles.favContainer}>
           <View style={styles.favOuterContainer}>
             <PromotionLabel />
-            <FavoriteBar item={item} size={20}/>
+            <FavoriteBar item={item} size={20} />
           </View>
         </View>
         <View style={styles.screen}>
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flex: 1,
     height: 25,
-  }
+  },
 });
 
 export default ProductItem;

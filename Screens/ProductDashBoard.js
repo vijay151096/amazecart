@@ -1,67 +1,111 @@
 import React, {useContext, useLayoutEffect, useState} from 'react';
 import ProductList from '../Components/ProductList/ProductList';
-import {ActivityIndicator, Pressable, StyleSheet, Text, View} from 'react-native';
+import {
+  ActivityIndicator,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+} from 'react-native';
 import Filter from '../Components/ProductList/Filter';
 import colors from 'react-native/Libraries/NewAppScreen/components/Colors';
 import {color} from '../Styles/Color';
 import ProductContext from '../Store/ProductContext';
-import {FavoriteContext} from "../Store/FavoriteContextProvider";
+import {FavoriteContext} from '../Store/FavoriteContextProvider';
+import Entypo from 'react-native-vector-icons/Entypo';
+import {CartContext} from '../Store/CartContextProvider';
 
 const ProductDashBoard = ({navigation}) => {
-    const [products, setProducts] = useState(null);
-    const [categories, setCategories] = useState(null);
+  const {width} = Dimensions.get('window');
 
-    const {favoriteProducts} = useContext(FavoriteContext);
-    const productCtx = useContext(ProductContext);
-    const productsData = productCtx.products;
+  const {cartProducts} = useContext(CartContext);
 
-    useLayoutEffect(() => {
-        setProducts(productsData);
-        if (categories===null) {
-            const getCategory = async () => {
-                const response = await fetch(
-                    `https://fakestoreapi.com/products/categories`,
-                );
-                const data = await response.json();
-                setCategories(data);
-            };
-            getCategory();
-        }
-    }, [productsData, favoriteProducts]);
+  const [products, setProducts] = useState(null);
+  const [categories, setCategories] = useState(null);
 
-    if (!products && !categories) {
-        return (
-            <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
-                <ActivityIndicator size="large" color={color.purple}/>
-            </View>
+  const {favoriteProducts} = useContext(FavoriteContext);
+  const productCtx = useContext(ProductContext);
+  const productsData = productCtx.products;
+
+  useLayoutEffect(() => {
+    setProducts(productsData);
+    if (categories === null) {
+      const getCategory = async () => {
+        const response = await fetch(
+          `https://fakestoreapi.com/products/categories`,
         );
+        const data = await response.json();
+        setCategories(data);
+      };
+      getCategory();
     }
+  }, [productsData, favoriteProducts]);
 
+  if (!products || !categories) {
     return (
-        <View style={styles.screen}>
-            <View style={styles.filterWrapper}>
-                {/*<HeaderComponent />*/}
-                <Pressable onPress={() => navigation.navigate("cart")}>
-                    <Text>cart</Text>
-                </Pressable>
-                {categories && <Filter items={categories}/>}
-                {products && <ProductList items={products}/>}
-            </View>
-        </View>
+      <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
+        <ActivityIndicator size="large" color={color.purple} />
+      </View>
     );
+  }
+
+  return (
+    <View style={styles.screen}>
+      {/*<HeaderComponent />*/}
+
+      <Filter items={categories} />
+      <ProductList items={products} />
+      <Pressable onPress={() => navigation.navigate('cart')}>
+        <View style={[styles.cartButton, {left: width * 0.425}]}>
+          <Entypo name={'shopping-cart'} size={24} color={color.lightBlue} />
+          <View style={styles.itemCount}>
+            <Text style={styles.itemCountText}>{cartProducts.length}</Text>
+          </View>
+        </View>
+      </Pressable>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
-    },
-    productsWrapper: {
-        flex: 20,
-        backgroundColor: '#eaeaea',
-    },
-    filterWrapper: {
-        flex: 1,
-    },
+  cartButton: {
+    position: 'absolute',
+    borderRadius: 45,
+    height: 65,
+    width: 65,
+    backgroundColor: color.purple,
+    bottom: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  itemCountText: {
+    color: color.white,
+    fontWeight: 'bold',
+  },
+  itemCount: {
+    position: 'absolute',
+    height: 22,
+    width: 22,
+    borderWidth: 1,
+    borderColor: color.white,
+    borderRadius: 25,
+    backgroundColor: color.pink,
+    top: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    right: 0,
+  },
+  screen: {
+    flex: 1,
+  },
+  productsWrapper: {
+    flex: 20,
+    backgroundColor: '#eaeaea',
+  },
+  filterWrapper: {
+    flex: 1,
+  },
 });
 
 export default ProductDashBoard;

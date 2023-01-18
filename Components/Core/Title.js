@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {color} from '../../Styles/Color';
 
 function Title() {
   return (
@@ -21,10 +22,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   x: {
-    color: '#9B59B6',
+    color: color.purple,
   },
   e: {
-    color: '#AED6F1',
+    color: color.lightBlue,
   },
 });
 
