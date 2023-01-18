@@ -43,7 +43,7 @@ const ProductDashBoard = ({navigation}) => {
     }
   }, [productsData, favoriteProducts]);
 
-  if (!products || !categories) {
+  if (!products && !categories) {
     return <AppLoading />;
   }
 
@@ -51,7 +51,7 @@ const ProductDashBoard = ({navigation}) => {
     <View style={styles.screen}>
       {/*<HeaderComponent />*/}
 
-      <Filter items={categories} />
+      {categories && <Filter items={categories} />}
       <ProductList items={products} />
 
       <Pressable

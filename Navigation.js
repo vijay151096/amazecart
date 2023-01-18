@@ -8,6 +8,7 @@ import Title from './Components/Core/Title';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Octicons from 'react-native-vector-icons/Octicons';
 import {color} from './Styles/Color';
+import DeleteCart from './Components/Cart/DeleteCart';
 
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +47,7 @@ function Navigation() {
             headerStyle: {backgroundColor: color.white},
             contentStyle: {backgroundColor: color.white},
             headerTitle: 'My Cart',
+            headerRight: () => <DeleteCart />,
           }}
         />
       </Stack.Navigator>

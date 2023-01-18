@@ -5,6 +5,7 @@ export const CartContext = createContext({
   addProductToCart: id => {},
   removeProductFromCart: id => {},
   updateProductInCart: (id, quantity) => {},
+  clearCart: () => {},
 });
 
 const CartContextProvider = ({children}) => {
@@ -12,7 +13,6 @@ const CartContextProvider = ({children}) => {
 
   const addProductToCart = id => {
     const productAlreadyAdded = cartProducts.find(item => item.id === id);
-    console.log(productAlreadyAdded);
     if (!productAlreadyAdded) {
       setCartProducts(prevState => {
         return [{id: id, quantity: 1}, ...prevState];
@@ -26,6 +26,10 @@ const CartContextProvider = ({children}) => {
     setCartProducts(prevState => {
       return prevState.filter(item => item.id != id);
     });
+  };
+
+  const clearCart = () => {
+    setCartProducts([]);
   };
 
   const updateProductInCart = (prodId, quantity) => {
@@ -44,6 +48,7 @@ const CartContextProvider = ({children}) => {
     addProductToCart: addProductToCart,
     removeProductFromCart: removeProductFromCart,
     updateProductInCart: updateProductInCart,
+    clearCart: clearCart,
   };
   return <CartContext.Provider value={values}>{children}</CartContext.Provider>;
 };

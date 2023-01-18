@@ -5,7 +5,7 @@ import CartList from '../Components/Cart/CartList';
 import CartPrice from '../Components/Cart/CartPrice';
 import {CartContext} from '../Store/CartContextProvider';
 import ProductContext from '../Store/ProductContext';
-import AppLoading from '../Components/Core/AppLoading';
+import EmptyCartContent from '../Components/Cart/EmptyCartContent';
 
 function Cart() {
   const {cartProducts} = useContext(CartContext);
@@ -20,14 +20,14 @@ function Cart() {
     setCartProductJson(newCartJson);
   }, [cartProducts]);
 
-  if (cartProductJson.length === 0) {
-    return <AppLoading />;
-  }
-
   return (
     <View style={styles.mainContainer}>
       <View style={styles.detailsContainer}>
-        <CartList cartProducts={cartProductJson} />
+        {cartProductJson.length > 0 ? (
+          <CartList cartProducts={cartProductJson} />
+        ) : (
+          <EmptyCartContent />
+        )}
       </View>
       <View style={styles.priceContainer}>
         <CartPrice cartProds={cartProductJson} />
