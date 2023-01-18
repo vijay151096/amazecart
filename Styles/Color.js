@@ -6,4 +6,5 @@ export const color = {
   purple:"#21618C",
   lightBlue: "#85C1E9",
   red: "red",
+  black: "black",
 };

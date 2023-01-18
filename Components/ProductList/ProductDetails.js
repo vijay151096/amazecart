@@ -1,12 +1,12 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {AirbnbRating} from 'react-native-ratings';
+import ProductDescription from "./ProductDescription";
 
 const ProductDetails = ({item}) => {
   return (
     <View style={styles.detailContainer}>
-      <Text style={styles.detailText}>{item.title}</Text>
-      <Text style={styles.detailPrice}> $ {item.price}</Text>
+      <ProductDescription item={item} />
       <View style={styles.detailRate}>
         <AirbnbRating
           count={5}

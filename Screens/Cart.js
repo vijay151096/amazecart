@@ -1,7 +1,8 @@
 import React, {useContext, useLayoutEffect, useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import {color} from "../Styles/Color";
 import CartList from "../Components/Cart/CartList";
+import CartPrice from "../Components/Cart/CartPrice";
 
 function Cart() {
 
@@ -11,7 +12,7 @@ function Cart() {
                 <CartList />
             </View>
             <View style={styles.priceContainer}>
-                <Text> Price </Text>
+                <CartPrice />
             </View>
         </View>
     );
@@ -28,12 +29,12 @@ const styles = StyleSheet.create({
         transform: [{translateY: 25}],
     },
     priceContainer: {
-        flex: 1,
+        flex: 2,
         backgroundColor: color.white,
         borderTopRightRadius: 25,
         borderTopLeftRadius: 25,
-        padding: 8,
-        transform: [{translateY: -50}],
+        paddingHorizontal: 8,
+        paddingVertical: 1
     },
 });
 
