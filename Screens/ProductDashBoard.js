@@ -56,12 +56,17 @@ const ProductDashBoard = ({navigation}) => {
 
       <Filter items={categories} />
       <ProductList items={products} />
-      <Pressable onPress={() => navigation.navigate('cart')}>
-        <View style={[styles.cartButton, {left: width * 0.425}]}>
-          <Entypo name={'shopping-cart'} size={24} color={color.lightBlue} />
-          <View style={styles.itemCount}>
-            <Text style={styles.itemCountText}>{cartProducts.length}</Text>
-          </View>
+
+      <Pressable
+        onPress={() => navigation.navigate('cart')}
+        style={({pressed}) => [
+          styles.cartButton,
+          {left: width * 0.425},
+          pressed && {opacity: 0.8},
+        ]}>
+        <Entypo name={'shopping-cart'} size={24} color={color.lightBlue} />
+        <View style={styles.itemCount}>
+          <Text style={styles.itemCountText}>{cartProducts.length}</Text>
         </View>
       </Pressable>
     </View>
@@ -78,6 +83,11 @@ const styles = StyleSheet.create({
     bottom: 50,
     alignItems: 'center',
     justifyContent: 'center',
+    elevation: 5,
+    shadowColor: 'black',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
   },
   itemCountText: {
     color: color.white,
