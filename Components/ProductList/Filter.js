@@ -12,17 +12,18 @@ const displayFilter = item => {
     );
   };
   return (
-    <View
+    <Pressable
       style={[
         styles.filterItem,
         productItem.value === productItem.selectedFilter
           ? styles.pressedStyle
           : null,
-      ]}>
-      <Pressable onPress={handlePress}>
+      ]}
+      onPress={handlePress}>
+      <View>
         <Text>{productItem.value}</Text>
-      </Pressable>
-    </View>
+      </View>
+    </Pressable>
   );
 };
 
