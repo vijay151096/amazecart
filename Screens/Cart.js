@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useLayoutEffect, useState} from 'react';
+import React, {useContext, useLayoutEffect, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {color} from '../Styles/Color';
 import CartList from '../Components/Cart/CartList';

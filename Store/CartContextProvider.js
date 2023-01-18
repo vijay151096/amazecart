@@ -8,16 +8,18 @@ export const CartContext = createContext({
 });
 
 const CartContextProvider = ({children}) => {
-  const [cartProducts, setCartProducts] = useState([
-    {id: 10, quantity: 1},
-    // {id: 11, quantity: 2},
-    // {id: 12, quantity: 3},
-  ]);
+  const [cartProducts, setCartProducts] = useState([{id: 10, quantity: 1}]);
 
   const addProductToCart = id => {
-    setCartProducts(prevState => {
-      return [{id: id, quantity: 1}, ...prevState];
-    });
+    const productAlreadyAdded = cartProducts.find(item => item.id === id);
+    console.log(productAlreadyAdded);
+    if (!productAlreadyAdded) {
+      setCartProducts(prevState => {
+        return [{id: id, quantity: 1}, ...prevState];
+      });
+    } else {
+      updateProductInCart(id, productAlreadyAdded.quantity + 1);
+    }
   };
 
   const removeProductFromCart = id => {
@@ -26,19 +28,15 @@ const CartContextProvider = ({children}) => {
     });
   };
 
-  const updateProductInCart = (id, quantity) => {
-    let updatedList = [];
-    for (let index in cartProducts) {
-      let singleItem = {};
-      let item = cartProducts[index];
-      singleItem.id = item.id;
-      singleItem.quantity = item.quantity;
-      if (item.id === id) {
-        singleItem.quantity = quantity;
-      }
-      updatedList.push(singleItem);
-    }
-    setCartProducts(updatedList);
+  const updateProductInCart = (prodId, quantity) => {
+    setCartProducts(prevState => {
+      return prevState.map(item => {
+        if (item.id === prodId) {
+          item.quantity = quantity;
+        }
+        return item;
+      });
+    });
   };
 
   const values = {
