@@ -3,16 +3,24 @@ import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import {color} from "../Styles/Color";
 import CartList from "../Components/Cart/CartList";
 import CartPrice from "../Components/Cart/CartPrice";
+import {CartContext} from "../Store/CartContextProvider";
+import ProductContext from "../Store/ProductContext";
 
 function Cart() {
+
+    const {cartProducts} = useContext(CartContext);
+    const { getProduct } = useContext(ProductContext);
+    let cartProductJson = [];
+    cartProducts.map( id => cartProductJson.push( getProduct(id) ) );
+
 
     return (
         <View style={styles.mainContainer}>
             <View style={styles.detailsContainer}>
-                <CartList />
+                <CartList cartProducts={cartProductJson}/>
             </View>
             <View style={styles.priceContainer}>
-                <CartPrice />
+                <CartPrice cartProducts={cartProductJson}/>
             </View>
         </View>
     );

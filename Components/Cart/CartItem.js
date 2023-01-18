@@ -1,47 +1,60 @@
-import React, {useContext} from 'react';
-import ProductContext from "../../Store/ProductContext";
-import {StyleSheet, Text, View} from "react-native";
+import React, {useState} from 'react';
+import {Pressable, StyleSheet, Text, View} from "react-native";
 import ProductImage from "../ProductList/ProductImage";
 import ProductDescription from "../ProductList/ProductDescription";
 import {color} from "../../Styles/Color";
 import Entypo from "react-native-vector-icons/Entypo";
 
-const CartItem = ({id}) => {
+const CartItem = ({item}) => {
 
-    const {getProduct} = useContext(ProductContext);
-    const productDetails = getProduct(id);
+    const [quantity, setQuantity] = useState(1);
+
+    const increaseQuantity = () => {
+        setQuantity( prevState => prevState + 1 );
+    }
+
+    const decreaseQuantity = () => {
+        setQuantity( prevState =>  {
+           return prevState > 0 ? prevState - 1 : 0 ;
+        });
+    }
+
     return (
         <View style={styles.screen}>
             <View style={styles.imageContainer}>
             <ProductImage
-                image={productDetails.image}
+                image={item.image}
                 innerContainerStyle={styles.innerContainerStyle}
                 imageStyle={styles.imageStyle}
             />
             </View>
             <View style={styles.descContainer}>
-            <ProductDescription item={productDetails} />
+            <ProductDescription item={item} />
             </View>
             <View style={styles.quantityContainer}>
-                <View style={[styles.shadowContainer,styles.minus]}>
-                    <Entypo
-                        style={styles.star}
-                        name="minus"
-                        size={20}
-                        color={color.black}
-                    />
-                </View>
+                <Pressable onPress={decreaseQuantity}>
+                    <View style={[styles.shadowContainer,styles.minus]}>
+                        <Entypo
+                            style={styles.star}
+                            name="minus"
+                            size={20}
+                            color={color.black}
+                        />
+                    </View>
+                </Pressable>
                 <View>
-                    <Text style={styles.quantity}>1</Text>
+                    <Text style={styles.quantity}>{quantity}</Text>
                 </View>
-                <View style={[styles.shadowContainer, styles.plus]}>
-                    <Entypo
-                        style={styles.star}
-                        name="plus"
-                        size={20}
-                        color={color.black}
-                    />
-                </View>
+                <Pressable onPress={increaseQuantity}>
+                    <View style={[styles.shadowContainer, styles.plus]}>
+                        <Entypo
+                            style={styles.star}
+                            name="plus"
+                            size={20}
+                            color={color.black}
+                        />
+                    </View>
+                </Pressable>
             </View>
         </View>
     );

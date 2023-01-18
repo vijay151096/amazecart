@@ -18,7 +18,7 @@ function ProductContextProvider({children}) {
   };
 
   const getProduct = id => {
-    const requiredProduct = products.find(product => product.id === id);
+    const requiredProduct = initialProducts.find(product => product.id === id);
     return requiredProduct;
   };
 

@@ -1,21 +1,27 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Alert, Pressable, StyleSheet, Text, View} from "react-native";
 import {color} from "../../Styles/Color"
 import Entypo from "react-native-vector-icons/Entypo";
-import {CartContext} from "../../Store/CartContextProvider";
-const CartPrice = () => {
+const CartPrice = ({cartProducts}) => {
 
-    const {addProductToCart} = useContext(CartContext);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     const handlePress = () => {
-        Alert.alert("Product Added to the Cart");
+        Alert.alert("Products Checked Out");
     }
+    useEffect(() => {
+        let total = 0.0;
+        cartProducts.map(item => {
+            total += parseFloat(item.price);
+        })
+        setTotalPrice(total);
+    }, []);
 
     return (
         <View style={styles.outerContainer}>
             <View style={styles.innerPriceContainer}>
                 <View><Text style={styles.currencyText}>$</Text></View>
-                <View><Text style={styles.priceText}>1123.99</Text></View>
+                <View><Text style={styles.priceText}>{totalPrice}</Text></View>
             </View>
             <Pressable onPress={ handlePress }>
                 <View style={styles.addToCartContainer}>
