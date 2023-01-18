@@ -1,20 +1,28 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import ProductImage from '../ProductList/ProductImage';
 import ProductDescription from '../ProductList/ProductDescription';
 import {color} from '../../Styles/Color';
 import Entypo from 'react-native-vector-icons/Entypo';
+import {CartContext} from '../../Store/CartContextProvider';
 
 const CartItem = ({item}) => {
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(item.quantity);
+  const {updateProductInCart} = useContext(CartContext);
 
   const increaseQuantity = () => {
-    setQuantity(prevState => prevState + 1);
+    setQuantity(prevState => {
+      let newQuantity = prevState + 1;
+      updateProductInCart(item.id, newQuantity);
+      return newQuantity;
+    });
   };
 
   const decreaseQuantity = () => {
     setQuantity(prevState => {
-      return prevState > 0 ? prevState - 1 : 0;
+      let newQuantity = prevState > 0 ? prevState - 1 : 0;
+      updateProductInCart(item.id, newQuantity);
+      return newQuantity;
     });
   };
 

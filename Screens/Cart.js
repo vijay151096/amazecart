@@ -1,16 +1,28 @@
-import React, {useContext, useLayoutEffect, useState} from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import React, {useContext, useEffect, useLayoutEffect, useState} from 'react';
+import {StyleSheet, View} from 'react-native';
 import {color} from '../Styles/Color';
 import CartList from '../Components/Cart/CartList';
 import CartPrice from '../Components/Cart/CartPrice';
 import {CartContext} from '../Store/CartContextProvider';
 import ProductContext from '../Store/ProductContext';
+import AppLoading from '../Components/Core/AppLoading';
 
 function Cart() {
   const {cartProducts} = useContext(CartContext);
   const {getProduct} = useContext(ProductContext);
-  let cartProductJson = [];
-  cartProducts.map(id => cartProductJson.push(getProduct(id)));
+  const [cartProductJson, setCartProductJson] = useState([]);
+
+  useLayoutEffect(() => {
+    const newCartJson = [];
+    cartProducts.map(item => {
+      newCartJson.push({...getProduct(item.id), quantity: item.quantity});
+    });
+    setCartProductJson(newCartJson);
+  }, [cartProducts]);
+
+  if (cartProductJson.length === 0) {
+    return <AppLoading />;
+  }
 
   return (
     <View style={styles.mainContainer}>
@@ -18,7 +30,7 @@ function Cart() {
         <CartList cartProducts={cartProductJson} />
       </View>
       <View style={styles.priceContainer}>
-        <CartPrice cartProducts={cartProductJson} />
+        <CartPrice cartProds={cartProductJson} />
       </View>
     </View>
   );

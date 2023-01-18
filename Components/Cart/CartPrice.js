@@ -2,19 +2,21 @@ import React, {useContext, useEffect, useState} from 'react';
 import {Alert, Pressable, StyleSheet, Text, View} from 'react-native';
 import {color} from '../../Styles/Color';
 import Entypo from 'react-native-vector-icons/Entypo';
-const CartPrice = ({cartProducts}) => {
+import {CartContext} from '../../Store/CartContextProvider';
+const CartPrice = ({cartProds}) => {
   const [totalPrice, setTotalPrice] = useState(0);
+  const {cartProducts} = useContext(CartContext);
 
   const handlePress = () => {
     Alert.alert('Products Checked Out');
   };
   useEffect(() => {
     let total = 0.0;
-    cartProducts.map(item => {
-      total += parseFloat(item.price);
+    cartProds.map(item => {
+      total += parseFloat(item.price) * item.quantity;
     });
     setTotalPrice(total);
-  }, []);
+  }, [cartProducts, cartProds]);
 
   return (
     <View style={styles.outerContainer}>

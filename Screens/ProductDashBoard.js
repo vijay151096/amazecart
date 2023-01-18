@@ -15,6 +15,7 @@ import ProductContext from '../Store/ProductContext';
 import {FavoriteContext} from '../Store/FavoriteContextProvider';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {CartContext} from '../Store/CartContextProvider';
+import AppLoading from '../Components/Core/AppLoading';
 
 const ProductDashBoard = ({navigation}) => {
   const {width} = Dimensions.get('window');
@@ -43,11 +44,7 @@ const ProductDashBoard = ({navigation}) => {
   }, [productsData, favoriteProducts]);
 
   if (!products || !categories) {
-    return (
-      <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
-        <ActivityIndicator size="large" color={color.purple} />
-      </View>
-    );
+    return <AppLoading />;
   }
 
   return (
