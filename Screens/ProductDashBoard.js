@@ -5,11 +5,13 @@ import Filter from '../Components/ProductList/Filter';
 import colors from 'react-native/Libraries/NewAppScreen/components/Colors';
 import {color} from '../Styles/Color';
 import ProductContext from '../Store/ProductContext';
+import {FavoriteContext} from "../Store/FavoriteContextProvider";
 
 const ProductDashBoard = ({navigation}) => {
     const [products, setProducts] = useState(null);
     const [categories, setCategories] = useState(null);
 
+    const {favoriteProducts} = useContext(FavoriteContext);
     const productCtx = useContext(ProductContext);
     const productsData = productCtx.products;
 
@@ -25,7 +27,7 @@ const ProductDashBoard = ({navigation}) => {
             };
             getCategory();
         }
-    }, [productsData]);
+    }, [productsData, favoriteProducts]);
 
     if (!products && !categories) {
         return (

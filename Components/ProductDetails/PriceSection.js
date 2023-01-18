@@ -1,18 +1,29 @@
-import React from 'react';
-import {StyleSheet, Text, View} from "react-native";
+import React, {useContext} from 'react';
+import {Alert, Pressable, StyleSheet, Text, View} from "react-native";
 import {color} from "../../Styles/Color"
 import Entypo from "react-native-vector-icons/Entypo";
+import {CartContext} from "../../Store/CartContextProvider";
 const PriceSection = ({item}) => {
+
+    const {addProductToCart} = useContext(CartContext);
+
+    const handlePress = () => {
+        addProductToCart(item.id)
+        Alert.alert("Product Added to the Cart");
+    }
+
     return (
         <View style={styles.outerContainer}>
             <View style={styles.innerPriceContainer}>
                 <View><Text style={styles.currencyText}>$</Text></View>
                 <View><Text style={styles.priceText}>{item.price}</Text></View>
             </View>
-            <View style={styles.addToCartContainer}>
-                <Entypo name={"shopping-cart"} size={24} color={color.purple} />
-                <Text style={styles.addToCartText}>Add To Cart</Text>
-            </View>
+            <Pressable onPress={ handlePress } >
+                <View style={styles.addToCartContainer}>
+                    <Entypo name={"shopping-cart"} size={24} color={color.purple} />
+                    <Text style={styles.addToCartText}>Add To Cart</Text>
+                </View>
+            </Pressable>
         </View>
     );
 };

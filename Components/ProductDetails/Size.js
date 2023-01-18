@@ -7,8 +7,6 @@ function Size() {
 
     const [selectBox, setSelectBox] = useState(null);
 
-
-
     return (
         <View style={styles.outerContainer}>
             <Text style={[styles.text, styles.sizeText]}>Size : </Text>

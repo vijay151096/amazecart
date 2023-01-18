@@ -14,17 +14,13 @@ const FavoriteBar = ({item, size}) => {
         setIsFavourite(prevState => !prevState);
     };
 
-
-    // let favoriteProduct = favoriteProducts.find((productId) => productId === id)
-    // const [isFavourite, setIsFavourite] = useState(!!favoriteProduct);
-
     const [isFavourite, setIsFavourite] = useState(false);
     useEffect(() => {
         let favoriteProduct = favoriteProducts.find((productId) => productId === id)
         if (favoriteProduct) {
             setIsFavourite(true)
         }
-    }, []);
+    }, [favoriteProducts]);
 
 
     return (
