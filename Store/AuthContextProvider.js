@@ -21,7 +21,6 @@ function AuthContextProvider({children}) {
         setAuthToken(tokenFromStorage);
         setUser(JSON.parse(user));
       }
-      console.log('useEffect ', user);
     };
     getTokenFromStorage();
   }, []);
@@ -53,7 +52,6 @@ function AuthContextProvider({children}) {
     );
     const data = await response.json();
     AsyncStorage.setItem('user', JSON.stringify(data));
-    console.log(JSON.stringify(data));
     setUser(data);
   };
 
