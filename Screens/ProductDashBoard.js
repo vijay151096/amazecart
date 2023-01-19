@@ -11,11 +11,12 @@ import {
 import Filter from '../Components/ProductList/Filter';
 import colors from 'react-native/Libraries/NewAppScreen/components/Colors';
 import {color} from '../Styles/Color';
-import ProductContext from '../Store/ProductContext';
+
 import {FavoriteContext} from '../Store/FavoriteContextProvider';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {CartContext} from '../Store/CartContextProvider';
 import AppLoading from '../Components/Core/AppLoading';
+import {ProductContext} from '../Store/ProductContextProvider';
 
 const ProductDashBoard = ({navigation}) => {
   const {width} = Dimensions.get('window');

@@ -13,20 +13,23 @@ import ProductDashBoard from './Screens/ProductDashBoard';
 import ProductContextProvider from './Store/ProductContextProvider';
 import FavoriteContextProvider from './Store/FavoriteContextProvider';
 import CartContextProvider from './Store/CartContextProvider';
+import AuthContextProvider from './Store/AuthContextProvider';
 
 const App = () => {
   return (
     <>
       <StatusBar backgroundColor="#F4F6F6" />
-      <ProductContextProvider>
-        <FavoriteContextProvider>
-          <CartContextProvider>
-            <View style={styles.outerContainer}>
-              <Navigation />
-            </View>
-          </CartContextProvider>
-        </FavoriteContextProvider>
-      </ProductContextProvider>
+      <AuthContextProvider>
+        <ProductContextProvider>
+          <FavoriteContextProvider>
+            <CartContextProvider>
+              <View style={styles.outerContainer}>
+                <Navigation />
+              </View>
+            </CartContextProvider>
+          </FavoriteContextProvider>
+        </ProductContextProvider>
+      </AuthContextProvider>
     </>
   );
 };

@@ -1,5 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import ProductContext from './ProductContext';
+
+export const ProductContext = React.createContext({
+  products: [],
+  initializeProducts: async () => {},
+  getProduct: id => {},
+  getFilteredProducts: category => {},
+});
 
 function ProductContextProvider({children}) {
   const [initialProducts, setInitialProducts] = useState(null);

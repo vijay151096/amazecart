@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {FlatList, Pressable, StyleSheet, Text, View} from 'react-native';
 import ShadowComponent from '../Core/ShadowComponent';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import ProductContext from '../../Store/ProductContext';
+import {ProductContext} from '../../Store/ProductContextProvider';
 
 const displayFilter = item => {
   const productItem = item.item;

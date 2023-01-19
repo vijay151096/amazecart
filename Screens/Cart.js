@@ -4,7 +4,7 @@ import {color} from '../Styles/Color';
 import CartList from '../Components/Cart/CartList';
 import CartPrice from '../Components/Cart/CartPrice';
 import {CartContext} from '../Store/CartContextProvider';
-import ProductContext from '../Store/ProductContext';
+import {ProductContext} from '../Store/ProductContextProvider';
 import EmptyCartContent from '../Components/Cart/EmptyCartContent';
 
 function Cart() {

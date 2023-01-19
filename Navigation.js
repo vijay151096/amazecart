@@ -11,19 +11,24 @@ import {color} from './Styles/Color';
 import DeleteCart from './Components/Cart/DeleteCart';
 import {CartContext} from './Store/CartContextProvider';
 import CartTitle from './Components/Cart/CartTitle';
+import {AuthContext} from './Store/AuthContextProvider';
+import Login from './Screens/Login';
+import Signup from './Screens/Signup';
 
 const Stack = createNativeStackNavigator();
 
 function Navigation() {
-  const StackNav = () => {
+  const {isAuthenticated} = useContext(AuthContext);
+  const headerOptions = {
+    headerShadowVisible: false,
+    headerStyle: {backgroundColor: color.greyBackground},
+    contentStyle: {backgroundColor: color.greyBackground},
+    headerTitle: () => <Title />,
+  };
+
+  const ProductStack = () => {
     return (
-      <Stack.Navigator
-        screenOptions={{
-          headerShadowVisible: false,
-          headerStyle: {backgroundColor: color.greyBackground},
-          contentStyle: {backgroundColor: color.greyBackground},
-          headerTitle: () => <Title />,
-        }}>
+      <Stack.Navigator screenOptions={headerOptions}>
         <Stack.Screen
           name="productDashboard"
           component={ProductDashBoard}
@@ -56,9 +61,18 @@ function Navigation() {
     );
   };
 
+  const AuthenticationStack = () => {
+    return (
+      <Stack.Navigator screenOptions={headerOptions}>
+        <Stack.Screen name="login" component={Login} />
+        <Stack.Screen name="signup" component={Signup} />
+      </Stack.Navigator>
+    );
+  };
+
   return (
     <NavigationContainer>
-      <StackNav />
+      {isAuthenticated ? <ProductStack /> : <AuthenticationStack />}
     </NavigationContainer>
   );
 }
