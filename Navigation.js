@@ -10,6 +10,7 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import {color} from './Styles/Color';
 import DeleteCart from './Components/Cart/DeleteCart';
 import {CartContext} from './Store/CartContextProvider';
+import CartTitle from './Components/Cart/CartTitle';
 
 const Stack = createNativeStackNavigator();
 
@@ -47,7 +48,7 @@ function Navigation() {
           options={{
             headerStyle: {backgroundColor: color.white},
             contentStyle: {backgroundColor: color.white},
-            headerTitle: 'My Cart',
+            headerTitle: () => <CartTitle>My Cart</CartTitle>,
             headerRight: () => <DeleteCart />,
           }}
         />
