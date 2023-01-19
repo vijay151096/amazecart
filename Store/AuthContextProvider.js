@@ -1,5 +1,5 @@
 import React, {Children, useState} from 'react';
-import {View} from 'react-native';
+import {View, Alert} from 'react-native';
 export const AuthContext = React.createContext({
   isAuthenticated: false,
   authToken: undefined,
@@ -12,9 +12,25 @@ function AuthContextProvider({children}) {
   const [authToken, setAuthToken] = useState();
   const [userId, setUserId] = useState();
 
-  const login = (username, password) => {
-    setAuthToken('authToken');
-    setUserId(1);
+  const login = async (username, password) => {
+    const bodyToSent = {
+      username,
+      password,
+    };
+
+    const response = await fetch('https://dummyjson.com/auth/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(bodyToSent),
+    });
+
+    const data = await response.json();
+    if (data.message === 'Invalid credentials') {
+      Alert.alert('Login Failed!', 'Could not log you in. Please try again');
+    } else {
+      setAuthToken(data.token);
+      setUserId(1);
+    }
   };
 
   const logout = () => {

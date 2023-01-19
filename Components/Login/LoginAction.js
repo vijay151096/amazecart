@@ -1,19 +1,46 @@
-import React, {useContext} from 'react';
-import {View, Text, Pressable, StyleSheet, TextInput} from 'react-native';
+import React, {useContext, useState} from 'react';
+import {View, Text, Pressable, StyleSheet, TextInput, Alert} from 'react-native';
 import {AuthContext} from '../../Store/AuthContextProvider';
 import {color} from '../../Styles/Color';
 
 function LoginAction() {
   const {login} = useContext(AuthContext);
 
+  const [enteredUsername, setEnteredUsername] = useState('kminchelle');
+  const [enteredPassword, setEnteredPassword] = useState('0lelplR');
+
+  const handleUsernameChange = newUsername => {
+    setEnteredUsername(newUsername);
+  };
+  const handlePasswordChange = newPassword => {
+    setEnteredPassword(newPassword);
+  };
+
   const handleLogin = () => {
-    login('something', 'something');
+    try {
+      login(enteredUsername, enteredPassword);
+    } catch (error) {
+      Alert.alert("Login Failed!","Could not log you in. Please try again")
+    }
   };
 
   return (
     <View style={styles.mainContainer}>
-      <TextInput placeholder="Username" style={styles.userInput} />
-      <TextInput placeholder="Password" style={styles.userInput} />
+      <TextInput
+        placeholder="Username"
+        value={enteredUsername}
+        onChangeText={handleUsernameChange}
+        style={styles.userInput}
+        autoCorrect={false}
+      />
+      <TextInput
+        autoCorrect={false}
+        placeholder="Password"
+        secureTextEntry
+        value={enteredPassword}
+        onChangeText={handlePasswordChange}
+        style={styles.userInput}
+      />
       <View style={styles.signup}>
         <Text style={styles.signupText}>Forgot Passcode? /</Text>
         <Pressable>
