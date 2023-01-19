@@ -8,4 +8,6 @@ export const color = {
   red: 'red',
   black: 'black',
   pink: '#f76269',
+  darkGrey: '#939499',
+  loginInputGrey: '#E5E7E9',
 };
