@@ -29,9 +29,11 @@ function Cart() {
           <EmptyCartContent />
         )}
       </View>
-      <View style={styles.priceContainer}>
-        <CartPrice cartProds={cartProductJson} />
-      </View>
+      {cartProductJson.length > 0 && (
+        <View style={styles.priceContainer}>
+          <CartPrice cartProds={cartProductJson} />
+        </View>
+      )}
     </View>
   );
 }

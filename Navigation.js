@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ProductDashBoard from './Screens/ProductDashBoard';
 import ProductDetails from './Screens/ProductDetails';
@@ -9,6 +9,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Octicons from 'react-native-vector-icons/Octicons';
 import {color} from './Styles/Color';
 import DeleteCart from './Components/Cart/DeleteCart';
+import {CartContext} from './Store/CartContextProvider';
 
 const Stack = createNativeStackNavigator();
 

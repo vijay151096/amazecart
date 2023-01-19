@@ -62,9 +62,11 @@ const ProductDashBoard = ({navigation}) => {
           pressed && {opacity: 0.8},
         ]}>
         <Entypo name={'shopping-cart'} size={24} color={color.lightBlue} />
-        <View style={styles.itemCount}>
-          <Text style={styles.itemCountText}>{cartProducts.length}</Text>
-        </View>
+        {cartProducts.length > 0 && (
+          <View style={styles.itemCount}>
+            <Text style={styles.itemCountText}>{cartProducts.length}</Text>
+          </View>
+        )}
       </Pressable>
     </View>
   );

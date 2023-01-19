@@ -9,7 +9,7 @@ export const CartContext = createContext({
 });
 
 const CartContextProvider = ({children}) => {
-  const [cartProducts, setCartProducts] = useState([{id: 10, quantity: 1}]);
+  const [cartProducts, setCartProducts] = useState([]);
 
   const addProductToCart = id => {
     const productAlreadyAdded = cartProducts.find(item => item.id === id);
