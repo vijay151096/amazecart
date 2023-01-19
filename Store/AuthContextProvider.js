@@ -1,4 +1,5 @@
-import React, {Children, useState} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, {Children, useEffect, useState} from 'react';
 import {View, Alert} from 'react-native';
 export const AuthContext = React.createContext({
   isAuthenticated: false,
@@ -12,12 +13,22 @@ function AuthContextProvider({children}) {
   const [authToken, setAuthToken] = useState();
   const [userId, setUserId] = useState();
 
+  useEffect(() => {
+    const getTokenFromStorage = async () => {
+      const tokenFromStorage = await AsyncStorage.getItem('token');
+      if (tokenFromStorage) {
+        setAuthToken(tokenFromStorage);
+        setUserId(1);
+      }
+    };
+    getTokenFromStorage();
+  }, []);
+
   const login = async (username, password) => {
     const bodyToSent = {
       username,
       password,
     };
-
     const response = await fetch('https://dummyjson.com/auth/login', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -29,6 +40,7 @@ function AuthContextProvider({children}) {
       Alert.alert('Login Failed!', 'Could not log you in. Please try again');
     } else {
       setAuthToken(data.token);
+      AsyncStorage.setItem('token', data.token);
       setUserId(1);
     }
   };
@@ -36,6 +48,7 @@ function AuthContextProvider({children}) {
   const logout = () => {
     setAuthToken(undefined);
     setUserId(undefined);
+    AsyncStorage.removeItem('token');
   };
 
   const value = {
