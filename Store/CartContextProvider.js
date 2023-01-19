@@ -36,6 +36,9 @@ const CartContextProvider = ({children}) => {
     setCartProducts(prevState => {
       return prevState.map(item => {
         if (item.id === prodId) {
+          if (quantity === 0) {
+            removeProductFromCart(prodId);
+          }
           item.quantity = quantity;
         }
         return item;

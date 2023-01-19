@@ -3,11 +3,7 @@ import {FlatList} from 'react-native';
 import CartItem from './CartItem';
 
 const renderItems = item => {
-  if (item.quantity === 0) {
-    return;
-  } else {
-    return <CartItem item={item} />;
-  }
+  return <CartItem item={item} />;
 };
 
 const CartList = ({cartProducts}) => {
