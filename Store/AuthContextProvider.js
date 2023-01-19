@@ -1,25 +1,27 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, {Children, useEffect, useState} from 'react';
-import {View, Alert} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Alert} from 'react-native';
 export const AuthContext = React.createContext({
   isAuthenticated: false,
   authToken: undefined,
   login: (username, password) => {},
   logout: () => {},
-  userId: undefined,
+  user: undefined,
 });
 
 function AuthContextProvider({children}) {
   const [authToken, setAuthToken] = useState();
-  const [userId, setUserId] = useState();
+  const [user, setUser] = useState();
 
   useEffect(() => {
     const getTokenFromStorage = async () => {
       const tokenFromStorage = await AsyncStorage.getItem('token');
+      const user = await AsyncStorage.getItem('user');
       if (tokenFromStorage) {
         setAuthToken(tokenFromStorage);
-        setUserId(1);
+        setUser(JSON.parse(user));
       }
+      console.log('useEffect ', user);
     };
     getTokenFromStorage();
   }, []);
@@ -36,19 +38,30 @@ function AuthContextProvider({children}) {
     });
 
     const data = await response.json();
+    await findUser(username);
     if (data.message === 'Invalid credentials') {
       Alert.alert('Login Failed!', 'Could not log you in. Please try again');
     } else {
       setAuthToken(data.token);
       AsyncStorage.setItem('token', data.token);
-      setUserId(1);
     }
+  };
+
+  const findUser = async username => {
+    const response = await fetch(
+      `https://dummyjson.com/users/filter?key=username&value=${username}`,
+    );
+    const data = await response.json();
+    AsyncStorage.setItem('user', JSON.stringify(data));
+    console.log(JSON.stringify(data));
+    setUser(data);
   };
 
   const logout = () => {
     setAuthToken(undefined);
-    setUserId(undefined);
+    setUser(undefined);
     AsyncStorage.removeItem('token');
+    AsyncStorage.removeItem('user');
   };
 
   const value = {
@@ -56,7 +69,7 @@ function AuthContextProvider({children}) {
     isAuthenticated: !!authToken,
     login,
     logout,
-    userId,
+    user,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

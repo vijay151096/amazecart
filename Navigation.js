@@ -12,6 +12,8 @@ import BoldTitle from './Components/Core/BoldTitle';
 import {AuthContext} from './Store/AuthContextProvider';
 import Login from './Screens/Login';
 import Signup from './Screens/Signup';
+import ProfileIcon from './Components/Core/ProfileIcon';
+import Profile from './Screens/Profile';
 import LogoutIcon from './Components/Core/LogoutIcon';
 
 const Stack = createNativeStackNavigator();
@@ -56,6 +58,7 @@ function Navigation() {
             headerRight: () => <DeleteCart />,
           }}
         />
+        <Stack.Screen name="profile" component={Profile} />
       </Stack.Navigator>
     );
   };
