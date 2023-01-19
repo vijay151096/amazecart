@@ -1,29 +1,21 @@
 import React from 'react';
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {color} from '../../Styles/Color';
 import BoldTitle from '../Core/BoldTitle';
-import {useNavigation} from '@react-navigation/native';
 
-function LoginIntro() {
-  const navigation = useNavigation();
+function SignupIntro() {
   return (
     <View style={styles.mainContainer}>
       <BoldTitle>Hey,</BoldTitle>
       <View style={styles.mainTextContainer}>
-        <BoldTitle style={styles.loginText}>Login </BoldTitle>
+        <BoldTitle style={styles.loginText}>Signup </BoldTitle>
         <BoldTitle style={styles.nowText}>Now.</BoldTitle>
-      </View>
-      <View style={styles.signup}>
-        <Text style={styles.signupText}>If you are new /</Text>
-        <Pressable onPress={() => navigation.navigate('signup')}>
-          <Text style={styles.signupBtn}>Create New</Text>
-        </Pressable>
       </View>
     </View>
   );
 }
 
-export default LoginIntro;
+export default SignupIntro;
 
 const styles = StyleSheet.create({
   mainTextContainer: {
@@ -37,6 +29,7 @@ const styles = StyleSheet.create({
   },
   mainContainer: {
     flex: 1,
+    marginTop: 20,
   },
   signup: {
     flexDirection: 'row',
@@ -44,7 +37,6 @@ const styles = StyleSheet.create({
   },
   signupBtn: {
     marginLeft: 8,
-    color: color.purple,
   },
   signupText: {
     color: color.darkGrey,

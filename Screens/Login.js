@@ -1,15 +1,10 @@
-import React, {useContext} from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
-import {AuthContext} from '../Store/AuthContextProvider';
-import {color} from '../Styles/Color';
-import SemiCircle from '../Components/Login/SemiCircle';
+import React from 'react';
+import {View, StyleSheet} from 'react-native';
+import SemiCircle from '../Components/Core/SemiCircle';
 import LoginIntro from '../Components/Login/LoginIntro';
-import CartTitle from '../Components/Cart/CartTitle';
 import LoginAction from '../Components/Login/LoginAction';
 
 function Login() {
-  const {login} = useContext(AuthContext);
-
   return (
     <View style={styles.mainContainer}>
       <View style={styles.imageContainer}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-const CartTitle = ({children, style}) => {
+const BoldTitle = ({children, style}) => {
   return <Text style={[styles.innerText, style]}>{children}</Text>;
 };
 
@@ -12,4 +12,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CartTitle;
+export default BoldTitle;

@@ -6,15 +6,18 @@ import {
   StyleSheet,
   TextInput,
   Alert,
+  SafeAreaView,
 } from 'react-native';
 import {AuthContext} from '../../Store/AuthContextProvider';
 import {color} from '../../Styles/Color';
+import {useNavigation} from '@react-navigation/native';
 
-function LoginAction() {
+function SignupAction() {
   const {login} = useContext(AuthContext);
 
   const [enteredUsername, setEnteredUsername] = useState('kminchelle');
   const [enteredPassword, setEnteredPassword] = useState('0lelplR');
+  const [enteredName, setEnteredName] = useState('Peter Parker');
 
   const handleUsernameChange = newUsername => {
     setEnteredUsername(newUsername);
@@ -22,17 +25,28 @@ function LoginAction() {
   const handlePasswordChange = newPassword => {
     setEnteredPassword(newPassword);
   };
+  const handleNameChange = newName => {
+    setEnteredName(newName);
+  };
 
-  const handleLogin = () => {
+  const navigation = useNavigation();
+  const handleSignup = () => {
     try {
       login(enteredUsername, enteredPassword);
     } catch (error) {
-      Alert.alert('Login Failed!', 'Could not log you in. Please try again');
+      Alert.alert('Signup Failed!', 'Could not log you in. Please try again');
     }
   };
 
   return (
     <View style={styles.mainContainer}>
+      <TextInput
+        autoCorrect={false}
+        placeholder="Name"
+        value={enteredName}
+        onChangeText={handleNameChange}
+        style={styles.userInput}
+      />
       <TextInput
         placeholder="Username"
         value={enteredUsername}
@@ -48,10 +62,17 @@ function LoginAction() {
         onChangeText={handlePasswordChange}
         style={styles.userInput}
       />
-      <View style={styles.signup}>
-        <Text style={styles.signupText}>Forgot Passcode? /</Text>
+
+      <View style={[styles.signup, {marginTop: 20}]}>
+        <Text style={styles.signupText}> By Signing up, you agree to the</Text>
         <Pressable>
-          <Text style={styles.signupBtn}>Reset</Text>
+          <Text style={styles.signupBtn}>Terms & Conditions </Text>
+        </Pressable>
+      </View>
+      <View style={styles.signup}>
+        <Text style={styles.signupText}> and</Text>
+        <Pressable>
+          <Text style={styles.signupBtn}>Privacy and Policy</Text>
         </Pressable>
       </View>
       <View style={{marginVertical: 25}}>
@@ -60,20 +81,23 @@ function LoginAction() {
             styles.actionButton,
             pressed && {opacity: 0.6},
           ]}
-          onPress={handleLogin}>
-          <Text style={styles.buttonText}>Login</Text>
+          onPress={handleSignup}>
+          <Text style={styles.buttonText}>Signup</Text>
         </Pressable>
-        <Pressable>
-          <Text style={{color: color.darkGrey, textAlign: 'center'}}>
-            Skip Now
-          </Text>
-        </Pressable>
+        <View style={[styles.signup, {justifyContent: 'center'}]}>
+          <Text style={styles.finalText}>Joined us before ?</Text>
+          <Pressable onPress={() => navigation.navigate('login')}>
+            <Text style={{color: color.purple, textAlign: 'center'}}>
+              Login
+            </Text>
+          </Pressable>
+        </View>
       </View>
     </View>
   );
 }
 
-export default LoginAction;
+export default SignupAction;
 
 const styles = StyleSheet.create({
   buttonText: {
@@ -94,7 +118,6 @@ const styles = StyleSheet.create({
   },
   signup: {
     flexDirection: 'row',
-    marginVertical: 20,
   },
   signupBtn: {
     marginLeft: 8,
@@ -108,6 +131,10 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     borderRadius: 7,
     backgroundColor: color.loginInputGrey,
-    //    color: color.darkGrey,
+  },
+  finalText: {
+    color: color.darkGrey,
+    textAlign: 'center',
+    marginRight: 5,
   },
 });

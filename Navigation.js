@@ -6,14 +6,13 @@ import Cart from './Screens/Cart';
 import {NavigationContainer} from '@react-navigation/native';
 import Title from './Components/Core/Title';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Octicons from 'react-native-vector-icons/Octicons';
 import {color} from './Styles/Color';
 import DeleteCart from './Components/Cart/DeleteCart';
-import {CartContext} from './Store/CartContextProvider';
-import CartTitle from './Components/Cart/CartTitle';
+import BoldTitle from './Components/Core/BoldTitle';
 import {AuthContext} from './Store/AuthContextProvider';
 import Login from './Screens/Login';
 import Signup from './Screens/Signup';
+import LogoutIcon from './Components/Core/LogoutIcon';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,7 +35,7 @@ function Navigation() {
             headerLeft: () => (
               <MaterialCommunityIcons name={'dots-grid'} size={30} />
             ),
-            headerRight: () => <Octicons name={'search'} size={30} />,
+            headerRight: () => <LogoutIcon />,
           }}
         />
         <Stack.Screen
@@ -53,7 +52,7 @@ function Navigation() {
           options={{
             headerStyle: {backgroundColor: color.white},
             contentStyle: {backgroundColor: color.white},
-            headerTitle: () => <CartTitle>My Cart</CartTitle>,
+            headerTitle: () => <BoldTitle>My Cart</BoldTitle>,
             headerRight: () => <DeleteCart />,
           }}
         />
