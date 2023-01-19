@@ -6,18 +6,32 @@ import {FavoriteContext} from '../../Store/FavoriteContextProvider';
 import {color} from '../../Styles/Color';
 
 const FavoriteBar = ({item, size}) => {
-  const {addProductToFavorite, favoriteProducts} = useContext(FavoriteContext);
+  const {addProductToFavorite, removeProductFromFavorite, favoriteProducts} =
+    useContext(FavoriteContext);
   const {id} = item;
+
+  const getIdIfAlreadyFavorite = itemId => {
+    return favoriteProducts.find(productId => productId === itemId);
+  };
+
   const handlePress = () => {
-    addProductToFavorite(item.id);
-    setIsFavourite(prevState => !prevState);
+    const alreadyFavorite = getIdIfAlreadyFavorite(id);
+    if (alreadyFavorite) {
+      removeProductFromFavorite(id);
+      setIsFavourite(false);
+    } else {
+      addProductToFavorite(id);
+      setIsFavourite(true);
+    }
   };
 
   const [isFavourite, setIsFavourite] = useState(false);
   useEffect(() => {
-    let favoriteProduct = favoriteProducts.find(productId => productId === id);
+    let favoriteProduct = getIdIfAlreadyFavorite(id);
     if (favoriteProduct) {
       setIsFavourite(true);
+    } else {
+      setIsFavourite(false);
     }
   }, [favoriteProducts]);
 

@@ -17,7 +17,7 @@ const FavoriteContextProvider = ({children}) => {
 
   const removeProductFromFavorite = id => {
     setFavoriteProducts(prevState => {
-      return prevState.filter(item => item != id);
+      return prevState.filter(item => item !== id);
     });
   };
 
