@@ -1,4 +1,4 @@
-import React, {useContext, useLayoutEffect, useState} from 'react';
+import React, {useContext, useEffect, useLayoutEffect, useState} from 'react';
 import ProductList from '../Components/ProductList/ProductList';
 import {
   ActivityIndicator,
@@ -17,6 +17,8 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import {CartContext} from '../Store/CartContextProvider';
 import AppLoading from '../Components/Core/AppLoading';
 import {ProductContext} from '../Store/ProductContextProvider';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import LogoutIcon from '../Components/Core/LogoutIcon';
 
 const ProductDashBoard = ({navigation}) => {
   const {width} = Dimensions.get('window');
@@ -29,6 +31,24 @@ const ProductDashBoard = ({navigation}) => {
   const {favoriteProducts} = useContext(FavoriteContext);
   const productCtx = useContext(ProductContext);
   const productsData = productCtx.products;
+
+  const handleDrawerState = () => {
+    navigation.openDrawer();
+  };
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => (
+        <MaterialCommunityIcons
+          name={'dots-grid'}
+          size={30}
+          style={{marginLeft: 10}}
+          onPress={handleDrawerState}
+        />
+      ),
+      headerRight: () => <LogoutIcon style={{marginRight: 10}} />,
+    });
+  }, []);
 
   useLayoutEffect(() => {
     setProducts(productsData);

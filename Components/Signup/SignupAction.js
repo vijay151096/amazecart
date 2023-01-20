@@ -86,7 +86,7 @@ function SignupAction() {
         </Pressable>
         <View style={[styles.signup, {justifyContent: 'center'}]}>
           <Text style={styles.finalText}>Joined us before ?</Text>
-          <Pressable onPress={() => navigation.navigate('login')}>
+          <Pressable onPress={() => navigation.replace('login')}>
             <Text style={{color: color.purple, textAlign: 'center'}}>
               Login
             </Text>

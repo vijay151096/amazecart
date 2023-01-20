@@ -14,12 +14,23 @@ import Login from './Screens/Login';
 import Signup from './Screens/Signup';
 import Profile from './Screens/Profile';
 import LogoutIcon from './Components/Core/LogoutIcon';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import Favorites from './Screens/Favorites';
 
 const Stack = createNativeStackNavigator();
 
+const Drawer = createDrawerNavigator();
+
 function Navigation() {
   const {isAuthenticated} = useContext(AuthContext);
-  const headerOptions = {
+  const drawerHeaderOptions = {
+    headerShadowVisible: false,
+    headerStyle: {backgroundColor: color.greyBackground},
+    sceneContainerStyle: {backgroundColor: color.greyBackground},
+    headerTitle: () => <Title />,
+  };
+
+  const nativeStackHeaderOptions = {
     headerShadowVisible: false,
     headerStyle: {backgroundColor: color.greyBackground},
     contentStyle: {backgroundColor: color.greyBackground},
@@ -27,17 +38,22 @@ function Navigation() {
   };
 
   const ProductStack = () => {
+    const DrawerNavigator = () => (
+      <Drawer.Navigator
+        screenOptions={drawerHeaderOptions}
+        initialRouteName="Products">
+        <Drawer.Screen name="Products" component={ProductDashBoard} />
+        <Drawer.Screen name="Profile" component={Profile} />
+        <Drawer.Screen name="Favorites" component={Favorites} />
+      </Drawer.Navigator>
+    );
+
     return (
-      <Stack.Navigator screenOptions={headerOptions}>
+      <Stack.Navigator screenOptions={nativeStackHeaderOptions}>
         <Stack.Screen
-          name="productDashboard"
-          component={ProductDashBoard}
-          options={{
-            headerLeft: () => (
-              <MaterialCommunityIcons name={'dots-grid'} size={30} />
-            ),
-            headerRight: () => <LogoutIcon />,
-          }}
+          name="drawerStack"
+          component={DrawerNavigator}
+          options={{headerShown: false}}
         />
         <Stack.Screen
           name="productDetails"
@@ -64,7 +80,7 @@ function Navigation() {
 
   const AuthenticationStack = () => {
     return (
-      <Stack.Navigator screenOptions={headerOptions}>
+      <Stack.Navigator screenOptions={nativeStackHeaderOptions}>
         <Stack.Screen name="login" component={Login} />
         <Stack.Screen name="signup" component={Signup} />
       </Stack.Navigator>

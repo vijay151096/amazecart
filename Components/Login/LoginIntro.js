@@ -15,7 +15,7 @@ function LoginIntro() {
       </View>
       <View style={styles.signup}>
         <Text style={styles.signupText}>If you are new /</Text>
-        <Pressable onPress={() => navigation.navigate('signup')}>
+        <Pressable onPress={() => navigation.replace('signup')}>
           <Text style={styles.signupBtn}>Create New</Text>
         </Pressable>
       </View>
