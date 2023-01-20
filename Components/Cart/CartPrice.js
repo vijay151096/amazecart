@@ -19,19 +19,25 @@ const CartPrice = ({cartProds}) => {
   }, [cartProducts, cartProds]);
 
   return (
-    <View style={styles.outerContainer}>
+    <View style={styles.outerContainer} testID={'CartPrice-outer'}>
       <View style={styles.innerPriceContainer}>
         <View>
-          <Text style={styles.currencyText}>$</Text>
+          <Text style={styles.currencyText} testID={'CartPrice-dollar'}>
+            $
+          </Text>
         </View>
         <View>
-          <Text style={styles.priceText}>{totalPrice}</Text>
+          <Text style={styles.priceText} testID={'CartPrice-price'}>
+            {totalPrice}
+          </Text>
         </View>
       </View>
-      <Pressable onPress={handlePress}>
+      <Pressable onPress={handlePress} testID={'CartPrice-checkout'}>
         <View style={styles.addToCartContainer}>
           <Entypo name={'shopping-cart'} size={24} color={color.white} />
-          <Text style={styles.addToCartText}>Checkout</Text>
+          <Text style={styles.addToCartText} testID={'CartPrice-checkout-text'}>
+            Checkout
+          </Text>
         </View>
       </Pressable>
     </View>
