@@ -1,7 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {FlatList, Pressable, StyleSheet, Text, View} from 'react-native';
-import ShadowComponent from '../Core/ShadowComponent';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {ProductContext} from '../../Store/ProductContextProvider';
 
 const displayFilter = item => {
@@ -19,7 +17,8 @@ const displayFilter = item => {
           ? styles.pressedStyle
           : null,
       ]}
-      onPress={handlePress}>
+      onPress={handlePress}
+      testID={'Filter-category'}>
       <View>
         <Text>{productItem.value}</Text>
       </View>
@@ -48,7 +47,7 @@ const Filter = ({items}) => {
   }, [selectedFilter]);
 
   return (
-    <View style={styles.filterContainer}>
+    <View style={styles.filterContainer} testID={'Filter-mainContainer'}>
       <Text style={styles.title}>Our Products </Text>
       <FlatList
         data={transformedItems}

@@ -7,9 +7,8 @@
  */
 import 'react-native-gesture-handler';
 import React from 'react';
-import {SafeAreaView, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {StatusBar, StyleSheet, View} from 'react-native';
 import Navigation from './Navigation';
-import ProductDashBoard from './Screens/ProductDashBoard';
 import ProductContextProvider from './Store/ProductContextProvider';
 import FavoriteContextProvider from './Store/FavoriteContextProvider';
 import CartContextProvider from './Store/CartContextProvider';

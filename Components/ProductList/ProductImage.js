@@ -11,7 +11,11 @@ const ProductImage = ({
     <View style={[styles.imageContainer, outerContainerStyle]}>
       <View style={styles.imageOuterContainer}>
         <View style={[styles.imageInnerContainer, innerContainerStyle]}>
-          <Image style={[styles.image, imageStyle]} source={{uri: image}} />
+          <Image
+            testID={'ProductImage-Image'}
+            style={[styles.image, imageStyle]}
+            source={{uri: image}}
+          />
         </View>
       </View>
     </View>

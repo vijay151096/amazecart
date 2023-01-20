@@ -7,7 +7,9 @@ const singleItemComponent = ({item}) => {
 
 const ProductList = ({items}) => {
   return (
-    <View style={[styles.screen, styles.outerContainer]}>
+    <View
+      style={[styles.screen, styles.outerContainer]}
+      testID={'ProductList-outer'}>
       <FlatList
         data={items}
         renderItem={singleItemComponent}

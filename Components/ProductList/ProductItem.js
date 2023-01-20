@@ -15,17 +15,17 @@ const ProductItem = ({item}) => {
 
   return (
     <ShadowComponent style={styles.outerContainer}>
-      <Pressable onPress={handlePress}>
-        <View style={styles.favContainer}>
+      <Pressable onPress={handlePress} testID={'ProductItem-OuterContainer'}>
+        <View style={styles.favContainer} testID={'ProductItem-favBar'}>
           <View style={styles.favOuterContainer}>
             <PromotionLabel />
             <FavoriteBar item={item} size={20} />
           </View>
         </View>
-        <View style={styles.screen}>
+        <View style={styles.screen} testID={'ProductItem-image'}>
           <ProductImage image={item.image} />
         </View>
-        <View style={styles.screen}>
+        <View style={styles.screen} testID={'ProductItem-details'}>
           <ProductDetails item={item} />
         </View>
       </Pressable>

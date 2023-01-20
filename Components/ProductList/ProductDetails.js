@@ -7,7 +7,7 @@ const ProductDetails = ({item}) => {
   return (
     <View style={styles.detailContainer}>
       <ProductDescription item={item} />
-      <View style={styles.detailRate}>
+      <View style={styles.detailRate} testID={'ProductDetails-ratingContainer'}>
         <AirbnbRating
           count={5}
           defaultRating={item.rating.rate}

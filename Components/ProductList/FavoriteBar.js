@@ -36,13 +36,23 @@ const FavoriteBar = ({item, size}) => {
   }, [favoriteProducts]);
 
   return (
-    <Pressable onPress={handlePress}>
+    <Pressable onPress={handlePress} testID={'FavoriteBar-heartIcon'}>
       {isFavourite ? (
         <View style={styles.shadowContainer}>
-          <Octicons name="feed-heart" size={size} color={'red'} />
+          <Octicons
+            name="feed-heart"
+            size={size}
+            color={'red'}
+            testID={'FavoriteBar-heartIcon-pressed'}
+          />
         </View>
       ) : (
-        <AntDesign name="heart" size={size} color={'grey'} />
+        <AntDesign
+          name="heart"
+          size={size}
+          color={'grey'}
+          testID={'FavoriteBar-heartIcon-unpressed'}
+        />
       )}
     </Pressable>
   );
