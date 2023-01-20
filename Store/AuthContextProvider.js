@@ -7,20 +7,25 @@ export const AuthContext = React.createContext({
   login: (username, password) => {},
   logout: () => {},
   user: undefined,
+  isGettingTokenFromStorage: false,
 });
 
 function AuthContextProvider({children}) {
   const [authToken, setAuthToken] = useState();
   const [user, setUser] = useState();
+  const [isGettingTokenFromStorage, setIsGettingTokenFromStorage] =
+    useState(false);
 
   useEffect(() => {
     const getTokenFromStorage = async () => {
+      setIsGettingTokenFromStorage(true);
       const tokenFromStorage = await AsyncStorage.getItem('token');
       const user = await AsyncStorage.getItem('user');
       if (tokenFromStorage) {
         setAuthToken(tokenFromStorage);
         setUser(JSON.parse(user));
       }
+      setIsGettingTokenFromStorage(false);
     };
     getTokenFromStorage();
   }, []);
@@ -68,6 +73,7 @@ function AuthContextProvider({children}) {
     login,
     logout,
     user,
+    isGettingTokenFromStorage,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

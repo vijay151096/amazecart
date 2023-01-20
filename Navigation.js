@@ -16,13 +16,14 @@ import Profile from './Screens/Profile';
 import LogoutIcon from './Components/Core/LogoutIcon';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import Favorites from './Screens/Favorites';
+import {ActivityIndicator, View} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
 const Drawer = createDrawerNavigator();
 
 function Navigation() {
-  const {isAuthenticated} = useContext(AuthContext);
+  const {isAuthenticated, isGettingTokenFromStorage} = useContext(AuthContext);
   const drawerHeaderOptions = {
     headerShadowVisible: false,
     headerStyle: {backgroundColor: color.greyBackground},
@@ -77,6 +78,14 @@ function Navigation() {
       </Stack.Navigator>
     );
   };
+
+  if (isGettingTokenFromStorage) {
+    return (
+      <View style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
+        <ActivityIndicator />
+      </View>
+    );
+  }
 
   const AuthenticationStack = () => {
     return (
