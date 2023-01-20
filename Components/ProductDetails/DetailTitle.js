@@ -5,9 +5,11 @@ import {color} from '../../Styles/Color';
 
 function DetailTitle({title, description, rating}) {
   return (
-    <View>
-      <View style={styles.rowFlexContainer}>
-        <Text style={styles.mainTitle}>{title}</Text>
+    <View testID="DetailTitle-mainContainer">
+      <View style={styles.rowFlexContainer} testID="DetailTitle-innerContainer">
+        <Text style={styles.mainTitle} testID="DetailTitle-title">
+          {title}
+        </Text>
         <View style={styles.ratingContainer}>
           <Entypo
             style={styles.star}
@@ -15,10 +17,14 @@ function DetailTitle({title, description, rating}) {
             size={20}
             color={color.gold}
           />
-          <Text style={styles.ratingText}>({rating})</Text>
+          <Text style={styles.ratingText} testID="DetailTitle-rating">
+            ({rating})
+          </Text>
         </View>
       </View>
-      <Text style={styles.description}>{description}</Text>
+      <Text style={styles.description} testID="DetailTitle-description">
+        {description}
+      </Text>
     </View>
   );
 }

@@ -4,8 +4,8 @@ import {color} from '../../Styles/Color';
 
 const ColorTile = ({outerColor, innerColor}) => {
   return (
-    <View style={[styles.outeCircle, {backgroundColor: outerColor}]}>
-      <View style={[styles.colorPicker, {backgroundColor: innerColor}]}></View>
+    <View style={[styles.outeCircle, {backgroundColor: outerColor}]} testID="ColorTile-outerRing">
+      <View style={[styles.colorPicker, {backgroundColor: innerColor}]} testID="ColorTile-innerRing"></View>
     </View>
   );
 };

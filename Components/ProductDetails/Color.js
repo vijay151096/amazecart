@@ -6,7 +6,7 @@ import ColorTile from './ColorTile';
 
 function Color() {
   return (
-    <View style={styles.outerContainer}>
+    <View style={styles.outerContainer} testID="Color-mainContainer">
       <Text style={[styles.text, styles.sizeText]}>Available Color : </Text>
       <ColorTile outerColor={'#FADBD8'} innerColor={'red'} />
       <ColorTile outerColor={'#FCF3CF'} innerColor={'orange'} />

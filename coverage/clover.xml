@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1674210472441" clover="3.2.0">
+  <project timestamp="1674210472441" name="All files">
+    <metrics statements="165" coveredstatements="118" conditionals="26" coveredconditionals="18" methods="71" coveredmethods="38" elements="262" coveredelements="174" complexity="0" loc="165" ncloc="165" packages="6" files="22" classes="22"/>
+    <package name="Components.Core">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="PromotionLabel.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Components/Core/PromotionLabel.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+      </file>
+      <file name="ShadowComponent.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Components/Core/ShadowComponent.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="Components.ProductDetails">
+      <metrics statements="42" coveredstatements="38" conditionals="8" coveredconditionals="6" methods="15" coveredmethods="13"/>
+      <file name="Color.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Components/ProductDetails/Color.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+      </file>
+      <file name="ColorTile.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Components/ProductDetails/ColorTile.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="14" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+      </file>
+      <file name="DetailSection.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Components/ProductDetails/DetailSection.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+      </file>
+      <file name="DetailTitle.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Components/ProductDetails/DetailTitle.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+      </file>
+      <file name="ImageSection.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Components/ProductDetails/ImageSection.js">
+        <metrics statements="12" coveredstatements="9" conditionals="4" coveredconditionals="2" methods="5" coveredmethods="4"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="59" count="8" type="stmt"/>
+        <line num="69" count="8" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+      </file>
+      <file name="PriceSection.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Components/ProductDetails/PriceSection.js">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+      </file>
+      <file name="Size.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Components/ProductDetails/Size.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+      </file>
+      <file name="SizeBox.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Components/ProductDetails/SizeBox.js">
+        <metrics statements="11" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="2"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="14" type="stmt"/>
+        <line num="8" count="14" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="14" type="stmt"/>
+        <line num="13" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="12" type="stmt"/>
+        <line num="20" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="14" type="stmt"/>
+        <line num="33" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="Components.ProductList">
+      <metrics statements="62" coveredstatements="60" conditionals="12" coveredconditionals="12" methods="20" coveredmethods="18"/>
+      <file name="FavoriteBar.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Components/ProductList/FavoriteBar.js">
+        <metrics statements="20" coveredstatements="20" conditionals="6" coveredconditionals="6" methods="5" coveredmethods="5"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="10" count="14" type="stmt"/>
+        <line num="11" count="14" type="stmt"/>
+        <line num="13" count="14" type="stmt"/>
+        <line num="14" count="12" type="stmt"/>
+        <line num="17" count="14" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="28" count="14" type="stmt"/>
+        <line num="29" count="14" type="stmt"/>
+        <line num="30" count="10" type="stmt"/>
+        <line num="31" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="34" count="7" type="stmt"/>
+        <line num="38" count="14" type="stmt"/>
+        <line num="60" count="3" type="stmt"/>
+      </file>
+      <file name="Filter.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Components/ProductList/Filter.js">
+        <metrics statements="21" coveredstatements="21" conditionals="6" coveredconditionals="6" methods="7" coveredmethods="7"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="16" type="stmt"/>
+        <line num="7" count="16" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="16" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="8" type="stmt"/>
+        <line num="31" count="8" type="stmt"/>
+        <line num="33" count="8" type="stmt"/>
+        <line num="34" count="8" type="stmt"/>
+        <line num="35" count="16" type="stmt"/>
+        <line num="38" count="8" type="stmt"/>
+        <line num="39" count="8" type="stmt"/>
+        <line num="40" count="6" type="stmt"/>
+        <line num="42" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="6" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="49" count="8" type="stmt"/>
+        <line num="56" count="16" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+      </file>
+      <file name="ProductDescription.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Components/ProductList/ProductDescription.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="8" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+      </file>
+      <file name="ProductDetails.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Components/ProductList/ProductDetails.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+      </file>
+      <file name="ProductImage.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Components/ProductList/ProductImage.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+      </file>
+      <file name="ProductItem.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Components/ProductList/ProductItem.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+      </file>
+      <file name="ProductList.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Components/ProductList/ProductList.js">
+        <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="Screens">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Favorites.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Screens/Favorites.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="Store">
+      <metrics statements="53" coveredstatements="12" conditionals="6" coveredconditionals="0" methods="33" coveredmethods="4"/>
+      <file name="CartContextProvider.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Store/CartContextProvider.js">
+        <metrics statements="24" coveredstatements="2" conditionals="6" coveredconditionals="0" methods="15" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+      </file>
+      <file name="FavoriteContextProvider.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Store/FavoriteContextProvider.js">
+        <metrics statements="11" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="3"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
+      </file>
+      <file name="ProductContextProvider.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Store/ProductContextProvider.js">
+        <metrics statements="18" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="Styles">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="Color.js" path="/Users/jaseem/Documents/RN-Training/amazecart/Styles/Color.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="11" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

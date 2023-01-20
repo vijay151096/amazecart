@@ -13,7 +13,9 @@ const PriceSection = ({item}) => {
 
   return (
     <View style={styles.outerContainer}>
-      <View style={styles.innerPriceContainer}>
+      <View
+        style={styles.innerPriceContainer}
+        testID="PriceSection-priceDisplay">
         <View>
           <Text style={styles.currencyText}>$</Text>
         </View>
@@ -21,7 +23,7 @@ const PriceSection = ({item}) => {
           <Text style={styles.priceText}>{item.price}</Text>
         </View>
       </View>
-      <Pressable onPress={handlePress}>
+      <Pressable onPress={handlePress} testID="PriceSection-btn">
         <View style={styles.addToCartContainer}>
           <Entypo name={'shopping-cart'} size={24} color={color.purple} />
           <Text style={styles.addToCartText}>Add To Cart</Text>

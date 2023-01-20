@@ -6,7 +6,7 @@ import Color from './Color';
 
 function DetailSection({item}) {
   return (
-    <View style={styles.outerContainer}>
+    <View style={styles.outerContainer} testID="DetailSection-mainContainer">
       <DetailTitle
         title={item.description.slice(0, 20) + '...'}
         description={item.description.slice(0, 100) + '...'}

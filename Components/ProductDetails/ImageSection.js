@@ -35,10 +35,10 @@ function ImageSection({image}) {
 
   return (
     <View style={styles.imageOuterContainer}>
-      <View style={styles.marginLabel}>
+      <View style={styles.marginLabel} testID={"ImageSection-promotionContainer"}>
         <PromotionLabel style={styles.labelPadding} />
       </View>
-      <View style={styles.marginImage}>
+      <View style={styles.marginImage} testID="ImageSection-imageContainer">
         <View
           style={[
             styles.rippleStyle,
