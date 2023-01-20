@@ -27,19 +27,21 @@ const CartItem = ({item}) => {
   };
 
   return (
-    <View style={styles.screen}>
-      <View style={styles.imageContainer}>
+    <View style={styles.screen} testID={'CartItem-outer'}>
+      <View style={styles.imageContainer} testID={'CartItem-image'}>
         <ProductImage
           image={item.image}
           innerContainerStyle={styles.innerContainerStyle}
           imageStyle={styles.imageStyle}
         />
       </View>
-      <View style={styles.descContainer}>
+      <View style={styles.descContainer} testID={'CartItem-desc'}>
         <ProductDescription item={item} />
       </View>
-      <View style={styles.quantityContainer}>
-        <Pressable onPress={decreaseQuantity}>
+      <View style={styles.quantityContainer} testID={'CartItem-quantity'}>
+        <Pressable
+          onPress={decreaseQuantity}
+          testID={'CartItem-quantity-increase'}>
           <View style={[styles.shadowContainer, styles.minus]}>
             <Entypo
               style={styles.star}
@@ -50,9 +52,13 @@ const CartItem = ({item}) => {
           </View>
         </Pressable>
         <View>
-          <Text style={styles.quantity}>{quantity}</Text>
+          <Text style={styles.quantity} testID={'CartItem-quantity-value'}>
+            {quantity}
+          </Text>
         </View>
-        <Pressable onPress={increaseQuantity}>
+        <Pressable
+          onPress={increaseQuantity}
+          testID={'CartItem-quantity-decrease'}>
           <View style={[styles.shadowContainer, styles.plus]}>
             <Entypo
               style={styles.star}

@@ -5,9 +5,11 @@ import Entypo from 'react-native-vector-icons/Entypo';
 
 const EmptyCartContent = () => {
   return (
-    <View style={styles.outerContainer}>
+    <View style={styles.outerContainer} testID={'EmptyCartContainer-EmptyPage'}>
       <Entypo name={'shopping-cart'} size={24} color="#B2BABB" />
-      <Text style={styles.innerText}>Cart is Empty</Text>
+      <Text style={styles.innerText} testID={'EmptyCartContainer-EmptyText'}>
+        Cart is Empty
+      </Text>
     </View>
   );
 };

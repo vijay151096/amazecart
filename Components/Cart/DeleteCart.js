@@ -10,7 +10,7 @@ const DeleteCart = () => {
     clearCart();
   };
   return (
-    <Pressable onPress={pressHandler}>
+    <Pressable onPress={pressHandler} testID={'DeleteCart-deleteIcon'}>
       <MaterialIcons name={'delete'} size={24} color={color.lightGrey} />
     </Pressable>
   );
