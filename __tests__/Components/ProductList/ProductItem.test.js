@@ -1,7 +1,9 @@
 import {fireEvent, render, waitFor} from '@testing-library/react-native';
 import ProductItem from '../../../Components/ProductList/ProductItem';
 import {NavigationContainer} from '@react-navigation/native';
+import {getSampleItem} from '../../Utility/Util';
 
+const sampleItem = getSampleItem();
 describe('Product Item Layout Test Suite', function () {
   it('should show the favBar Container', function () {
     const wrapper = render(
@@ -60,16 +62,3 @@ describe('Product Item Functionality Test Suite', function () {
     waitFor(() => expect(mockNav).toBeCalledWith('productDetails'));
   });
 });
-const sampleItem = {
-  id: 1,
-  title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-  price: 109.95,
-  description:
-    'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-  category: "men's clothing",
-  image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-  rating: {
-    rate: 3.9,
-    count: 120,
-  },
-};

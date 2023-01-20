@@ -3,9 +3,9 @@ import {fireEvent, render, waitFor} from '@testing-library/react-native';
 import FavoriteContextProvider, {
   FavoriteContext,
 } from '../../../Store/FavoriteContextProvider';
-import Util from '../../Utility/Util';
+import {getSampleItem} from '../../Utility/Util';
 
-const sampleItem = Util.getSampleItem();
+const sampleItem = getSampleItem();
 describe('Favourite Bar Layout Test Suite', function () {
   it('should show heart Icon', function () {
     const wrapper = render(<FavoriteBar item={sampleItem} />);

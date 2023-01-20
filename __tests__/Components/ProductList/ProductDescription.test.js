@@ -1,8 +1,8 @@
 import {render} from '@testing-library/react-native';
 import ProductDescription from '../../../Components/ProductList/ProductDescription';
-import Util from '../../Utility/Util';
+import {getSampleItem} from '../../Utility/Util';
 
-const sampleItem = Util.getSampleItem();
+const sampleItem = getSampleItem();
 describe('Product Description Layout Test Suite', function () {
   it('should show Item Price ', function () {
     const wrapper = render(<ProductDescription item={sampleItem} />);

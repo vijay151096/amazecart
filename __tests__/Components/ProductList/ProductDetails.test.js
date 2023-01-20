@@ -1,8 +1,8 @@
 import {render} from '@testing-library/react-native';
 import ProductDetails from '../../../Components/ProductList/ProductDetails';
-import Util from '../../Utility/Util';
+import {getSampleItem} from '../../Utility/Util';
 
-const sampleItem = Util.getSampleItem();
+const sampleItem = getSampleItem();
 describe('Product Details Layout Test Suite', function () {
   it('should show Star Rating ', function () {
     const wrapper = render(<ProductDetails item={sampleItem} />);

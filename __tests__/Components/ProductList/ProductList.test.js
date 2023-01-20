@@ -1,8 +1,8 @@
 import {render} from '@testing-library/react-native';
 import ProductList from '../../../Components/ProductList/ProductList';
-import Util from '../../Utility/Util';
+import {getSampleItem} from '../../Utility/Util';
 
-const sampleItem = Util.getSampleItem();
+const sampleItem = getSampleItem();
 describe('Product List Layout Test Suite', function () {
   it('should show the Products list Conatiner', function () {
     const wrapper = render(<ProductList item={[sampleItem]} />);
