@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as Keychain from 'react-native-keychain';
 import React, {useEffect, useState} from 'react';
 import {Alert} from 'react-native';
 export const AuthContext = React.createContext({
@@ -19,11 +20,10 @@ function AuthContextProvider({children}) {
   useEffect(() => {
     const getTokenFromStorage = async () => {
       setIsGettingTokenFromStorage(true);
-      const tokenFromStorage = await AsyncStorage.getItem('token');
-      const user = await AsyncStorage.getItem('user');
-      if (tokenFromStorage) {
-        setAuthToken(tokenFromStorage);
-        setUser(JSON.parse(user));
+      const credentials = await Keychain.getGenericPassword();
+      if (credentials) {
+        setAuthToken(credentials.password);
+        setUser(credentials.username);
       }
       setIsGettingTokenFromStorage(false);
     };
@@ -47,7 +47,7 @@ function AuthContextProvider({children}) {
       Alert.alert('Login Failed!', 'Could not log you in. Please try again');
     } else {
       setAuthToken(data.token);
-      AsyncStorage.setItem('token', data.token);
+      Keychain.setGenericPassword(username, data.token);
     }
   };
 
@@ -63,8 +63,7 @@ function AuthContextProvider({children}) {
   const logout = () => {
     setAuthToken(undefined);
     setUser(undefined);
-    AsyncStorage.removeItem('token');
-    AsyncStorage.removeItem('user');
+    Keychain.resetGenericPassword();
   };
 
   const value = {
