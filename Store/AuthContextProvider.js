@@ -21,9 +21,10 @@ function AuthContextProvider({children}) {
     const getTokenFromStorage = async () => {
       setIsGettingTokenFromStorage(true);
       const credentials = await Keychain.getGenericPassword();
-      if (credentials) {
+      const user = await AsyncStorage.getItem('user');
+      if (credentials && user) {
         setAuthToken(credentials.password);
-        setUser(credentials.username);
+        setUser(JSON.parse(user));
       }
       setIsGettingTokenFromStorage(false);
     };
