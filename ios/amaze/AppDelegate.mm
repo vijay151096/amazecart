@@ -44,7 +44,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 #endif
 
   NSDictionary *initProps = [self prepareInitialProps];
-  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"amaze", initProps);
+  RCTRootView *rootView = (RCTRootView *)RCTAppSetupDefaultRootView(bridge, @"amaze", initProps);
 
   if (@available(iOS 13.0, *)) {
     rootView.backgroundColor = [UIColor systemBackgroundColor];
@@ -57,6 +57,13 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  // Make sure the name matches the one used for the storyboard file
+    UIStoryboard *launchScreenStoryboard = [UIStoryboard storyboardWithName:@"Launch Screen" bundle:nil];
+    // This must match the Storyboard ID we chose for our View Controller
+    UIViewController *launchScreenViewController = [launchScreenStoryboard instantiateViewControllerWithIdentifier:@"LaunchScreenViewController"];
+    UIView *launchScreenView = [launchScreenViewController view];
+    launchScreenView.frame = self.window.bounds;
+    rootView.loadingView = launchScreenView;
   return YES;
 }
 
