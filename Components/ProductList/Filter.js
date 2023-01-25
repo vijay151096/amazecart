@@ -48,7 +48,7 @@ const Filter = ({items}) => {
 
   return (
     <View style={styles.filterContainer} testID={'Filter-mainContainer'}>
-      <Text style={styles.title}>Our Products </Text>
+      <Text style={[styles.title]}>Our Products </Text>
       <FlatList
         data={transformedItems}
         renderItem={displayFilter}

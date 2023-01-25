@@ -1,21 +1,37 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Platform} from 'react-native';
 import {color} from '../../Styles/Color';
 
 function Title() {
   return (
     <View style={styles.innerContainer}>
-      <Text style={[styles.heading, styles.x]}>X</Text>
-      <Text style={[styles.heading, styles.e]}>E</Text>
+      <Text
+        style={[
+          styles.heading,
+          styles.x,
+          {
+            fontFamily: 'LibreBaskerville-Regular',
+          },
+        ]}>
+        X
+      </Text>
+      <Text
+        style={[
+          styles.heading,
+          styles.e,
+          {
+            fontFamily: 'LibreBaskerville-Bold',
+          },
+        ]}>
+        E
+      </Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   heading: {
-    fontWeight: 'bold',
     fontSize: 30,
-    fontFamily: 'Georgia',
   },
   innerContainer: {
     flexDirection: 'row',
