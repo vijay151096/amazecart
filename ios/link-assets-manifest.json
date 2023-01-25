@@ -14,16 +14,8 @@
       "sha1": "ed706d27473a09536d94fed8fee4809fda713759"
     },
     {
-      "path": "assets/fonts/LibreBaskervilleBold.ttf",
-      "sha1": "f8081cbeceb2e69fdffca2348b2c9e0933cd52b5"
-    },
-    {
-      "path": "assets/fonts/LibreBaskervilleItalic.ttf",
-      "sha1": "1c4a7eed5b5ffeed2818cc75c16825596d64ab67"
-    },
-    {
-      "path": "assets/fonts/LibreBaskervilleRegular.ttf",
-      "sha1": "ed706d27473a09536d94fed8fee4809fda713759"
+      "path": "assets/fonts/Solitreo-Regular.ttf",
+      "sha1": "dc943deaad73e3caa2afe500873854c41fc0795a"
     }
   ]
 }

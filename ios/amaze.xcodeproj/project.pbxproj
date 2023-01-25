@@ -13,6 +13,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		3D0FF5C5E4E9442BB814547B /* LibreBaskerville-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF46147EC7F4CD5940A5457 /* LibreBaskerville-Regular.ttf */; };
+		6627BF560A4E48D881A08621 /* Solitreo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C75CF5278FA431FB1FF5428 /* Solitreo-Regular.ttf */; };
 		6BE252C7A65647528120D3C1 /* LibreBaskerville-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1DB0FE6E57F04C9CA1800B35 /* LibreBaskerville-Italic.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-amaze-amazeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-amaze-amazeTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -62,6 +63,7 @@
 		5709B34CF0A7D63546082F79 /* Pods-amaze.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amaze.release.xcconfig"; path = "Target Support Files/Pods-amaze/Pods-amaze.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-amaze-amazeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amaze-amazeTests.debug.xcconfig"; path = "Target Support Files/Pods-amaze-amazeTests/Pods-amaze-amazeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-amaze.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-amaze.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C75CF5278FA431FB1FF5428 /* Solitreo-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Solitreo-Regular.ttf"; path = "../assets/fonts/Solitreo-Regular.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = amaze/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-amaze-amazeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amaze-amazeTests.release.xcconfig"; path = "Target Support Files/Pods-amaze-amazeTests/Pods-amaze-amazeTests.release.xcconfig"; sourceTree = "<group>"; };
 		9BF46147EC7F4CD5940A5457 /* LibreBaskerville-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LibreBaskerville-Regular.ttf"; path = "../assets/fonts/LibreBaskerville-Regular.ttf"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				56122691E13F4500AE708BEC /* LibreBaskerville-Bold.ttf */,
 				1DB0FE6E57F04C9CA1800B35 /* LibreBaskerville-Italic.ttf */,
 				9BF46147EC7F4CD5940A5457 /* LibreBaskerville-Regular.ttf */,
+				6C75CF5278FA431FB1FF5428 /* Solitreo-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				BDD9CCC043A140EABB0C7574 /* LibreBaskerville-Bold.ttf in Resources */,
 				6BE252C7A65647528120D3C1 /* LibreBaskerville-Italic.ttf in Resources */,
 				3D0FF5C5E4E9442BB814547B /* LibreBaskerville-Regular.ttf in Resources */,
+				6627BF560A4E48D881A08621 /* Solitreo-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

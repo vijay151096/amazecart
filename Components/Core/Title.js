@@ -5,26 +5,8 @@ import {color} from '../../Styles/Color';
 function Title() {
   return (
     <View style={styles.innerContainer}>
-      <Text
-        style={[
-          styles.heading,
-          styles.x,
-          {
-            fontFamily: 'LibreBaskerville-Regular',
-          },
-        ]}>
-        X
-      </Text>
-      <Text
-        style={[
-          styles.heading,
-          styles.e,
-          {
-            fontFamily: 'LibreBaskerville-Bold',
-          },
-        ]}>
-        E
-      </Text>
+      <Text style={[styles.heading, styles.x]}>X</Text>
+      <Text style={[styles.heading, styles.e]}>E</Text>
     </View>
   );
 }
@@ -32,6 +14,7 @@ function Title() {
 const styles = StyleSheet.create({
   heading: {
     fontSize: 30,
+    fontFamily: 'LibreBaskerville-Bold',
   },
   innerContainer: {
     flexDirection: 'row',
