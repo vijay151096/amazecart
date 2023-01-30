@@ -1,13 +1,14 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {SafeAreaView, StyleSheet, View} from 'react-native';
+import {Pressable, SafeAreaView, StyleSheet, View} from 'react-native';
 import {ProductContext} from '../../Store/ProductContextProvider';
 import ProductImage from '../ProductList/ProductImage';
 import ProductDescription from '../ProductList/ProductDescription';
 import FavoriteBar from '../ProductList/FavoriteBar';
 import ShadowComponent from '../Core/ShadowComponent';
 
-function FavoriteItem({item}) {
+function FavoriteItem({item, bottomSheetHandler}) {
   const [product, setProduct] = useState(null);
+
   const {getProduct} = useContext(ProductContext);
   useEffect(() => {
     setProduct(getProduct(item));
@@ -16,17 +17,19 @@ function FavoriteItem({item}) {
   return (
     <View style={styles.container}>
       {product && (
-        <ShadowComponent style={styles.shadowcont}>
-          <SafeAreaView style={styles.inner}>
-            <ProductImage image={product.image} />
-            <View style={styles.details}>
-              <ProductDescription item={product} />
-            </View>
-            <View style={styles.favBar}>
-              <FavoriteBar item={product} size={30} />
-            </View>
-          </SafeAreaView>
-        </ShadowComponent>
+        <Pressable onPress={() => bottomSheetHandler(product)}>
+          <ShadowComponent style={styles.shadowCont}>
+            <SafeAreaView style={styles.inner}>
+              <ProductImage image={product.image} />
+              <View style={styles.details}>
+                <ProductDescription item={product} />
+              </View>
+              <View style={styles.favBar}>
+                <FavoriteBar item={product} size={30} />
+              </View>
+            </SafeAreaView>
+          </ShadowComponent>
+        </Pressable>
       )}
     </View>
   );
@@ -48,7 +51,7 @@ const styles = StyleSheet.create({
   favBar: {
     margin: 20,
   },
-  shadowcont: {
+  shadowCont: {
     borderRadius: 20,
   },
 });

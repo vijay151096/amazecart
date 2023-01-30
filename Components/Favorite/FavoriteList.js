@@ -3,10 +3,11 @@ import {FlatList} from 'react-native';
 import {FavoriteContext} from '../../Store/FavoriteContextProvider';
 import FavoriteItem from './FavoriteItem';
 
-function FavoriteList() {
+function FavoriteList({bottomSheetHandler}) {
   const {favoriteProducts} = useContext(FavoriteContext);
-  console.log(favoriteProducts);
-  const renderItem = ({item}) => <FavoriteItem item={item} />;
+  const renderItem = ({item}) => (
+    <FavoriteItem item={item} bottomSheetHandler={bottomSheetHandler} />
+  );
   return <FlatList data={favoriteProducts} renderItem={renderItem} />;
 }
 
