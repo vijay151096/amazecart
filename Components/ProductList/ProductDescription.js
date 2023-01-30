@@ -1,12 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 const ProductDescription = ({item}) => {
   return (
-    <>
+    <View>
       <Text style={styles.detailText}>{item.title}</Text>
       <Text style={styles.detailPrice}> $ {item.price}</Text>
-    </>
+    </View>
   );
 };
 
