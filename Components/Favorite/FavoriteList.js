@@ -8,7 +8,13 @@ function FavoriteList({bottomSheetHandler}) {
   const renderItem = ({item}) => (
     <FavoriteItem item={item} bottomSheetHandler={bottomSheetHandler} />
   );
-  return <FlatList data={favoriteProducts} renderItem={renderItem} />;
+  return (
+    <FlatList
+      data={favoriteProducts}
+      keyExtractor={item => item}
+      renderItem={renderItem}
+    />
+  );
 }
 
 export default FavoriteList;
