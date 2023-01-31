@@ -55,7 +55,7 @@ function LoginAction() {
           <Text style={styles.signupBtn}>Reset</Text>
         </Pressable>
       </View>
-      <View style={{marginVertical: 25}}>
+      <View>
         <Pressable
           style={({pressed}) => [
             styles.actionButton,
@@ -64,12 +64,12 @@ function LoginAction() {
           onPress={handleLogin}>
           <Text style={styles.buttonText}>Login</Text>
         </Pressable>
+        <SocialSignin />
         <Pressable>
-          <Text style={{color: color.darkGrey, textAlign: 'center'}}>
+          <Text style={{color: color.darkGrey, textAlign: 'center',marginTop:25}}>
             Skip Now
           </Text>
         </Pressable>
-        <SocialSignin />
       </View>
     </View>
   );

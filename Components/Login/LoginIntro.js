@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
   signup: {
     flexDirection: 'row',
-    marginVertical: 20,
+    marginVertical: 20
   },
   signupBtn: {
     marginLeft: 8,
