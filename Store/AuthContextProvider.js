@@ -2,6 +2,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Keychain from 'react-native-keychain';
 import React, {useEffect, useState} from 'react';
 import {Alert} from 'react-native';
+import {
+  GoogleSignin,
+  statusCodes,
+} from '@react-native-google-signin/google-signin';
+
 export const AuthContext = React.createContext({
   isAuthenticated: false,
   authToken: undefined,
@@ -9,6 +14,7 @@ export const AuthContext = React.createContext({
   logout: () => {},
   user: undefined,
   isGettingTokenFromStorage: false,
+  googleSignIn: () => {},
 });
 
 function AuthContextProvider({children}) {
@@ -30,6 +36,37 @@ function AuthContextProvider({children}) {
     };
     getTokenFromStorage();
   }, []);
+
+  const googleSignIn = () => {
+    GoogleSignin.configure({
+      androidClientId:
+        '884849589655-8ht6ej48792ppl5roammli850vm8fn43.apps.googleusercontent.com',
+      iosClientId:
+        '884849589655-mpie7j74t18u5ou4hkiria7kgul4qtlu.apps.googleusercontent.com',
+      webClientId:
+        '884849589655-c7dorv0kn0suvhifdog8uuoq7knn8uav.apps.googleusercontent.com',
+      offlineAccess: true,
+    });
+    GoogleSignin.hasPlayServices()
+      .then(hasPlayService => {
+        if (hasPlayService) {
+          GoogleSignin.signIn()
+            .then(userInfo => {
+              setAuthToken(userInfo.idToken);
+
+              Keychain.setGenericPassword(userInfo.user.name, userInfo.idToken);
+              AsyncStorage.setItem('user', JSON.stringify(userInfo.user));
+              setUser(userInfo.user);
+            })
+            .catch(e => {
+              console.log('ERROR IS: ' + JSON.stringify(e));
+            });
+        }
+      })
+      .catch(e => {
+        console.log('ERROR IS: ' + JSON.stringify(e));
+      });
+  };
 
   const login = async (username, password) => {
     const bodyToSent = {
@@ -73,6 +110,7 @@ function AuthContextProvider({children}) {
     login,
     logout,
     user,
+    googleSignIn,
     isGettingTokenFromStorage,
   };
 

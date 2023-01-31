@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {AuthContext} from '../../Store/AuthContextProvider';
 import {color} from '../../Styles/Color';
+import SocialSignin from './SocialSignin';
 
 function LoginAction() {
   const {login} = useContext(AuthContext);
@@ -68,6 +69,7 @@ function LoginAction() {
             Skip Now
           </Text>
         </Pressable>
+        <SocialSignin />
       </View>
     </View>
   );
