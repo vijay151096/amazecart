@@ -10,27 +10,34 @@ import DetailSection from '../ProductDetails/DetailSection';
 
 function FavoriteBsDetails({item}) {
   return (
-    <View style={styles.outer}>
-      <View style={styles.header}>
-        <PromotionLabel />
-        <FavoriteBar item={item} size={25} />
+    <>
+      <View style={styles.outer}>
+        <View style={styles.header}>
+          <PromotionLabel />
+          <FavoriteBar item={item} size={25} />
+        </View>
+        <ProductDescription item={item} />
       </View>
-      <ProductDescription item={item} />
-      <Size />
-      <Color />
-    </View>
+      <DetailSection
+        item={item}
+        outerContainerStyle={styles.detailSectionStyle}
+      />
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   outer: {
-    margin: 20,
+    marginHorizontal: 20,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginVertical: 20,
+  },
+  detailSectionStyle: {
+    paddingVertical: 15,
   },
 });
 
