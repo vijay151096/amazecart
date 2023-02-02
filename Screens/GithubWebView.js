@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import WebView from 'react-native-webview';
 import AppLoading from '../Components/Core/AppLoading';
 import {AuthContext} from '../Store/AuthContextProvider';
+import {AUTH_URL, CLIENT_ID, REDIRECT_URI} from '@env';
 
 function GithubWebView() {
   const {githubSignIn} = useContext(AuthContext);
@@ -22,7 +23,7 @@ function GithubWebView() {
   return (
     <WebView
       source={{
-        uri: 'https://github.com/login/oauth/authorize?client_id=4fd76e7ca0b424346f8b&redirect_uri=https://reactnativeamazecart.com',
+        uri: `${AUTH_URL}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}`,
       }}
       onNavigationStateChange={handleNavigation}
     />

@@ -2,10 +2,17 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Keychain from 'react-native-keychain';
 import React, {useEffect, useState} from 'react';
 import {Alert} from 'react-native';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
+
 import {
-  GoogleSignin,
-  statusCodes,
-} from '@react-native-google-signin/google-signin';
+  ANDROID_CLIENT_ID,
+  IOS_CLIENT_ID,
+  WEB_CLIENT_ID,
+  CLIENT_ID,
+  CLIENT_SECRET,
+  REDIRECT_URI,
+  ACCESS_TOKEN_URL,
+} from '@env';
 
 export const AuthContext = React.createContext({
   isAuthenticated: false,
@@ -40,7 +47,7 @@ function AuthContextProvider({children}) {
 
   const githubSignIn = async authCode => {
     const response = await fetch(
-      `https://github.com/login/oauth/access_token?client_id=${"4fd76e7ca0b424346f8b"}&client_secret=${"d270b91212703998f3cc737b3731ac7ed887bee3"}&code=${authCode}&redirect_uri=https://reactnativeamazecart.com`,
+      `${ACCESS_TOKEN_URL}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&code=${authCode}&redirect_uri=${REDIRECT_URI}`,
       {
         method: 'POST',
         headers: {
@@ -54,12 +61,9 @@ function AuthContextProvider({children}) {
 
   const googleSignIn = () => {
     GoogleSignin.configure({
-      androidClientId:
-        '884849589655-8ht6ej48792ppl5roammli850vm8fn43.apps.googleusercontent.com',
-      iosClientId:
-        '884849589655-mpie7j74t18u5ou4hkiria7kgul4qtlu.apps.googleusercontent.com',
-      webClientId:
-        '884849589655-c7dorv0kn0suvhifdog8uuoq7knn8uav.apps.googleusercontent.com',
+      androidClientId: ANDROID_CLIENT_ID,
+      iosClientId: IOS_CLIENT_ID,
+      webClientId: WEB_CLIENT_ID,
       offlineAccess: true,
     });
     GoogleSignin.hasPlayServices()

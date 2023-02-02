@@ -66,7 +66,8 @@ function LoginAction() {
         </Pressable>
         <SocialSignin />
         <Pressable>
-          <Text style={{color: color.darkGrey, textAlign: 'center',marginTop:25}}>
+          <Text
+            style={{color: color.darkGrey, textAlign: 'center', marginTop: 25}}>
             Skip Now
           </Text>
         </Pressable>
