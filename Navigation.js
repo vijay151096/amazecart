@@ -17,6 +17,7 @@ import LogoutIcon from './Components/Core/LogoutIcon';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import Favorites from './Screens/Favorites';
 import {ActivityIndicator, View} from 'react-native';
+import GithubWebView from './Screens/GithubWebView';
 
 const Stack = createNativeStackNavigator();
 
@@ -92,6 +93,7 @@ function Navigation() {
       <Stack.Navigator screenOptions={nativeStackHeaderOptions}>
         <Stack.Screen name="login" component={Login} />
         <Stack.Screen name="signup" component={Signup} />
+        <Stack.Screen name="githubLogin" component={GithubWebView} />
       </Stack.Navigator>
     );
   };

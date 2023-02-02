@@ -15,6 +15,7 @@ export const AuthContext = React.createContext({
   user: undefined,
   isGettingTokenFromStorage: false,
   googleSignIn: () => {},
+  githubSignIn: authCode => {},
 });
 
 function AuthContextProvider({children}) {
@@ -36,6 +37,20 @@ function AuthContextProvider({children}) {
     };
     getTokenFromStorage();
   }, []);
+
+  const githubSignIn = async authCode => {
+    const response = await fetch(
+      `https://github.com/login/oauth/access_token?client_id=${"4fd76e7ca0b424346f8b"}&client_secret=${"d270b91212703998f3cc737b3731ac7ed887bee3"}&code=${authCode}&redirect_uri=https://reactnativeamazecart.com`,
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+        },
+      },
+    );
+    const data = await response.json();
+    setAuthToken(data.access_token);
+  };
 
   const googleSignIn = () => {
     GoogleSignin.configure({
@@ -112,6 +127,7 @@ function AuthContextProvider({children}) {
     user,
     googleSignIn,
     isGettingTokenFromStorage,
+    githubSignIn,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
