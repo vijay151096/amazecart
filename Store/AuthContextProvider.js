@@ -57,6 +57,9 @@ function AuthContextProvider({children}) {
     );
     const data = await response.json();
     setAuthToken(data.access_token);
+    setUser({});
+    Keychain.setGenericPassword(data.token_type, data.access_token);
+    AsyncStorage.setItem('user', '{}');
   };
 
   const googleSignIn = () => {
@@ -78,12 +81,12 @@ function AuthContextProvider({children}) {
               setUser(userInfo.user);
             })
             .catch(e => {
-              console.log('ERROR IS: ' + JSON.stringify(e));
+              //console.log('ERROR IS: ' + JSON.stringify(e));
             });
         }
       })
       .catch(e => {
-        console.log('ERROR IS: ' + JSON.stringify(e));
+        //console.log('ERROR IS: ' + JSON.stringify(e));
       });
   };
 
