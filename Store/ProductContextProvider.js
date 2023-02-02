@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {FAKE_STORE_PRODUCTS_URL} from '@env';
 
 export const ProductContext = React.createContext({
   products: [],
@@ -17,7 +18,7 @@ function ProductContextProvider({children}) {
   }, []);
 
   const initializeProducts = async () => {
-    const response = await fetch('https://fakestoreapi.com/products');
+    const response = await fetch(FAKE_STORE_PRODUCTS_URL);
     const data = await response.json();
     setInitialProducts(data);
     setProducts(data);

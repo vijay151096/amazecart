@@ -19,6 +19,7 @@ import AppLoading from '../Components/Core/AppLoading';
 import {ProductContext} from '../Store/ProductContextProvider';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import LogoutIcon from '../Components/Core/LogoutIcon';
+import {FAKE_STORE_CATEGORIES_URL} from '@env';
 
 const ProductDashBoard = ({navigation}) => {
   const {width} = Dimensions.get('window');
@@ -54,9 +55,7 @@ const ProductDashBoard = ({navigation}) => {
     setProducts(productsData);
     if (categories === null) {
       const getCategory = async () => {
-        const response = await fetch(
-          `https://fakestoreapi.com/products/categories`,
-        );
+        const response = await fetch(FAKE_STORE_CATEGORIES_URL);
         const data = await response.json();
         setCategories(data);
       };
