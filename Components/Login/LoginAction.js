@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React, {useContext, useState} from 'react';
 import {
   View,
@@ -13,6 +14,7 @@ import SocialSignin from './SocialSignin';
 
 function LoginAction() {
   const {login} = useContext(AuthContext);
+  const navigation = useNavigation();
 
   const [enteredUsername, setEnteredUsername] = useState('kminchelle');
   const [enteredPassword, setEnteredPassword] = useState('0lelplR');
@@ -40,6 +42,9 @@ function LoginAction() {
         onChangeText={handleUsernameChange}
         style={styles.userInput}
         autoCorrect={false}
+        accessible={true}
+        accessibilityLabel={'username input section'}
+        accessibilityHint={'we can enter username here'}
       />
       <TextInput
         autoCorrect={false}
@@ -48,6 +53,9 @@ function LoginAction() {
         value={enteredPassword}
         onChangeText={handlePasswordChange}
         style={styles.userInput}
+        accessible={true}
+        accessibilityLabel={'password input section'}
+        accessibilityHint={'we can enter password here'}
       />
       <View style={styles.signup}>
         <Text style={styles.signupText}>Forgot Passcode? /</Text>
@@ -57,6 +65,8 @@ function LoginAction() {
       </View>
       <View>
         <Pressable
+          accessibilityLabel="Login Button"
+          accessibilityHint="lets you login after entering the details"
           style={({pressed}) => [
             styles.actionButton,
             pressed && {opacity: 0.6},
@@ -65,10 +75,13 @@ function LoginAction() {
           <Text style={styles.buttonText}>Login</Text>
         </Pressable>
         <SocialSignin />
-        <Pressable>
+        <Pressable
+          onPress={() => {
+            navigation.replace('Profile');
+          }}>
           <Text
-            style={{color: color.darkGrey, textAlign: 'center', marginTop: 25}}>
-            Skip Now
+            style={{color: color.purple, textAlign: 'center', marginTop: 25}}>
+            Login through browser
           </Text>
         </Pressable>
       </View>

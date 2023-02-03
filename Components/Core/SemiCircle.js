@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import {color} from '../../Styles/Color';
 
 function SemiCircle() {
-  return <View style={styles.circle}></View>;
+  return <View accessible={true} accessibilityLabel={"Login Page Styling"} style={styles.circle}></View>;
 }
 
 export default SemiCircle;

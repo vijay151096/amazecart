@@ -45,7 +45,7 @@ function Navigation() {
         screenOptions={drawerHeaderOptions}
         initialRouteName="Products">
         <Drawer.Screen name="Products" component={ProductDashBoard} />
-        <Drawer.Screen name="Profile" component={Profile} />
+        
         <Drawer.Screen name="Favorites" component={Favorites} />
       </Drawer.Navigator>
     );
@@ -94,6 +94,7 @@ function Navigation() {
         <Stack.Screen name="login" component={Login} />
         <Stack.Screen name="signup" component={Signup} />
         <Stack.Screen name="githubLogin" component={GithubWebView} />
+        <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
     );
   };

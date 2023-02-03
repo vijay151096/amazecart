@@ -17,7 +17,9 @@ function LoginIntro() {
         <Text style={styles.signupText}>If you are new /</Text>
         <Pressable
           onPress={() => navigation.replace('signup')}
-          testID="LoginIntro-signupBtn">
+          testID="LoginIntro-signupBtn"
+          accessibilityLabel="Signup"
+          accessibilityHint="lets you create new user">
           <Text style={styles.signupBtn}>Create New</Text>
         </Pressable>
       </View>
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
   },
   signup: {
     flexDirection: 'row',
-    marginVertical: 20
+    marginVertical: 20,
   },
   signupBtn: {
     marginLeft: 8,
