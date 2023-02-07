@@ -77,7 +77,7 @@ function LoginAction() {
         <SocialSignin />
         <Pressable
           onPress={() => {
-            navigation.replace('Profile');
+            navigation.navigate('Profile');
           }}>
           <Text
             style={{color: color.purple, textAlign: 'center', marginTop: 25}}>
