@@ -13,6 +13,8 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1B1F2B082981214B00C7C7BC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B1F2B072981214B00C7C7BC /* Launch Screen.storyboard */; };
+		1BBF29922994FE8100F358B3 /* RCTCounterModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBF29912994FE8100F358B3 /* RCTCounterModule.m */; };
+		1BBF29932994FE8100F358B3 /* RCTCounterModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBF29912994FE8100F358B3 /* RCTCounterModule.m */; };
 		3D0FF5C5E4E9442BB814547B /* LibreBaskerville-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BF46147EC7F4CD5940A5457 /* LibreBaskerville-Regular.ttf */; };
 		6627BF560A4E48D881A08621 /* Solitreo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C75CF5278FA431FB1FF5428 /* Solitreo-Regular.ttf */; };
 		6BE252C7A65647528120D3C1 /* LibreBaskerville-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1DB0FE6E57F04C9CA1800B35 /* LibreBaskerville-Italic.ttf */; };
@@ -58,6 +60,8 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = amaze/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-amaze-amazeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-amaze-amazeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B1F2B072981214B00C7C7BC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		1BBF29902994FE5900F358B3 /* RCTCounterModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTCounterModule.h; sourceTree = "<group>"; };
+		1BBF29912994FE8100F358B3 /* RCTCounterModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTCounterModule.m; sourceTree = "<group>"; };
 		1DB0FE6E57F04C9CA1800B35 /* LibreBaskerville-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LibreBaskerville-Italic.ttf"; path = "../assets/fonts/LibreBaskerville-Italic.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-amaze.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amaze.debug.xcconfig"; path = "Target Support Files/Pods-amaze/Pods-amaze.debug.xcconfig"; sourceTree = "<group>"; };
 		56122691E13F4500AE708BEC /* LibreBaskerville-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LibreBaskerville-Bold.ttf"; path = "../assets/fonts/LibreBaskerville-Bold.ttf"; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				1BBF29912994FE8100F358B3 /* RCTCounterModule.m */,
+				1BBF29902994FE5900F358B3 /* RCTCounterModule.h */,
 				13B07FAE1A68108700A75B9A /* amaze */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* amazeTests */,
@@ -500,6 +506,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BBF29932994FE8100F358B3 /* RCTCounterModule.m in Sources */,
 				00E356F31AD99517003FC87E /* amazeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				1BBF29922994FE8100F358B3 /* RCTCounterModule.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
