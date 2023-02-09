@@ -18,6 +18,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import Favorites from './Screens/Favorites';
 import {ActivityIndicator, View} from 'react-native';
 import GithubWebView from './Screens/GithubWebView';
+import Donate from './Screens/Donate';
 
 const Stack = createNativeStackNavigator();
 
@@ -45,7 +46,7 @@ function Navigation() {
         screenOptions={drawerHeaderOptions}
         initialRouteName="Products">
         <Drawer.Screen name="Products" component={ProductDashBoard} />
-        
+          <Drawer.Screen name="Donate" component={Donate} />
         <Drawer.Screen name="Favorites" component={Favorites} />
       </Drawer.Navigator>
     );
