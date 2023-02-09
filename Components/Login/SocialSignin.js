@@ -10,7 +10,7 @@ function SocialSignin() {
   const navigation = useNavigation();
 
   const githubNavigate = () => {
-    navigation.replace('githubLogin');
+    navigation.navigate('githubLogin');
   };
 
   return (
