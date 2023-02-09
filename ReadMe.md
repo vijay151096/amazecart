@@ -3,42 +3,46 @@
 ## Screens Preview
 
 ## Login Page
-![](./ReadMeImages/Screenshot 2023-02-09 at 11.56.55 AM.png)
+![](./ReadMeImages/login.png)
 
 ## Signup Page
-![](./ReadMeImages/Screenshot 2023-02-09 at 11.57.31 AM.png)
+![](./ReadMeImages/signup.png)
 
 ## Product Dashboard
-![](./ReadMeImages/Screenshot 2023-02-09 at 11.57.46 AM.png)
+![](./ReadMeImages/productdashboard.png)
 
 ## Filtered Products
-![](./ReadMeImages/Screenshot 2023-02-09 at 11.58.05 AM.png)
+![](./ReadMeImages/filterproducts.png)
 
 ## Product Details Page
-![](./ReadMeImages/Screenshot 2023-02-09 at 11.58.28 AM.png)
+![](./ReadMeImages/productdetails.png)
 
 ## Adding the Product to the Cart
-![](./ReadMeImages/Screenshot 2023-02-09 at 11.58.36 AM.png)
+![](./ReadMeImages/addproducttoCart.png)
 
 ## Favorite Products
-![](./ReadMeImages/Screenshot 2023-02-09 at 11.58.53 AM.png)
+![](./ReadMeImages/Favorites.png)
 
 ## Product Details in Bottom Sheet in Favorites
-![](./ReadMeImages/Screenshot 2023-02-09 at 11.59.36 AM.png)
+![](./ReadMeImages/FavDetails.png)
 
 ## Cart
-![](./ReadMeImages/Screenshot 2023-02-09 at 11.59.03 AM.png)
+![](./ReadMeImages/Carts.png)
 
 ## Empty Cart
-![](./ReadMeImages/Screenshot 2023-02-09 at 11.59.09 AM.png)
+![](./ReadMeImages/EmptyCart.png)
 
 ## Google SignIn
-
+![](ReadMeImages/googlesignin.png)
 
 ## GitHub SignIn
+![](ReadMeImages/githubsignin.png)
 
 ## Login through Browser
+![](ReadMeImages/ecommercewebview.png)
 
+## Login through Browser
+![](https://images.pexels.com/photos/276267/pexels-photo-276267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
 
 
 
