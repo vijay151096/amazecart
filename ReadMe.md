@@ -2,6 +2,43 @@
 
 ## Screens Preview
 
+## Login Page
+![](./ReadMeImages/Screenshot 2023-02-09 at 11.56.55 AM.png)
+
+## Signup Page
+![](./ReadMeImages/Screenshot 2023-02-09 at 11.57.31 AM.png)
+
+## Product Dashboard
+![](./ReadMeImages/Screenshot 2023-02-09 at 11.57.46 AM.png)
+
+## Filtered Products
+![](./ReadMeImages/Screenshot 2023-02-09 at 11.58.05 AM.png)
+
+## Product Details Page
+![](./ReadMeImages/Screenshot 2023-02-09 at 11.58.28 AM.png)
+
+## Adding the Product to the Cart
+![](./ReadMeImages/Screenshot 2023-02-09 at 11.58.36 AM.png)
+
+## Favorite Products
+![](./ReadMeImages/Screenshot 2023-02-09 at 11.58.53 AM.png)
+
+## Product Details in Bottom Sheet in Favorites
+![](./ReadMeImages/Screenshot 2023-02-09 at 11.59.36 AM.png)
+
+## Cart
+![](./ReadMeImages/Screenshot 2023-02-09 at 11.59.03 AM.png)
+
+## Empty Cart
+![](./ReadMeImages/Screenshot 2023-02-09 at 11.59.09 AM.png)
+
+## Google SignIn
+
+
+## GitHub SignIn
+
+## Login through Browser
+
 
 
 
