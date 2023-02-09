@@ -4,7 +4,6 @@
 
 ## Login Page
 ![](./ReadMeImages/login.png)
-<img src="./ReadMeImages/login.png"  alt="Login Page"/>
 
 ## Signup Page
 ![](./ReadMeImages/signup.png)
@@ -41,10 +40,6 @@
 
 ## Login through Browser
 ![](ReadMeImages/ecommercewebview.png)
-
-## Login through Browser
-![](https://images.pexels.com/photos/276267/pexels-photo-276267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
-
 
 
 
