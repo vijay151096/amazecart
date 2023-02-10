@@ -134,11 +134,11 @@ or
 
 - android
 
-  > npm run android --variant=devDebug | --variant=demoDebug
+  > npm run android:dev (devDebug Variant) | npm run android:demo (demoDebug Variant)
 
   or
 
-  > yarn run android --variant=devDebug | --variant=demoDebug
+  > yarn run android:dev (devDebug Variant) | yarn run android:demo (demoDebug Variant)
 
 - ios
 
