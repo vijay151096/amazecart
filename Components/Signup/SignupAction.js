@@ -9,7 +9,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 import {AuthContext} from '../../Store/AuthContextProvider';
-import {color} from '../../Styles/Color';
+import {lightColor} from '../../Styles/LightColor';
 import {useNavigation} from '@react-navigation/native';
 
 function SignupAction() {
@@ -87,7 +87,7 @@ function SignupAction() {
         <View style={[styles.signup, {justifyContent: 'center'}]}>
           <Text style={styles.finalText}>Joined us before ?</Text>
           <Pressable onPress={() => navigation.replace('login')}>
-            <Text style={{color: color.purple, textAlign: 'center'}}>
+            <Text style={{color: lightColor.purple, textAlign: 'center'}}>
               Login
             </Text>
           </Pressable>
@@ -101,7 +101,7 @@ export default SignupAction;
 
 const styles = StyleSheet.create({
   buttonText: {
-    color: color.white,
+    color: lightColor.white,
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 22,
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     padding: 20,
     marginVertical: 25,
     borderRadius: 7,
-    backgroundColor: color.purple,
+    backgroundColor: lightColor.purple,
   },
   mainContainer: {
     flex: 1,
@@ -121,19 +121,19 @@ const styles = StyleSheet.create({
   },
   signupBtn: {
     marginLeft: 8,
-    color: color.purple,
+    color: lightColor.purple,
   },
   signupText: {
-    color: color.darkGrey,
+    color: lightColor.darkGrey,
   },
   userInput: {
     padding: 20,
     marginVertical: 10,
     borderRadius: 7,
-    backgroundColor: color.loginInputGrey,
+    backgroundColor: lightColor.loginInputGrey,
   },
   finalText: {
-    color: color.darkGrey,
+    color: lightColor.darkGrey,
     textAlign: 'center',
     marginRight: 5,
   },

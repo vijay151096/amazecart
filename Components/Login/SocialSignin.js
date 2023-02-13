@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
-import {color} from '../../Styles/Color';
+import {lightColor} from '../../Styles/LightColor';
 
 import {AuthContext} from '../../Store/AuthContextProvider';
 import {useNavigation} from '@react-navigation/native';
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  textStyle: {marginRight: 10, color: color.darkGrey},
+  textStyle: {marginRight: 10, color: lightColor.darkGrey},
   imageStyle: {height: 32, width: 32},
   iconContainer: {
     flex: 1,

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, FlatList, Pressable} from 'react-native';
-import {color} from '../../Styles/Color';
+import {lightColor} from '../../Styles/LightColor';
 import SizeBox from './SizeBox';
 
 function Size() {
@@ -31,10 +31,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   selectedBoxColor: {
-    backgroundColor: color.lightBlue,
+    backgroundColor: lightColor.lightBlue,
   },
   sizeText: {
-    color: color.lightGrey,
+    color: lightColor.lightGrey,
   },
   sizeBoxOuter: {
     paddingHorizontal: 3,

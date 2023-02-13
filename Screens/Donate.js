@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {color} from '../Styles/Color';
+import {lightColor} from '../Styles/LightColor';
 
 function Donate() {
   const {CounterModule} = NativeModules;
@@ -58,10 +58,10 @@ const styles = StyleSheet.create({
     margin: 35,
     borderRadius: 25,
     overflow: 'hidden',
-    backgroundColor: color.loginInputGrey,
+    backgroundColor: lightColor.loginInputGrey,
   },
   donateText: {
-    color: color.white,
+    color: lightColor.white,
     fontWeight: 'bold',
     fontSize: 20,
   },
@@ -77,13 +77,13 @@ const styles = StyleSheet.create({
   balanceText: {
     fontWeight: 'bold',
     fontSize: 65,
-    color: color.lightBlue,
+    color: lightColor.lightBlue,
     alignItems: 'center',
     textAlign: 'center',
     justifyContent: 'center',
   },
   button: {
-    backgroundColor: color.purple,
+    backgroundColor: lightColor.purple,
     width: '100%',
     height: 60,
     justifyContent: 'center',
@@ -96,13 +96,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.7,
     minWidth: '30%',
     fontSize: 40,
-    color: color.purple,
+    color: lightColor.purple,
     textAlign: 'center',
   },
   heading: {
     fontWeight: 'bold',
     fontSize: 35,
-    color: color.purple,
+    color: lightColor.purple,
     marginBottom: 40,
   },
 });

@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View} from 'react-native';
-import {color} from '../../Styles/Color';
+import {lightColor} from '../../Styles/LightColor';
 
 const PromotionLabel = ({style}) => {
   return (
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   promotionContainer: {
     padding: 3,
     borderRadius: 4,
-    backgroundColor: color.lightBlue,
+    backgroundColor: lightColor.lightBlue,
     alignItems: 'center',
     justifyContent: 'center',
   },

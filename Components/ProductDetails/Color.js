@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import SizeBox from './SizeBox';
-import {color} from '../../Styles/Color';
+import {lightColor} from '../../Styles/LightColor';
 import ColorTile from './ColorTile';
 
 function Color() {
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     margin: 7,
   },
   sizeText: {
-    color: color.lightGrey,
+    color: lightColor.lightGrey,
   },
   text: {
     fontSize: 16,

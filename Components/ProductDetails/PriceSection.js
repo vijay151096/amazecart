@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {Alert, Pressable, StyleSheet, Text, View} from 'react-native';
-import {color} from '../../Styles/Color';
+import {lightColor} from '../../Styles/LightColor';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {CartContext} from '../../Store/CartContextProvider';
 const PriceSection = ({item}) => {
@@ -25,7 +25,7 @@ const PriceSection = ({item}) => {
       </View>
       <Pressable onPress={handlePress} testID="PriceSection-btn">
         <View style={styles.addToCartContainer}>
-          <Entypo name={'shopping-cart'} size={24} color={color.purple} />
+          <Entypo name={'shopping-cart'} size={24} color={lightColor.purple} />
           <Text style={styles.addToCartText}>Add To Cart</Text>
         </View>
       </Pressable>
@@ -53,12 +53,12 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: color.greyBackground,
+    backgroundColor: lightColor.greyBackground,
   },
   addToCartText: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: color.purple,
+    color: lightColor.purple,
     paddingLeft: 10,
   },
   currencyText: {

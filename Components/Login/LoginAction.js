@@ -9,7 +9,7 @@ import {
   Alert,
 } from 'react-native';
 import {AuthContext} from '../../Store/AuthContextProvider';
-import {color} from '../../Styles/Color';
+import {lightColor} from '../../Styles/LightColor';
 import SocialSignin from './SocialSignin';
 
 function LoginAction() {
@@ -80,7 +80,11 @@ function LoginAction() {
             navigation.navigate('Profile');
           }}>
           <Text
-            style={{color: color.purple, textAlign: 'center', marginTop: 25}}>
+            style={{
+              color: lightColor.purple,
+              textAlign: 'center',
+              marginTop: 25,
+            }}>
             Login through browser
           </Text>
         </Pressable>
@@ -93,7 +97,7 @@ export default LoginAction;
 
 const styles = StyleSheet.create({
   buttonText: {
-    color: color.white,
+    color: lightColor.white,
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 22,
@@ -103,7 +107,7 @@ const styles = StyleSheet.create({
     padding: 20,
     marginVertical: 25,
     borderRadius: 7,
-    backgroundColor: color.purple,
+    backgroundColor: lightColor.purple,
   },
   mainContainer: {
     flex: 1,
@@ -114,16 +118,16 @@ const styles = StyleSheet.create({
   },
   signupBtn: {
     marginLeft: 8,
-    color: color.purple,
+    color: lightColor.purple,
   },
   signupText: {
-    color: color.darkGrey,
+    color: lightColor.darkGrey,
   },
   userInput: {
     padding: 20,
     marginVertical: 10,
     borderRadius: 7,
-    backgroundColor: color.loginInputGrey,
+    backgroundColor: lightColor.loginInputGrey,
     //    color: color.darkGrey,
   },
 });

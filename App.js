@@ -13,22 +13,25 @@ import ProductContextProvider from './Store/ProductContextProvider';
 import FavoriteContextProvider from './Store/FavoriteContextProvider';
 import CartContextProvider from './Store/CartContextProvider';
 import AuthContextProvider from './Store/AuthContextProvider';
+import ThemeContextProvider from './Store/ThemeContextProvider';
 
 const App = () => {
   return (
     <>
       <StatusBar backgroundColor="#F4F6F6" />
-      <AuthContextProvider>
-        <ProductContextProvider>
-          <FavoriteContextProvider>
-            <CartContextProvider>
-              <View style={styles.outerContainer}>
-                <Navigation />
-              </View>
-            </CartContextProvider>
-          </FavoriteContextProvider>
-        </ProductContextProvider>
-      </AuthContextProvider>
+      <ThemeContextProvider>
+        <AuthContextProvider>
+          <ProductContextProvider>
+            <FavoriteContextProvider>
+              <CartContextProvider>
+                <View style={styles.outerContainer}>
+                  <Navigation />
+                </View>
+              </CartContextProvider>
+            </FavoriteContextProvider>
+          </ProductContextProvider>
+        </AuthContextProvider>
+      </ThemeContextProvider>
     </>
   );
 };

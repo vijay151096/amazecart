@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import Filter from '../Components/ProductList/Filter';
 import colors from 'react-native/Libraries/NewAppScreen/components/Colors';
-import {color} from '../Styles/Color';
+import {lightColor} from '../Styles/LightColor';
 
 import {FavoriteContext} from '../Store/FavoriteContextProvider';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -81,7 +81,7 @@ const ProductDashBoard = ({navigation}) => {
           {left: width * 0.425},
           pressed && {opacity: 0.8},
         ]}>
-        <Entypo name={'shopping-cart'} size={24} color={color.lightBlue} />
+        <Entypo name={'shopping-cart'} size={24} color={lightColor.lightBlue} />
         {cartProducts.length > 0 && (
           <View style={styles.itemCount}>
             <Text style={styles.itemCountText}>{cartProducts.length}</Text>
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     borderRadius: 45,
     height: 65,
     width: 65,
-    backgroundColor: color.purple,
+    backgroundColor: lightColor.purple,
     bottom: 50,
     alignItems: 'center',
     justifyContent: 'center',
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
   },
   itemCountText: {
-    color: color.white,
+    color: lightColor.white,
     fontWeight: 'bold',
   },
   itemCount: {
@@ -117,9 +117,9 @@ const styles = StyleSheet.create({
     height: 22,
     width: 22,
     borderWidth: 1,
-    borderColor: color.white,
+    borderColor: lightColor.white,
     borderRadius: 25,
-    backgroundColor: color.pink,
+    backgroundColor: lightColor.pink,
     top: 0,
     alignItems: 'center',
     justifyContent: 'center',

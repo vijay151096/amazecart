@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import {color} from '../../Styles/Color';
+import {lightColor} from '../../Styles/LightColor';
 
 const SizeBox = ({boxNo, setSelectBox, selectBox, children}) => {
   const [isSelected, setIsSelected] = useState(false);
@@ -32,10 +32,10 @@ const SizeBox = ({boxNo, setSelectBox, selectBox, children}) => {
 
 const styles = StyleSheet.create({
   selectedBoxColor: {
-    backgroundColor: color.lightBlue,
+    backgroundColor: lightColor.lightBlue,
   },
   sizeText: {
-    color: color.lightGrey,
+    color: lightColor.lightGrey,
   },
   sizeBoxOuter: {
     paddingHorizontal: 3,

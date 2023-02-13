@@ -1,7 +1,7 @@
 import React from 'react';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {StyleSheet, Text, View} from 'react-native';
-import {color} from '../../Styles/Color';
+import {lightColor} from '../../Styles/LightColor';
 
 function DetailTitle({title, description, rating}) {
   return (
@@ -15,7 +15,7 @@ function DetailTitle({title, description, rating}) {
             style={styles.star}
             name="star"
             size={20}
-            color={color.gold}
+            color={lightColor.gold}
           />
           <Text style={styles.ratingText} testID="DetailTitle-rating">
             ({rating})
@@ -31,7 +31,7 @@ function DetailTitle({title, description, rating}) {
 
 const styles = StyleSheet.create({
   mainTitle: {
-    color: color.purple,
+    color: lightColor.purple,
     fontWeight: 'bold',
     fontSize: 27,
   },
@@ -49,10 +49,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   ratingText: {
-    color: color.lightGrey,
+    color: lightColor.lightGrey,
   },
   description: {
-    color: color.purple,
+    color: lightColor.purple,
   },
 });
 

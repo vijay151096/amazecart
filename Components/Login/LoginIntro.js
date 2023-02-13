@@ -1,6 +1,6 @@
 import React from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import {color} from '../../Styles/Color';
+import {lightColor} from '../../Styles/LightColor';
 import BoldTitle from '../Core/BoldTitle';
 import {useNavigation} from '@react-navigation/native';
 
@@ -34,10 +34,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   loginText: {
-    color: color.purple,
+    color: lightColor.purple,
   },
   nowText: {
-    color: color.lightBlue,
+    color: lightColor.lightBlue,
   },
   mainContainer: {
     flex: 1,
@@ -48,9 +48,9 @@ const styles = StyleSheet.create({
   },
   signupBtn: {
     marginLeft: 8,
-    color: color.purple,
+    color: lightColor.purple,
   },
   signupText: {
-    color: color.darkGrey,
+    color: lightColor.darkGrey,
   },
 });

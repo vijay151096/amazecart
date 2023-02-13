@@ -1,6 +1,6 @@
 import React, {useContext, useLayoutEffect, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {color} from '../Styles/Color';
+import {lightColor} from '../Styles/LightColor';
 import CartList from '../Components/Cart/CartList';
 import CartPrice from '../Components/Cart/CartPrice';
 import {CartContext} from '../Store/CartContextProvider';
@@ -43,14 +43,14 @@ const styles = StyleSheet.create({
   detailsContainer: {
     flex: 9,
     padding: 15,
-    backgroundColor: color.greyBackground,
+    backgroundColor: lightColor.greyBackground,
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
     transform: [{translateY: 25}],
   },
   priceContainer: {
     flex: 2,
-    backgroundColor: color.white,
+    backgroundColor: lightColor.white,
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
     paddingHorizontal: 8,

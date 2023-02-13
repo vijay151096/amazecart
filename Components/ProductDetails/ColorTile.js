@@ -1,11 +1,15 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {color} from '../../Styles/Color';
+import {lightColor} from '../../Styles/LightColor';
 
 const ColorTile = ({outerColor, innerColor}) => {
   return (
-    <View style={[styles.outeCircle, {backgroundColor: outerColor}]} testID="ColorTile-outerRing">
-      <View style={[styles.colorPicker, {backgroundColor: innerColor}]} testID="ColorTile-innerRing"></View>
+    <View
+      style={[styles.outeCircle, {backgroundColor: outerColor}]}
+      testID="ColorTile-outerRing">
+      <View
+        style={[styles.colorPicker, {backgroundColor: innerColor}]}
+        testID="ColorTile-innerRing"></View>
     </View>
   );
 };
@@ -26,7 +30,7 @@ const styles = StyleSheet.create({
     margin: 7,
   },
   sizeText: {
-    color: color.lightGrey,
+    color: lightColor.lightGrey,
   },
   text: {
     fontSize: 16,

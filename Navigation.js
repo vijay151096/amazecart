@@ -6,7 +6,7 @@ import Cart from './Screens/Cart';
 import {NavigationContainer} from '@react-navigation/native';
 import Title from './Components/Core/Title';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {color} from './Styles/Color';
+import {lightColor} from './Styles/LightColor';
 import DeleteCart from './Components/Cart/DeleteCart';
 import BoldTitle from './Components/Core/BoldTitle';
 import {AuthContext} from './Store/AuthContextProvider';
@@ -28,15 +28,15 @@ function Navigation() {
   const {isAuthenticated, isGettingTokenFromStorage} = useContext(AuthContext);
   const drawerHeaderOptions = {
     headerShadowVisible: false,
-    headerStyle: {backgroundColor: color.greyBackground},
-    sceneContainerStyle: {backgroundColor: color.greyBackground},
+    headerStyle: {backgroundColor: lightColor.greyBackground},
+    sceneContainerStyle: {backgroundColor: lightColor.greyBackground},
     headerTitle: () => <Title />,
   };
 
   const nativeStackHeaderOptions = {
     headerShadowVisible: false,
-    headerStyle: {backgroundColor: color.greyBackground},
-    contentStyle: {backgroundColor: color.greyBackground},
+    headerStyle: {backgroundColor: lightColor.greyBackground},
+    contentStyle: {backgroundColor: lightColor.greyBackground},
     headerTitle: () => <Title />,
   };
 
@@ -46,7 +46,7 @@ function Navigation() {
         screenOptions={drawerHeaderOptions}
         initialRouteName="Products">
         <Drawer.Screen name="Products" component={ProductDashBoard} />
-          <Drawer.Screen name="Donate" component={Donate} />
+        <Drawer.Screen name="Donate" component={Donate} />
         <Drawer.Screen name="Favorites" component={Favorites} />
       </Drawer.Navigator>
     );
@@ -62,16 +62,16 @@ function Navigation() {
           name="productDetails"
           component={ProductDetails}
           options={{
-            headerStyle: {backgroundColor: color.white},
-            contentStyle: {backgroundColor: color.white},
+            headerStyle: {backgroundColor: lightColor.white},
+            contentStyle: {backgroundColor: lightColor.white},
           }}
         />
         <Stack.Screen
           name="cart"
           component={Cart}
           options={{
-            headerStyle: {backgroundColor: color.white},
-            contentStyle: {backgroundColor: color.white},
+            headerStyle: {backgroundColor: lightColor.white},
+            contentStyle: {backgroundColor: lightColor.white},
             headerTitle: () => <BoldTitle>My Cart</BoldTitle>,
             headerRight: () => <DeleteCart />,
           }}

@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import ProductImage from '../ProductList/ProductImage';
 import ProductDescription from '../ProductList/ProductDescription';
-import {color} from '../../Styles/Color';
+import {lightColor} from '../../Styles/LightColor';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {CartContext} from '../../Store/CartContextProvider';
 
@@ -47,7 +47,7 @@ const CartItem = ({item}) => {
               style={styles.star}
               name="minus"
               size={20}
-              color={color.black}
+              color={lightColor.black}
             />
           </View>
         </Pressable>
@@ -64,7 +64,7 @@ const CartItem = ({item}) => {
               style={styles.star}
               name="plus"
               size={20}
-              color={color.black}
+              color={lightColor.black}
             />
           </View>
         </Pressable>
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: color.white,
+    backgroundColor: lightColor.white,
     borderRadius: 20,
     justifyContent: 'space-between',
     padding: 5,
@@ -103,12 +103,12 @@ const styles = StyleSheet.create({
     width: 50,
   },
   plus: {
-    backgroundColor: color.lightBlue,
+    backgroundColor: lightColor.lightBlue,
     padding: 5,
     borderRadius: 20,
   },
   minus: {
-    backgroundColor: color.white,
+    backgroundColor: lightColor.white,
     padding: 5,
     borderRadius: 20,
   },
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   shadowContainer: {
     borderRadius: 20,
     elevation: 5,
-    shadowColor: color.lightGrey,
+    shadowColor: lightColor.lightGrey,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.3,
     shadowRadius: 5,

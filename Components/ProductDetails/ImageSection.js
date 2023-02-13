@@ -3,7 +3,7 @@ import {StyleSheet, Text, View, Image, ScrollView} from 'react-native';
 import PromotionLabel from '../Core/PromotionLabel';
 import ProductImage from '../ProductList/ProductImage';
 import Octicons from 'react-native-vector-icons/Octicons';
-import {color} from '../../Styles/Color';
+import {lightColor} from '../../Styles/LightColor';
 import Entypo from 'react-native-vector-icons/Entypo';
 
 function ImageSection({image}) {
@@ -35,7 +35,9 @@ function ImageSection({image}) {
 
   return (
     <View style={styles.imageOuterContainer}>
-      <View style={styles.marginLabel} testID={"ImageSection-promotionContainer"}>
+      <View
+        style={styles.marginLabel}
+        testID={'ImageSection-promotionContainer'}>
         <PromotionLabel style={styles.labelPadding} />
       </View>
       <View style={styles.marginImage} testID="ImageSection-imageContainer">
@@ -94,7 +96,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
   },
   paginationActiveIcon: {
-    backgroundColor: color.lightBlue,
+    backgroundColor: lightColor.lightBlue,
     paddingHorizontal: 6,
     borderRadius: 100,
   },
@@ -109,7 +111,7 @@ const styles = StyleSheet.create({
     borderRadius: 200,
     borderLeftWidth: 0.5,
     borderRightWidth: 0.5,
-    borderColor: color.gold,
+    borderColor: lightColor.gold,
   },
   marginImage: {
     flex: 8,
