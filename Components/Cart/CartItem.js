@@ -2,12 +2,13 @@ import React, {useContext, useState} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import ProductImage from '../ProductList/ProductImage';
 import ProductDescription from '../ProductList/ProductDescription';
-import {lightColor} from '../../Styles/LightColor';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {CartContext} from '../../Store/CartContextProvider';
+import {ThemeContext} from '../../Store/ThemeContextProvider';
 
 const CartItem = ({item}) => {
   const [quantity, setQuantity] = useState(item.quantity);
+  const {themeColors} = useContext(ThemeContext);
   const {updateProductInCart} = useContext(CartContext);
 
   const increaseQuantity = () => {
@@ -27,7 +28,9 @@ const CartItem = ({item}) => {
   };
 
   return (
-    <View style={styles.screen} testID={'CartItem-outer'}>
+    <View
+      style={[styles.screen, {backgroundColor: themeColors.white}]}
+      testID={'CartItem-outer'}>
       <View style={styles.imageContainer} testID={'CartItem-image'}>
         <ProductImage
           image={item.image}
@@ -42,12 +45,21 @@ const CartItem = ({item}) => {
         <Pressable
           onPress={decreaseQuantity}
           testID={'CartItem-quantity-increase'}>
-          <View style={[styles.shadowContainer, styles.minus]}>
+          <View
+            style={[
+              styles.shadowContainer,
+
+              styles.minus,
+              {
+                backgroundColor: themeColors.white,
+                shadowColor: themeColors.lightGrey,
+              },
+            ]}>
             <Entypo
               style={styles.star}
               name="minus"
               size={20}
-              color={lightColor.black}
+              color={themeColors.black}
             />
           </View>
         </Pressable>
@@ -59,12 +71,20 @@ const CartItem = ({item}) => {
         <Pressable
           onPress={increaseQuantity}
           testID={'CartItem-quantity-decrease'}>
-          <View style={[styles.shadowContainer, styles.plus]}>
+          <View
+            style={[
+              styles.shadowContainer,
+              styles.plus,
+              {
+                backgroundColor: themeColors.lightBlue,
+                shadowColor: themeColors.lightGrey,
+              },
+            ]}>
             <Entypo
               style={styles.star}
               name="plus"
               size={20}
-              color={lightColor.black}
+              color={themeColors.black}
             />
           </View>
         </Pressable>
@@ -77,7 +97,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: lightColor.white,
+
     borderRadius: 20,
     justifyContent: 'space-between',
     padding: 5,
@@ -103,12 +123,10 @@ const styles = StyleSheet.create({
     width: 50,
   },
   plus: {
-    backgroundColor: lightColor.lightBlue,
     padding: 5,
     borderRadius: 20,
   },
   minus: {
-    backgroundColor: lightColor.white,
     padding: 5,
     borderRadius: 20,
   },
@@ -119,11 +137,9 @@ const styles = StyleSheet.create({
   shadowContainer: {
     borderRadius: 20,
     elevation: 5,
-    shadowColor: lightColor.lightGrey,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.3,
     shadowRadius: 5,
-    backgroundColor: 'white',
   },
 });
 

@@ -20,11 +20,13 @@ import {ProductContext} from '../Store/ProductContextProvider';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import LogoutIcon from '../Components/Core/LogoutIcon';
 import {FAKE_STORE_CATEGORIES_URL} from '@env';
+import {ThemeContext} from '../Store/ThemeContextProvider';
 
 const ProductDashBoard = ({navigation}) => {
   const {width} = Dimensions.get('window');
 
   const {cartProducts} = useContext(CartContext);
+  const {themeColors} = useContext(ThemeContext);
 
   const [products, setProducts] = useState(null);
   const [categories, setCategories] = useState(null);
@@ -78,13 +80,35 @@ const ProductDashBoard = ({navigation}) => {
         onPress={() => navigation.navigate('cart')}
         style={({pressed}) => [
           styles.cartButton,
+          {
+            backgroundColor: themeColors.purple,
+          },
           {left: width * 0.425},
           pressed && {opacity: 0.8},
         ]}>
-        <Entypo name={'shopping-cart'} size={24} color={lightColor.lightBlue} />
+        <Entypo
+          name={'shopping-cart'}
+          size={24}
+          color={themeColors.lightBlue}
+        />
         {cartProducts.length > 0 && (
-          <View style={styles.itemCount}>
-            <Text style={styles.itemCountText}>{cartProducts.length}</Text>
+          <View
+            style={[
+              styles.itemCount,
+              {
+                backgroundColor: themeColors.pink,
+                borderColor: lightColor.white,
+              },
+            ]}>
+            <Text
+              style={[
+                styles.itemCountText,
+                {
+                  color: themeColors.white,
+                },
+              ]}>
+              {cartProducts.length}
+            </Text>
           </View>
         )}
       </Pressable>
@@ -98,7 +122,6 @@ const styles = StyleSheet.create({
     borderRadius: 45,
     height: 65,
     width: 65,
-    backgroundColor: lightColor.purple,
     bottom: 50,
     alignItems: 'center',
     justifyContent: 'center',
@@ -109,7 +132,6 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
   },
   itemCountText: {
-    color: lightColor.white,
     fontWeight: 'bold',
   },
   itemCount: {
@@ -117,9 +139,8 @@ const styles = StyleSheet.create({
     height: 22,
     width: 22,
     borderWidth: 1,
-    borderColor: lightColor.white,
     borderRadius: 25,
-    backgroundColor: lightColor.pink,
+
     top: 0,
     alignItems: 'center',
     justifyContent: 'center',

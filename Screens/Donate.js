@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {
   Alert,
   Button,
@@ -11,10 +11,11 @@ import {
   View,
 } from 'react-native';
 import {lightColor} from '../Styles/LightColor';
+import {ThemeContext} from '../Store/ThemeContextProvider';
 
 function Donate() {
   const {CounterModule} = NativeModules;
-
+  const {themeColors} = useContext(ThemeContext);
   const [balance, setBalance] = useState(0);
   const [amount, setAmount] = useState(0);
   const handleDonate = () => {
@@ -24,14 +25,18 @@ function Donate() {
     });
   };
   return (
-    <View style={styles.outer}>
+    <View style={[styles.outer, {backgroundColor: themeColors.loginInputGrey}]}>
       <View style={styles.donateBox}>
-        <Text style={styles.heading}>Donation</Text>
-        <Text style={styles.balanceText}>{balance}</Text>
+        <Text style={[styles.heading, {color: themeColors.purple}]}>
+          Donation
+        </Text>
+        <Text style={[styles.balanceText, {color: themeColors.lightBlue}]}>
+          {balance}
+        </Text>
       </View>
       <View style={styles.input}>
         <TextInput
-          style={styles.inputField}
+          style={[styles.inputField, {color: themeColors.purple}]}
           value={amount}
           onChangeText={setAmount}
           keyboardType={'numeric'}
@@ -41,9 +46,11 @@ function Donate() {
       <TouchableOpacity
         activeOpacity={0.7}
         onPress={handleDonate}
-        style={styles.button}>
+        style={[styles.button, {backgroundColor: themeColors.purple}]}>
         <View>
-          <Text style={styles.donateText}>Donate</Text>
+          <Text style={[styles.donateText, {color: themeColors.white}]}>
+            Donate
+          </Text>
         </View>
       </TouchableOpacity>
     </View>
@@ -58,10 +65,8 @@ const styles = StyleSheet.create({
     margin: 35,
     borderRadius: 25,
     overflow: 'hidden',
-    backgroundColor: lightColor.loginInputGrey,
   },
   donateText: {
-    color: lightColor.white,
     fontWeight: 'bold',
     fontSize: 20,
   },
@@ -77,13 +82,12 @@ const styles = StyleSheet.create({
   balanceText: {
     fontWeight: 'bold',
     fontSize: 65,
-    color: lightColor.lightBlue,
+
     alignItems: 'center',
     textAlign: 'center',
     justifyContent: 'center',
   },
   button: {
-    backgroundColor: lightColor.purple,
     width: '100%',
     height: 60,
     justifyContent: 'center',
@@ -96,13 +100,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.7,
     minWidth: '30%',
     fontSize: 40,
-    color: lightColor.purple,
+
     textAlign: 'center',
   },
   heading: {
     fontWeight: 'bold',
     fontSize: 35,
-    color: lightColor.purple,
+
     marginBottom: 40,
   },
 });

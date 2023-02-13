@@ -6,10 +6,12 @@ import CartPrice from '../Components/Cart/CartPrice';
 import {CartContext} from '../Store/CartContextProvider';
 import {ProductContext} from '../Store/ProductContextProvider';
 import EmptyCartContent from '../Components/Cart/EmptyCartContent';
+import {ThemeContext} from '../Store/ThemeContextProvider';
 
 function Cart() {
   const {cartProducts} = useContext(CartContext);
   const {getProduct} = useContext(ProductContext);
+  const {themeColors} = useContext(ThemeContext);
   const [cartProductJson, setCartProductJson] = useState([]);
 
   useLayoutEffect(() => {
@@ -22,7 +24,13 @@ function Cart() {
 
   return (
     <View style={styles.mainContainer}>
-      <View style={styles.detailsContainer}>
+      <View
+        style={[
+          styles.detailsContainer,
+          {
+            backgroundColor: themeColors.greyBackground,
+          },
+        ]}>
         {cartProductJson.length > 0 ? (
           <CartList cartProducts={cartProductJson} />
         ) : (
@@ -30,7 +38,13 @@ function Cart() {
         )}
       </View>
       {cartProductJson.length > 0 && (
-        <View style={styles.priceContainer}>
+        <View
+          style={[
+            styles.priceContainer,
+            {
+              backgroundColor: themeColors.white,
+            },
+          ]}>
           <CartPrice cartProds={cartProductJson} />
         </View>
       )}
@@ -43,14 +57,12 @@ const styles = StyleSheet.create({
   detailsContainer: {
     flex: 9,
     padding: 15,
-    backgroundColor: lightColor.greyBackground,
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
     transform: [{translateY: 25}],
   },
   priceContainer: {
     flex: 2,
-    backgroundColor: lightColor.white,
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
     paddingHorizontal: 8,

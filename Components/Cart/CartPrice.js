@@ -3,9 +3,11 @@ import {Alert, Pressable, StyleSheet, Text, View} from 'react-native';
 import {lightColor} from '../../Styles/LightColor';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {CartContext} from '../../Store/CartContextProvider';
+import {ThemeContext} from '../../Store/ThemeContextProvider';
 const CartPrice = ({cartProds}) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const {cartProducts} = useContext(CartContext);
+  const {themeColors} = useContext(ThemeContext);
 
   const handlePress = () => {
     Alert.alert('Products Checked Out');
@@ -33,9 +35,15 @@ const CartPrice = ({cartProds}) => {
         </View>
       </View>
       <Pressable onPress={handlePress} testID={'CartPrice-checkout'}>
-        <View style={styles.addToCartContainer}>
-          <Entypo name={'shopping-cart'} size={24} color={lightColor.white} />
-          <Text style={styles.addToCartText} testID={'CartPrice-checkout-text'}>
+        <View
+          style={[
+            styles.addToCartContainer,
+            {backgroundColor: themeColors.purple},
+          ]}>
+          <Entypo name={'shopping-cart'} size={24} color={themeColors.white} />
+          <Text
+            style={[styles.addToCartText, {color: themeColors.white}]}
+            testID={'CartPrice-checkout-text'}>
             Checkout
           </Text>
         </View>
@@ -65,12 +73,11 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: lightColor.purple,
   },
   addToCartText: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: lightColor.white,
+
     paddingLeft: 10,
   },
   currencyText: {

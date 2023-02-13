@@ -11,10 +11,12 @@ import {
 import {AuthContext} from '../../Store/AuthContextProvider';
 import {lightColor} from '../../Styles/LightColor';
 import SocialSignin from './SocialSignin';
+import {ThemeContext} from '../../Store/ThemeContextProvider';
 
 function LoginAction() {
   const {login} = useContext(AuthContext);
   const navigation = useNavigation();
+  const {themeColors} = useContext(ThemeContext);
 
   const [enteredUsername, setEnteredUsername] = useState('kminchelle');
   const [enteredPassword, setEnteredPassword] = useState('0lelplR');
@@ -40,7 +42,10 @@ function LoginAction() {
         placeholder="Username"
         value={enteredUsername}
         onChangeText={handleUsernameChange}
-        style={styles.userInput}
+        style={[
+          styles.userInput,
+          {backgroundColor: themeColors.loginInputGrey},
+        ]}
         autoCorrect={false}
         accessible={true}
         accessibilityLabel={'username input section'}
@@ -52,15 +57,22 @@ function LoginAction() {
         secureTextEntry
         value={enteredPassword}
         onChangeText={handlePasswordChange}
-        style={styles.userInput}
+        style={[
+          styles.userInput,
+          {backgroundColor: themeColors.loginInputGrey},
+        ]}
         accessible={true}
         accessibilityLabel={'password input section'}
         accessibilityHint={'we can enter password here'}
       />
       <View style={styles.signup}>
-        <Text style={styles.signupText}>Forgot Passcode? /</Text>
+        <Text style={[styles.signupText, {color: themeColors.darkGrey}]}>
+          Forgot Passcode? /
+        </Text>
         <Pressable>
-          <Text style={styles.signupBtn}>Reset</Text>
+          <Text style={[styles.signupBtn, {color: themeColors.purple}]}>
+            Reset
+          </Text>
         </Pressable>
       </View>
       <View>
@@ -69,10 +81,13 @@ function LoginAction() {
           accessibilityHint="lets you login after entering the details"
           style={({pressed}) => [
             styles.actionButton,
+            {backgroundColor: themeColors.purple},
             pressed && {opacity: 0.6},
           ]}
           onPress={handleLogin}>
-          <Text style={styles.buttonText}>Login</Text>
+          <Text style={[styles.buttonText, {color: themeColors.white}]}>
+            Login
+          </Text>
         </Pressable>
         <SocialSignin />
         <Pressable
@@ -97,7 +112,6 @@ export default LoginAction;
 
 const styles = StyleSheet.create({
   buttonText: {
-    color: lightColor.white,
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 22,
@@ -107,7 +121,6 @@ const styles = StyleSheet.create({
     padding: 20,
     marginVertical: 25,
     borderRadius: 7,
-    backgroundColor: lightColor.purple,
   },
   mainContainer: {
     flex: 1,
@@ -118,16 +131,11 @@ const styles = StyleSheet.create({
   },
   signupBtn: {
     marginLeft: 8,
-    color: lightColor.purple,
   },
-  signupText: {
-    color: lightColor.darkGrey,
-  },
+  signupText: {},
   userInput: {
     padding: 20,
     marginVertical: 10,
     borderRadius: 7,
-    backgroundColor: lightColor.loginInputGrey,
-    //    color: color.darkGrey,
   },
 });

@@ -11,10 +11,11 @@ import {
 import {AuthContext} from '../../Store/AuthContextProvider';
 import {lightColor} from '../../Styles/LightColor';
 import {useNavigation} from '@react-navigation/native';
+import {ThemeContext} from '../../Store/ThemeContextProvider';
 
 function SignupAction() {
   const {login} = useContext(AuthContext);
-
+  const {themeColors} = useContext(ThemeContext);
   const [enteredUsername, setEnteredUsername] = useState('kminchelle');
   const [enteredPassword, setEnteredPassword] = useState('0lelplR');
   const [enteredName, setEnteredName] = useState('Peter Parker');
@@ -45,13 +46,19 @@ function SignupAction() {
         placeholder="Name"
         value={enteredName}
         onChangeText={handleNameChange}
-        style={styles.userInput}
+        style={[
+          styles.userInput,
+          {backgroundColor: themeColors.loginInputGrey},
+        ]}
       />
       <TextInput
         placeholder="Username"
         value={enteredUsername}
         onChangeText={handleUsernameChange}
-        style={styles.userInput}
+        style={[
+          styles.userInput,
+          {backgroundColor: themeColors.loginInputGrey},
+        ]}
         autoCorrect={false}
       />
       <TextInput
@@ -60,34 +67,52 @@ function SignupAction() {
         secureTextEntry
         value={enteredPassword}
         onChangeText={handlePasswordChange}
-        style={styles.userInput}
+        style={[
+          styles.userInput,
+          {backgroundColor: themeColors.loginInputGrey},
+        ]}
       />
 
       <View style={[styles.signup, {marginTop: 20}]}>
-        <Text style={styles.signupText}> By Signing up, you agree to the</Text>
+        <Text style={[styles.signupText, {color: themeColors.darkGrey}]}>
+          {' '}
+          By Signing up, you agree to the
+        </Text>
         <Pressable>
-          <Text style={styles.signupBtn}>Terms & Conditions </Text>
+          <Text style={[styles.signupBtn, {color: themeColors.purple}]}>
+            Terms & Conditions{' '}
+          </Text>
         </Pressable>
       </View>
       <View style={styles.signup}>
-        <Text style={styles.signupText}> and</Text>
+        <Text style={[styles.signupText, {color: themeColors.darkGrey}]}>
+          {' '}
+          and
+        </Text>
         <Pressable>
-          <Text style={styles.signupBtn}>Privacy and Policy</Text>
+          <Text style={[styles.signupBtn, {color: themeColors.purple}]}>
+            Privacy and Policy
+          </Text>
         </Pressable>
       </View>
       <View style={{marginVertical: 25}}>
         <Pressable
           style={({pressed}) => [
             styles.actionButton,
+            {backgroundColor: themeColors.purple},
             pressed && {opacity: 0.6},
           ]}
           onPress={handleSignup}>
-          <Text style={styles.buttonText}>Signup</Text>
+          <Text style={[styles.buttonText, {color: themeColors.white}]}>
+            Signup
+          </Text>
         </Pressable>
         <View style={[styles.signup, {justifyContent: 'center'}]}>
-          <Text style={styles.finalText}>Joined us before ?</Text>
+          <Text style={[styles.finalText, {color: themeColors.darkGrey}]}>
+            Joined us before ?
+          </Text>
           <Pressable onPress={() => navigation.replace('login')}>
-            <Text style={{color: lightColor.purple, textAlign: 'center'}}>
+            <Text style={{color: themeColors.purple, textAlign: 'center'}}>
               Login
             </Text>
           </Pressable>
@@ -101,7 +126,6 @@ export default SignupAction;
 
 const styles = StyleSheet.create({
   buttonText: {
-    color: lightColor.white,
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 22,
@@ -111,7 +135,6 @@ const styles = StyleSheet.create({
     padding: 20,
     marginVertical: 25,
     borderRadius: 7,
-    backgroundColor: lightColor.purple,
   },
   mainContainer: {
     flex: 1,
@@ -121,19 +144,14 @@ const styles = StyleSheet.create({
   },
   signupBtn: {
     marginLeft: 8,
-    color: lightColor.purple,
   },
-  signupText: {
-    color: lightColor.darkGrey,
-  },
+  signupText: {},
   userInput: {
     padding: 20,
     marginVertical: 10,
     borderRadius: 7,
-    backgroundColor: lightColor.loginInputGrey,
   },
   finalText: {
-    color: lightColor.darkGrey,
     textAlign: 'center',
     marginRight: 5,
   },

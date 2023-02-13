@@ -6,7 +6,6 @@ import Cart from './Screens/Cart';
 import {NavigationContainer} from '@react-navigation/native';
 import Title from './Components/Core/Title';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {lightColor} from './Styles/LightColor';
 import DeleteCart from './Components/Cart/DeleteCart';
 import BoldTitle from './Components/Core/BoldTitle';
 import {AuthContext} from './Store/AuthContextProvider';
@@ -19,24 +18,26 @@ import Favorites from './Screens/Favorites';
 import {ActivityIndicator, View} from 'react-native';
 import GithubWebView from './Screens/GithubWebView';
 import Donate from './Screens/Donate';
+import {ThemeContext} from './Store/ThemeContextProvider';
 
 const Stack = createNativeStackNavigator();
 
 const Drawer = createDrawerNavigator();
 
 function Navigation() {
+  const {themeColors} = useContext(ThemeContext);
   const {isAuthenticated, isGettingTokenFromStorage} = useContext(AuthContext);
   const drawerHeaderOptions = {
     headerShadowVisible: false,
-    headerStyle: {backgroundColor: lightColor.greyBackground},
-    sceneContainerStyle: {backgroundColor: lightColor.greyBackground},
+    headerStyle: {backgroundColor: themeColors.greyBackground},
+    sceneContainerStyle: {backgroundColor: themeColors.greyBackground},
     headerTitle: () => <Title />,
   };
 
   const nativeStackHeaderOptions = {
     headerShadowVisible: false,
-    headerStyle: {backgroundColor: lightColor.greyBackground},
-    contentStyle: {backgroundColor: lightColor.greyBackground},
+    headerStyle: {backgroundColor: themeColors.greyBackground},
+    contentStyle: {backgroundColor: themeColors.greyBackground},
     headerTitle: () => <Title />,
   };
 
@@ -62,16 +63,16 @@ function Navigation() {
           name="productDetails"
           component={ProductDetails}
           options={{
-            headerStyle: {backgroundColor: lightColor.white},
-            contentStyle: {backgroundColor: lightColor.white},
+            headerStyle: {backgroundColor: themeColors.white},
+            contentStyle: {backgroundColor: themeColors.white},
           }}
         />
         <Stack.Screen
           name="cart"
           component={Cart}
           options={{
-            headerStyle: {backgroundColor: lightColor.white},
-            contentStyle: {backgroundColor: lightColor.white},
+            headerStyle: {backgroundColor: themeColors.white},
+            contentStyle: {backgroundColor: themeColors.white},
             headerTitle: () => <BoldTitle>My Cart</BoldTitle>,
             headerRight: () => <DeleteCart />,
           }}
