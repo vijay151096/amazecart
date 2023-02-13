@@ -86,7 +86,12 @@ function ImageSection({image}) {
                   key={index}
                   style={[
                     styles.paginationIcon,
-                    activeState === index ? styles.paginationActiveIcon : null,
+                    activeState === index
+                      ? {
+                          backgroundColor: themeColors.lightBlue,
+                          ...styles.paginationActiveIcon,
+                        }
+                      : null,
                   ]}></View>
               ))}
             </View>
@@ -110,7 +115,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
   },
   paginationActiveIcon: {
-    backgroundColor: lightColor.lightBlue,
     paddingHorizontal: 6,
     borderRadius: 100,
   },

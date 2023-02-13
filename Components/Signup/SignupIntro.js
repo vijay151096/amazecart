@@ -10,8 +10,8 @@ function SignupIntro() {
     <View style={styles.mainContainer}>
       <BoldTitle>Hey,</BoldTitle>
       <View style={styles.mainTextContainer}>
-        <BoldTitle style={styles.loginText}>Signup </BoldTitle>
-        <BoldTitle style={styles.nowText}>Now.</BoldTitle>
+        <BoldTitle style={{color: themeColors.purple}}>Signup </BoldTitle>
+        <BoldTitle style={{color: themeColors.lightBlue}}>Now.</BoldTitle>
       </View>
     </View>
   );
@@ -23,12 +23,6 @@ const styles = StyleSheet.create({
   mainTextContainer: {
     flexDirection: 'row',
   },
-  loginText: {
-    color: lightColor.purple,
-  },
-  nowText: {
-    color: lightColor.lightBlue,
-  },
   mainContainer: {
     flex: 1,
     marginTop: 20,
@@ -39,8 +33,5 @@ const styles = StyleSheet.create({
   },
   signupBtn: {
     marginLeft: 8,
-  },
-  signupText: {
-    color: lightColor.darkGrey,
   },
 });
