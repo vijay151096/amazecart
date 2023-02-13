@@ -11,7 +11,7 @@ const DeleteCart = () => {
   const pressHandler = () => {
     clearCart();
   };
-  console.log(themeColors.background);
+
   return (
     <Pressable onPress={pressHandler} testID={'DeleteCart-deleteIcon'}>
       <MaterialIcons name={'delete'} size={24} color={themeColors.lightGrey} />

@@ -1,9 +1,9 @@
 export const darkColor = {
-  white: 'black',
+  white: '#ffffff',
   greyBackground: '#F4F6F6',
-  gold: 'green',
+  gold: '#F4D03F',
   lightGrey: '#BDC3C7',
-  purple: 'coral',
+  purple: '#3e44aa',
   lightBlue: '#a1dbf5',
   red: 'red',
   black: 'black',
@@ -11,8 +11,10 @@ export const darkColor = {
   darkGrey: '#939499',
   loginInputGrey: '#E5E7E9',
   cartGrey: '#B2BABB',
-  xColor: '#9B59B6',
-  eColor: '#AED6F1',
+  eColor: '#3e44aa',
+  xColor: '#a1dbf5',
   shadowWhite: 'white',
-  shadowGrey: 'grey'
+  shadowGrey: 'grey',
+  filterColor: 'black',
+  filterText: '#4cd964',
 };

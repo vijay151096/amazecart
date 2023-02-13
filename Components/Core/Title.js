@@ -7,8 +7,8 @@ function Title() {
   const {themeColors} = useContext(ThemeContext);
   return (
     <View style={styles.innerContainer}>
-      <Text style={[styles.heading, {color: themeColors.purple}]}>X</Text>
-      <Text style={[styles.heading, {color: themeColors.lightBlue}]}>E</Text>
+      <Text style={[styles.heading, {color: themeColors.xColor}]}>X</Text>
+      <Text style={[styles.heading, {color: themeColors.eColor}]}>E</Text>
     </View>
   );
 }

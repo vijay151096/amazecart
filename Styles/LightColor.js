@@ -11,8 +11,10 @@ export const lightColor = {
   darkGrey: '#939499',
   loginInputGrey: '#E5E7E9',
   cartGrey: '#B2BABB',
-  xColor: '#9B59B6',
-  eColor: '#AED6F1',
+  xColor: '#3e44aa',
+  eColor: '#a1dbf5',
   shadowWhite: 'white',
-  shadowGrey: 'grey'
+  shadowGrey: 'grey',
+  filterColor: 'white',
+  filterText: 'black',
 };

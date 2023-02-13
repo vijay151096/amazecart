@@ -1,8 +1,9 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {FlatList, Pressable, StyleSheet, Text, View} from 'react-native';
 import {ProductContext} from '../../Store/ProductContextProvider';
+import {ThemeContext} from '../../Store/ThemeContextProvider';
 
-const displayFilter = item => {
+const displayFilter = (item, filterStyle, textStyle) => {
   const productItem = item.item;
   const handlePress = () => {
     productItem.setSelectedFilter(prevFilter =>
@@ -13,6 +14,7 @@ const displayFilter = item => {
     <Pressable
       style={[
         styles.filterItem,
+        filterStyle,
         productItem.value === productItem.selectedFilter
           ? styles.pressedStyle
           : null,
@@ -20,13 +22,14 @@ const displayFilter = item => {
       onPress={handlePress}
       testID={'Filter-category'}>
       <View>
-        <Text>{productItem.value}</Text>
+        <Text style={textStyle}>{productItem.value}</Text>
       </View>
     </Pressable>
   );
 };
 
 const Filter = ({items}) => {
+  const {themeColors} = useContext(ThemeContext);
   const [selectedFilter, setSelectedFilter] = useState(null);
   const productCtx = useContext(ProductContext);
 
@@ -51,7 +54,13 @@ const Filter = ({items}) => {
       <Text style={[styles.title]}>Our Products </Text>
       <FlatList
         data={transformedItems}
-        renderItem={displayFilter}
+        renderItem={item =>
+          displayFilter(
+            item,
+            {backgroundColor: themeColors.filterColor},
+            {color: themeColors.filterText},
+          )
+        }
         horizontal={true}
         keyExtractor={(item, index) => index}
         showsHorizontalScrollIndicator={false}
@@ -66,7 +75,7 @@ const styles = StyleSheet.create({
   },
   filterItem: {
     padding: 13,
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
     marginVertical: 4,
     marginHorizontal: 7,
     borderRadius: 10,
