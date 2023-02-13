@@ -96,7 +96,7 @@ function LoginAction() {
           }}>
           <Text
             style={{
-              color: lightColor.purple,
+              color: themeColors.purple,
               textAlign: 'center',
               marginTop: 25,
             }}>

@@ -103,7 +103,7 @@ const ProductDashBoard = ({navigation}) => {
               styles.itemCount,
               {
                 backgroundColor: themeColors.pink,
-                borderColor: lightColor.white,
+                borderColor: themeColors.white,
               },
             ]}>
             <Text

@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {lightColor} from '../../Styles/LightColor';
+import {ThemeContext} from '../../Store/ThemeContextProvider';
 
 const SizeBox = ({boxNo, setSelectBox, selectBox, children}) => {
   const [isSelected, setIsSelected] = useState(false);
-
+  const {themeColors} = useContext(ThemeContext);
   const handlePress = () => {
     setSelectBox(boxNo);
   };
@@ -18,7 +19,11 @@ const SizeBox = ({boxNo, setSelectBox, selectBox, children}) => {
   }, [selectBox]);
 
   const finalStyle = isSelected
-    ? [styles.sizeBoxOuter, styles.selectedBoxColor]
+    ? [
+        styles.sizeBoxOuter,
+        styles.selectedBoxColor,
+        {backgroundColor: themeColors.lightBlue},
+      ]
     : [styles.sizeBoxOuter];
 
   return (
@@ -31,12 +36,7 @@ const SizeBox = ({boxNo, setSelectBox, selectBox, children}) => {
 };
 
 const styles = StyleSheet.create({
-  selectedBoxColor: {
-    backgroundColor: lightColor.lightBlue,
-  },
-  sizeText: {
-    color: lightColor.lightGrey,
-  },
+  selectedBoxColor: {},
   sizeBoxOuter: {
     paddingHorizontal: 3,
     paddingVertical: 8,

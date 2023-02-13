@@ -1,14 +1,18 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {View, Text, StyleSheet, FlatList, Pressable} from 'react-native';
 import {lightColor} from '../../Styles/LightColor';
 import SizeBox from './SizeBox';
+import {ThemeContext} from '../../Store/ThemeContextProvider';
 
 function Size() {
   const [selectBox, setSelectBox] = useState(null);
-
+  const {themeColors} = useContext(ThemeContext);
   return (
     <View style={styles.outerContainer} testID="Size-mainContainer">
-      <Text style={[styles.text, styles.sizeText]}>Size : </Text>
+      <Text
+        style={[styles.text, styles.sizeText, {color: themeColors.lightGrey}]}>
+        Size :{' '}
+      </Text>
       <SizeBox boxNo={6} setSelectBox={setSelectBox} selectBox={selectBox}>
         US 6
       </SizeBox>
@@ -30,12 +34,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  selectedBoxColor: {
-    backgroundColor: lightColor.lightBlue,
-  },
-  sizeText: {
-    color: lightColor.lightGrey,
-  },
+  sizeText: {},
   sizeBoxOuter: {
     paddingHorizontal: 3,
     paddingVertical: 8,

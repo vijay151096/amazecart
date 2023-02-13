@@ -4,12 +4,13 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Octicons from 'react-native-vector-icons/Octicons';
 import {FavoriteContext} from '../../Store/FavoriteContextProvider';
 import {lightColor} from '../../Styles/LightColor';
+import {ThemeContext} from '../../Store/ThemeContextProvider';
 
 const FavoriteBar = ({item, size}) => {
   const {addProductToFavorite, removeProductFromFavorite, favoriteProducts} =
     useContext(FavoriteContext);
   const {id} = item;
-
+  const {themeColors} = useContext(ThemeContext);
   const getIdIfAlreadyFavorite = itemId => {
     return favoriteProducts.find(productId => productId === itemId);
   };
@@ -38,7 +39,7 @@ const FavoriteBar = ({item, size}) => {
   return (
     <Pressable onPress={handlePress} testID={'FavoriteBar-heartIcon'}>
       {isFavourite ? (
-        <View style={styles.shadowContainer}>
+        <View style={[styles.shadowContainer, {shadowColor: themeColors.red}]}>
           <Octicons
             name="feed-heart"
             size={size}
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
   shadowContainer: {
     borderRadius: 20,
     elevation: 5,
-    shadowColor: lightColor.red,
+
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.3,
     shadowRadius: 5,

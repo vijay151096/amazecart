@@ -1,13 +1,17 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import SizeBox from './SizeBox';
 import {lightColor} from '../../Styles/LightColor';
 import ColorTile from './ColorTile';
+import {ThemeContext} from '../../Store/ThemeContextProvider';
 
 function Color() {
+  const {themeColors} = useContext(ThemeContext);
   return (
     <View style={styles.outerContainer} testID="Color-mainContainer">
-      <Text style={[styles.text, styles.sizeText]}>Available Color : </Text>
+      <Text style={[styles.text, {color: themeColors.lightGrey}]}>
+        Available Color :{' '}
+      </Text>
       <ColorTile outerColor={'#FADBD8'} innerColor={'red'} />
       <ColorTile outerColor={'#FCF3CF'} innerColor={'orange'} />
       <ColorTile outerColor={'#F5D3F3'} innerColor={'#F692F0'} />
@@ -31,9 +35,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     margin: 7,
   },
-  sizeText: {
-    color: lightColor.lightGrey,
-  },
+  sizeText: {},
   text: {
     fontSize: 16,
     fontWeight: 'bold',

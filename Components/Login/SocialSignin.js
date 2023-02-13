@@ -17,7 +17,9 @@ function SocialSignin() {
 
   return (
     <View style={styles.socialSigninContainer}>
-      <Text style={styles.textStyle}>Or Sign In With: </Text>
+      <Text style={[styles.textStyle, {color: themeColors.darkGrey}]}>
+        Or Sign In With:{' '}
+      </Text>
       <View style={styles.iconContainer}>
         <Pressable onPress={googleSignIn}>
           <View>
@@ -59,7 +61,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  textStyle: {marginRight: 10, color: lightColor.darkGrey},
+  textStyle: {marginRight: 10},
   imageStyle: {height: 32, width: 32},
   iconContainer: {
     flex: 1,

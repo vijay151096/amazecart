@@ -31,9 +31,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     margin: 7,
   },
-  sizeText: {
-    color: lightColor.lightGrey,
-  },
   text: {
     fontSize: 16,
     fontWeight: 'bold',

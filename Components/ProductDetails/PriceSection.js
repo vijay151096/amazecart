@@ -25,9 +25,15 @@ const PriceSection = ({item}) => {
         </View>
       </View>
       <Pressable onPress={handlePress} testID="PriceSection-btn">
-        <View style={styles.addToCartContainer}>
-          <Entypo name={'shopping-cart'} size={24} color={lightColor.purple} />
-          <Text style={styles.addToCartText}>Add To Cart</Text>
+        <View
+          style={[
+            styles.addToCartContainer,
+            {backgroundColor: themeColors.greyBackground},
+          ]}>
+          <Entypo name={'shopping-cart'} size={24} color={themeColors.purple} />
+          <Text style={[styles.addToCartText, {color: themeColors.purple}]}>
+            Add To Cart
+          </Text>
         </View>
       </Pressable>
     </View>
@@ -54,12 +60,11 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: lightColor.greyBackground,
   },
   addToCartText: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: lightColor.purple,
+
     paddingLeft: 10,
   },
   currencyText: {

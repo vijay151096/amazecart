@@ -1,16 +1,17 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {StyleSheet, Text, View, Image, ScrollView} from 'react-native';
 import PromotionLabel from '../Core/PromotionLabel';
 import ProductImage from '../ProductList/ProductImage';
 import Octicons from 'react-native-vector-icons/Octicons';
 import {lightColor} from '../../Styles/LightColor';
 import Entypo from 'react-native-vector-icons/Entypo';
+import {ThemeContext} from '../../Store/ThemeContextProvider';
 
 function ImageSection({image}) {
   const images = [image, image, image, image];
 
   const [activeState, setActiveState] = useState(0);
-
+  const {themeColors} = useContext(ThemeContext);
   const getImage = (img, index) => (
     <Image
       key={index}
@@ -34,7 +35,11 @@ function ImageSection({image}) {
   };
 
   return (
-    <View style={styles.imageOuterContainer}>
+    <View
+      style={[
+        styles.imageOuterContainer,
+        {backgroundColor: themeColors.white},
+      ]}>
       <View
         style={styles.marginLabel}
         testID={'ImageSection-promotionContainer'}>
@@ -44,12 +49,21 @@ function ImageSection({image}) {
         <View
           style={[
             styles.rippleStyle,
-            {padding: 30, justifyContent: 'center', alignItems: 'center'},
+            {
+              padding: 30,
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderColor: themeColors.gold,
+            },
           ]}>
           <View
             style={[
               styles.rippleStyle,
-              {justifyContent: 'center', alignItems: 'center'},
+              {
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderColor: themeColors.gold,
+              },
             ]}>
             <ScrollView
               horizontal
@@ -102,7 +116,7 @@ const styles = StyleSheet.create({
   },
   imageOuterContainer: {
     flex: 1,
-    backgroundColor: '#ffffff',
+
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -111,7 +125,6 @@ const styles = StyleSheet.create({
     borderRadius: 200,
     borderLeftWidth: 0.5,
     borderRightWidth: 0.5,
-    borderColor: lightColor.gold,
   },
   marginImage: {
     flex: 8,
