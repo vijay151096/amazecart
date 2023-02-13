@@ -3,7 +3,9 @@ import {Pressable, Text, View} from 'react-native';
 import {ThemeContext} from '../../Store/ThemeContextProvider';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {lightColor} from '../../Styles/LightColor';
-import Entypo from 'react-native-vector-icons/Entypo';
+
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 function DarkLightTheme(props) {
   const {isDarkMode, changeTheme, themeColors} = useContext(ThemeContext);
@@ -12,13 +14,12 @@ function DarkLightTheme(props) {
       <View
         style={{
           paddingRight: 20,
-          
         }}>
-        <MaterialCommunityIcons
-          name={'theme-light-dark'}
-          size={24}
-          color={themeColors.black}
-        />
+        {isDarkMode ? (
+          <FontAwesome name={'sun-o'} size={24} color={themeColors.black} />
+        ) : (
+          <FontAwesome5 name={'moon'} size={24} color={themeColors.black} />
+        )}
       </View>
     </Pressable>
   );
