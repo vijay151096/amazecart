@@ -12,8 +12,7 @@ function DarkLightTheme(props) {
       <View
         style={{
           paddingRight: 20,
-          alignItems: 'center',
-          justifyContent: 'center',
+          
         }}>
         <MaterialCommunityIcons
           name={'theme-light-dark'}

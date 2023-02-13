@@ -2,6 +2,8 @@ import {createContext, useState} from 'react';
 import {DefaultTheme} from '@react-navigation/native';
 import {lightColor} from '../Styles/LightColor';
 import {darkColor} from '../Styles/DarkColor';
+import {Appearance} from 'react-native';
+import {useEffect} from 'react/cjs/react.production.min';
 
 export const ThemeContext = createContext({
   themeColors: {},
@@ -10,23 +12,21 @@ export const ThemeContext = createContext({
   isDarkMode: false,
 });
 const lightTheme = {
-  ...DefaultTheme,
   colors: {
-    ...DefaultTheme.colors,
     ...lightColor,
   },
 };
 
 const darkTheme = {
-  ...DefaultTheme,
   colors: {
-    ...DefaultTheme.colors,
     ...darkColor,
   },
 };
 const ThemeContextProvider = ({children}) => {
+  const colorScheme = Appearance.getColorScheme();
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [theme, setTheme] = useState(lightTheme);
+  const preferredMode = colorScheme === 'dark' ? darkTheme : lightTheme;
+  const [theme, setTheme] = useState(preferredMode);
 
   const changeTheme = () => {
     if (isDarkMode) {

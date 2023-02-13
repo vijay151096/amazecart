@@ -3,7 +3,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ProductDashBoard from './Screens/ProductDashBoard';
 import ProductDetails from './Screens/ProductDetails';
 import Cart from './Screens/Cart';
-import {NavigationContainer} from '@react-navigation/native';
+import {
+  DarkTheme,
+  DefaultTheme,
+  NavigationContainer,
+} from '@react-navigation/native';
 import Title from './Components/Core/Title';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import DeleteCart from './Components/Cart/DeleteCart';
@@ -25,7 +29,7 @@ const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 function Navigation() {
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors, isDarkMode} = useContext(ThemeContext);
   const {isAuthenticated, isGettingTokenFromStorage} = useContext(AuthContext);
   const drawerHeaderOptions = {
     headerShadowVisible: false,
@@ -102,7 +106,7 @@ function Navigation() {
   };
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={isDarkMode ? DarkTheme : DefaultTheme}>
       {isAuthenticated ? <ProductStack /> : <AuthenticationStack />}
     </NavigationContainer>
   );

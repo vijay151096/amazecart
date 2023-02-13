@@ -51,7 +51,13 @@ const ProductDashBoard = ({navigation}) => {
         />
       ),
       headerRight: () => (
-        <View style={{flex: 1, flexDirection: 'row'}}>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
           <DarkLightTheme />
           <LogoutIcon style={{marginRight: 10}} />
         </View>
