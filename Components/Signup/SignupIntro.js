@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {lightColor} from '../../Styles/LightColor';
 import BoldTitle from '../Core/BoldTitle';
+import {ThemeContext} from '../../Store/ThemeContextProvider';
 
 function SignupIntro() {
+  const {themeColors} = useContext(ThemeContext);
   return (
     <View style={styles.mainContainer}>
       <BoldTitle>Hey,</BoldTitle>

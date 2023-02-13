@@ -6,7 +6,7 @@ import {darkColor} from '../Styles/DarkColor';
 export const ThemeContext = createContext({
   themeColors: {},
   theme: {},
-  setIsDarkMode: () => {},
+  changeTheme: () => {},
   isDarkMode: false,
 });
 const lightTheme = {

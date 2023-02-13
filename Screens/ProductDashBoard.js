@@ -21,6 +21,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import LogoutIcon from '../Components/Core/LogoutIcon';
 import {FAKE_STORE_CATEGORIES_URL} from '@env';
 import {ThemeContext} from '../Store/ThemeContextProvider';
+import DarkLightTheme from '../Components/Core/DarkLightTheme';
 
 const ProductDashBoard = ({navigation}) => {
   const {width} = Dimensions.get('window');
@@ -49,7 +50,12 @@ const ProductDashBoard = ({navigation}) => {
           onPress={handleDrawerState}
         />
       ),
-      headerRight: () => <LogoutIcon style={{marginRight: 10}} />,
+      headerRight: () => (
+        <View style={{flex: 1, flexDirection: 'row'}}>
+          <DarkLightTheme />
+          <LogoutIcon style={{marginRight: 10}} />
+        </View>
+      ),
     });
   }, []);
 

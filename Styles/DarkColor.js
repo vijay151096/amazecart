@@ -1,9 +1,9 @@
 export const darkColor = {
-  white: '#ffffff',
+  white: 'black',
   greyBackground: '#F4F6F6',
-  gold: '#F4D03F',
+  gold: 'green',
   lightGrey: '#BDC3C7',
-  purple: '#3e44aa',
+  purple: 'coral',
   lightBlue: '#a1dbf5',
   red: 'red',
   black: 'black',

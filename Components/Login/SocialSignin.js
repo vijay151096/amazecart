@@ -4,10 +4,12 @@ import {lightColor} from '../../Styles/LightColor';
 
 import {AuthContext} from '../../Store/AuthContextProvider';
 import {useNavigation} from '@react-navigation/native';
+import {ThemeContext} from '../../Store/ThemeContextProvider';
 
 function SocialSignin() {
   const {googleSignIn} = useContext(AuthContext);
   const navigation = useNavigation();
+  const {themeColors} = useContext(ThemeContext);
 
   const githubNavigate = () => {
     navigation.navigate('githubLogin');
