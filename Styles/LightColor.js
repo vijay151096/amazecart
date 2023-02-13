@@ -10,4 +10,9 @@ export const lightColor = {
   pink: '#f76269',
   darkGrey: '#939499',
   loginInputGrey: '#E5E7E9',
+  cartGrey: '#B2BABB',
+  xColor: '#9B59B6',
+  eColor: '#AED6F1',
+  shadowWhite: 'white',
+  shadowGrey: 'grey'
 };
