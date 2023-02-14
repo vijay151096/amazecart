@@ -110,6 +110,11 @@
   - Keychain Storage for iOS
   - Keystore Storage for Android
 
+### Flavours & Schemas 
+
+- Different Flavours for android Apps.
+- Different Schemas for iOS Apps 
+
 ### Testing
 
 - unit testing using [React-Native-Testing-Library](https://callstack.github.io/react-native-testing-library/docs/getting-started)
@@ -148,11 +153,12 @@ or
 
 - ios
 
-  > npm run ios
+  > npm run ios:dev (devDebug Variant) | npm run ios:demo (demoDebug Variant)
 
   or
 
-  > yarn run ios
+  > yarn run ios:dev (devDebug Variant) | npm run ios:demo (demoDebug Variant)
+
 
 ### Test Runner
 
