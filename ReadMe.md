@@ -1,64 +1,5 @@
 # Amaze Cart
 
-## Screens Preview
-
-## Login Page
-
-![](./ReadMeImages/login.png)
-
-## Signup Page
-
-![](./ReadMeImages/signup.png)
-
-## Product Dashboard
-
-![](./ReadMeImages/productdashboard.png)
-
-## Filtered Products
-
-![](./ReadMeImages/filterproducts.png)
-
-## Product Details Page
-
-![](./ReadMeImages/productdetails.png)
-
-## Adding the Product to the Cart
-
-![](./ReadMeImages/addproducttoCart.png)
-
-## Favorite Products
-
-![](./ReadMeImages/Favorites.png)
-
-## Product Details in Bottom Sheet in Favorites
-
-![](./ReadMeImages/FavDetails.png)
-
-## Cart
-
-![](./ReadMeImages/Carts.png)
-
-## Empty Cart
-
-![](./ReadMeImages/EmptyCart.png)
-
-## Google SignIn
-
-![](ReadMeImages/googlesignin.png)
-
-## GitHub SignIn
-
-![](ReadMeImages/githubsignin.png)
-
-## Login through Browser
-
-![](ReadMeImages/ecommercewebview.png)
-
-## Donation Screen Using Native Modules
-
-![](ReadMeImages/donation.png)
-
-
 ## Topics Covered
 
 ### Implementing react concepts
@@ -189,6 +130,68 @@ or
 or
 
 > yarn start --reset-cache
+
+
+
+## Screens Preview
+
+## Login Page
+
+![](./ReadMeImages/login.png)
+
+## Signup Page
+
+![](./ReadMeImages/signup.png)
+
+## Product Dashboard
+
+![](./ReadMeImages/productdashboard.png)
+
+## Filtered Products
+
+![](./ReadMeImages/filterproducts.png)
+
+## Product Details Page
+
+![](./ReadMeImages/productdetails.png)
+
+## Adding the Product to the Cart
+
+![](./ReadMeImages/addproducttoCart.png)
+
+## Favorite Products
+
+![](./ReadMeImages/Favorites.png)
+
+## Product Details in Bottom Sheet in Favorites
+
+![](./ReadMeImages/FavDetails.png)
+
+## Cart
+
+![](./ReadMeImages/Carts.png)
+
+## Empty Cart
+
+![](./ReadMeImages/EmptyCart.png)
+
+## Google SignIn
+
+![](ReadMeImages/googlesignin.png)
+
+## GitHub SignIn
+
+![](ReadMeImages/githubsignin.png)
+
+## Login through Browser
+
+![](ReadMeImages/ecommercewebview.png)
+
+## Donation Screen Using Native Modules
+
+![](ReadMeImages/donation.png)
+
+
 
 ### Note :
 
