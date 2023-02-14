@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
   outerContainer: {
     borderColor: 'grey',
-    padding: 10,
+    paddingHorizontal: 10,
   },
 });
 export default ProductList;
