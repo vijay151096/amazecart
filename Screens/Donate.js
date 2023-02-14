@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import {
   Alert,
   Button,
@@ -12,6 +12,10 @@ import {
 } from 'react-native';
 import {lightColor} from '../Styles/LightColor';
 import {ThemeContext} from '../Store/ThemeContextProvider';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import DarkLightTheme from '../Components/Core/DarkLightTheme';
+import LogoutIcon from '../Components/Core/LogoutIcon';
+import {useNavigation} from '@react-navigation/native';
 
 function Donate() {
   const {CounterModule} = NativeModules;
@@ -24,6 +28,24 @@ function Donate() {
       Alert.alert('Donated !', 'Happy that you were a part of this initiative');
     });
   };
+  const navigation = useNavigation();
+  const handleDrawerState = () => {
+    navigation.openDrawer();
+  };
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => (
+        <MaterialCommunityIcons
+          name={'dots-grid'}
+          size={30}
+          style={{marginLeft: 10}}
+          onPress={handleDrawerState}
+        />
+      ),
+    });
+  }, []);
+
   return (
     <View style={[styles.outer, {backgroundColor: themeColors.loginInputGrey}]}>
       <View style={styles.donateBox}>

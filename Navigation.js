@@ -23,10 +23,15 @@ import {ActivityIndicator, View} from 'react-native';
 import GithubWebView from './Screens/GithubWebView';
 import Donate from './Screens/Donate';
 import {ThemeContext} from './Store/ThemeContextProvider';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import ShoppingIcon from './Components/Core/ShoppingIcon';
+import FavoriteIcons from './Components/Core/FavoriteIcons';
 
 const Stack = createNativeStackNavigator();
 
 const Drawer = createDrawerNavigator();
+
+const BottomTab = createBottomTabNavigator();
 
 function Navigation() {
   const {themeColors, isDarkMode} = useContext(ThemeContext);
@@ -34,8 +39,17 @@ function Navigation() {
   const drawerHeaderOptions = {
     headerShadowVisible: false,
     headerStyle: {backgroundColor: themeColors.greyBackground},
+    contentStyle: {backgroundColor: themeColors.greyBackground},
+    headerTitle: () => <Title />,
+  };
+
+  const bottomTabHeaderOptions = {
+    headerShadowVisible: false,
+    headerStyle: {backgroundColor: themeColors.greyBackground},
     sceneContainerStyle: {backgroundColor: themeColors.greyBackground},
     headerTitle: () => <Title />,
+    tabBarShowLabel: false,
+    tabBarActiveTintColor: themeColors.xColor,
   };
 
   const nativeStackHeaderOptions = {
@@ -46,13 +60,40 @@ function Navigation() {
   };
 
   const ProductStack = () => {
+    const BottomTabNavigator = () => (
+      <BottomTab.Navigator
+        screenOptions={bottomTabHeaderOptions}
+        initialRouteName="Products">
+        <BottomTab.Screen
+          name="Products"
+          component={ProductDashBoard}
+          options={{
+            tabBarIcon: ({color}) => <ShoppingIcon color={color} />,
+          }}
+        />
+        <BottomTab.Screen
+          name="Favorites"
+          component={Favorites}
+          options={{
+            tabBarIcon: ({color}) => <FavoriteIcons color={color} />,
+          }}
+        />
+      </BottomTab.Navigator>
+    );
     const DrawerNavigator = () => (
       <Drawer.Navigator
         screenOptions={drawerHeaderOptions}
         initialRouteName="Products">
-        <Drawer.Screen name="Products" component={ProductDashBoard} />
-        <Drawer.Screen name="Donate" component={Donate} />
-        <Drawer.Screen name="Favorites" component={Favorites} />
+        <Drawer.Screen
+          name="ProductsDashBoard"
+          component={BottomTabNavigator}
+          options={{headerShown: false}}
+        />
+        <Drawer.Screen
+          name="Donate"
+          component={Donate}
+          options={drawerHeaderOptions}
+        />
       </Drawer.Navigator>
     );
 
