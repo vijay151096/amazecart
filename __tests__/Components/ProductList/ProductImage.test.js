@@ -1,8 +1,9 @@
 import {render} from '@testing-library/react-native';
 import ProductImage from '../../../Components/ProductList/ProductImage';
-import {FAKE_STORE_URL} from '@env';
+import Config from 'react-native-config';
 
 describe('Product Image Layout', function () {
+  const {FAKE_STORE_URL} = Config;
   it('should display Image', function () {
     const wrapper = render(
       <ProductImage

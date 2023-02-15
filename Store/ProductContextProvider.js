@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {FAKE_STORE_PRODUCTS_URL} from '@env';
+import Config from 'react-native-config';
 
 export const ProductContext = React.createContext({
   products: [],
@@ -9,6 +9,7 @@ export const ProductContext = React.createContext({
 });
 
 function ProductContextProvider({children}) {
+  const {FAKE_STORE_PRODUCTS_URL} = Config;
   const [initialProducts, setInitialProducts] = useState(null);
 
   const [products, setProducts] = useState(null);

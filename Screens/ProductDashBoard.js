@@ -19,11 +19,12 @@ import AppLoading from '../Components/Core/AppLoading';
 import {ProductContext} from '../Store/ProductContextProvider';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import LogoutIcon from '../Components/Core/LogoutIcon';
-import {FAKE_STORE_CATEGORIES_URL} from '@env';
+import Config from 'react-native-config';
 import {ThemeContext} from '../Store/ThemeContextProvider';
 import DarkLightTheme from '../Components/Core/DarkLightTheme';
 
 const ProductDashBoard = ({navigation}) => {
+  const {FAKE_STORE_CATEGORIES_URL} = Config;
   const {width} = Dimensions.get('window');
 
   const {cartProducts} = useContext(CartContext);

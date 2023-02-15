@@ -3,16 +3,7 @@ import * as Keychain from 'react-native-keychain';
 import React, {useEffect, useState} from 'react';
 import {Alert} from 'react-native';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
-
-import {
-  ANDROID_CLIENT_ID,
-  IOS_CLIENT_ID,
-  WEB_CLIENT_ID,
-  CLIENT_ID,
-  CLIENT_SECRET,
-  REDIRECT_URI,
-  ACCESS_TOKEN_URL,
-} from '@env';
+import Config from 'react-native-config';
 
 export const AuthContext = React.createContext({
   isAuthenticated: false,
@@ -26,6 +17,15 @@ export const AuthContext = React.createContext({
 });
 
 function AuthContextProvider({children}) {
+  const {
+    ANDROID_CLIENT_ID,
+    IOS_CLIENT_ID,
+    WEB_CLIENT_ID,
+    CLIENT_ID,
+    CLIENT_SECRET,
+    REDIRECT_URI,
+    ACCESS_TOKEN_URL,
+  } = Config;
   const [authToken, setAuthToken] = useState();
   const [user, setUser] = useState();
   const [isGettingTokenFromStorage, setIsGettingTokenFromStorage] =

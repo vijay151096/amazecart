@@ -1,6 +1,7 @@
-import {FAKE_STORE_URL} from '@env';
+import Config from 'react-native-config';
 
 export const getSampleItem = () => {
+  const {FAKE_STORE_URL} = Config;
   return {
     id: 1,
     title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',

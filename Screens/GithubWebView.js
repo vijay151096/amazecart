@@ -2,9 +2,10 @@ import React, {useContext, useState} from 'react';
 import WebView from 'react-native-webview';
 import AppLoading from '../Components/Core/AppLoading';
 import {AuthContext} from '../Store/AuthContextProvider';
-import {AUTH_URL, CLIENT_ID, REDIRECT_URI} from '@env';
+import Config from 'react-native-config';
 
 function GithubWebView() {
+  const {AUTH_URL, CLIENT_ID, REDIRECT_URI} = Config;
   const {githubSignIn} = useContext(AuthContext);
   const [inWebView, setInWebView] = useState(true);
 
