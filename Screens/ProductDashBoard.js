@@ -82,7 +82,9 @@ const ProductDashBoard = ({navigation}) => {
   }
 
   return (
-    <View style={styles.screen}>
+    <View
+      //style={[styles.screen, {backgroundColor: themeColors.greyBackground}]}>
+      style={[styles.screen]}>
       {/*<HeaderComponent />*/}
 
       {categories && <Filter items={categories} />}

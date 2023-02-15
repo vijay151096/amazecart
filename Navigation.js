@@ -39,14 +39,14 @@ function Navigation() {
   const drawerHeaderOptions = {
     headerShadowVisible: false,
     headerStyle: {backgroundColor: themeColors.greyBackground},
-    contentStyle: {backgroundColor: themeColors.greyBackground},
+    sceneContainerStyle: {backgroundColor: themeColors.greyBackground},
     headerTitle: () => <Title />,
   };
 
   const bottomTabHeaderOptions = {
     headerShadowVisible: false,
     headerStyle: {backgroundColor: themeColors.greyBackground},
-    sceneContainerStyle: {backgroundColor: themeColors.greyBackground},
+    contentStyle: {backgroundColor: themeColors.greyBackground},
     headerTitle: () => <Title />,
     tabBarShowLabel: false,
     tabBarActiveTintColor: themeColors.xColor,
@@ -63,6 +63,7 @@ function Navigation() {
     const BottomTabNavigator = () => (
       <BottomTab.Navigator
         screenOptions={bottomTabHeaderOptions}
+        sceneContainerStyle={{backgroundColor: themeColors.greyBackground}}
         initialRouteName="Products">
         <BottomTab.Screen
           name="Products"
