@@ -1,9 +1,7 @@
 import {createContext, useState} from 'react';
-import {DefaultTheme} from '@react-navigation/native';
 import {lightColor} from '../Styles/LightColor';
 import {darkColor} from '../Styles/DarkColor';
 import {Appearance} from 'react-native';
-import {useEffect} from 'react/cjs/react.production.min';
 
 export const ThemeContext = createContext({
   themeColors: {},

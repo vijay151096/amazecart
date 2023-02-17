@@ -6,14 +6,14 @@
  * @flow strict-local
  */
 import 'react-native-gesture-handler';
-import React, {useEffect} from 'react';
+import React from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
-import Navigation from './Navigation';
 import ProductContextProvider from './Store/ProductContextProvider';
 import FavoriteContextProvider from './Store/FavoriteContextProvider';
 import CartContextProvider from './Store/CartContextProvider';
 import AuthContextProvider from './Store/AuthContextProvider';
 import ThemeContextProvider from './Store/ThemeContextProvider';
+import MainNavigation from './Navigation/MainNavigation';
 
 const App = () => {
   return (
@@ -25,7 +25,7 @@ const App = () => {
             <FavoriteContextProvider>
               <CartContextProvider>
                 <View style={styles.outerContainer}>
-                  <Navigation />
+                  <MainNavigation />
                 </View>
               </CartContextProvider>
             </FavoriteContextProvider>
