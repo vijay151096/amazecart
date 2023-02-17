@@ -5,6 +5,11 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import {FavoriteContext} from '../../Store/FavoriteContextProvider';
 import {lightColor} from '../../Styles/LightColor';
 import {ThemeContext} from '../../Store/ThemeContextProvider';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
 
 const FavoriteBar = ({item, size}) => {
   const {addProductToFavorite, removeProductFromFavorite, favoriteProducts} =
@@ -14,6 +19,15 @@ const FavoriteBar = ({item, size}) => {
   const getIdIfAlreadyFavorite = itemId => {
     return favoriteProducts.find(productId => productId === itemId);
   };
+  const opacityValue = useSharedValue(1);
+  const scaleValue = useSharedValue(1);
+
+  const opacityChange = useAnimatedStyle(() => {
+    return {
+      opacity: opacityValue.value,
+      transform: [{scale: scaleValue.value}],
+    };
+  });
 
   const handlePress = () => {
     const alreadyFavorite = getIdIfAlreadyFavorite(id);
@@ -24,9 +38,27 @@ const FavoriteBar = ({item, size}) => {
       addProductToFavorite(id);
       setIsFavourite(true);
     }
+    handleAnimation();
   };
 
+
   const [isFavourite, setIsFavourite] = useState(false);
+
+  const handleAnimation = () => {
+    opacityValue.value = withTiming(0, {duration: 0});
+    setTimeout(() => {
+      opacityValue.value = withTiming(1, {duration: 250});
+      if (!isFavourite) {
+        scaleValue.value = withTiming(1.2, {duration: 250});
+      }
+    }, 100);
+    if(!isFavourite)
+    setTimeout(() => {
+      scaleValue.value = withTiming(1, {duration: 100});
+    }, 351);
+  };
+
+  
   useEffect(() => {
     let favoriteProduct = getIdIfAlreadyFavorite(id);
     if (favoriteProduct) {
@@ -34,28 +66,32 @@ const FavoriteBar = ({item, size}) => {
     } else {
       setIsFavourite(false);
     }
+    // handleAnimation();
   }, [favoriteProducts]);
 
   return (
-    <Pressable onPress={handlePress} testID={'FavoriteBar-heartIcon'}>
-      {isFavourite ? (
-        <View style={[styles.shadowContainer, {shadowColor: themeColors.red}]}>
-          <Octicons
-            name="feed-heart"
+    <Animated.View style={opacityChange}>
+      <Pressable onPress={handlePress} testID={'FavoriteBar-heartIcon'}>
+        {isFavourite ? (
+          <View
+            style={[styles.shadowContainer, {shadowColor: themeColors.red}]}>
+            <Octicons
+              name="feed-heart"
+              size={size}
+              color={'red'}
+              testID={'FavoriteBar-heartIcon-pressed'}
+            />
+          </View>
+        ) : (
+          <AntDesign
+            name="heart"
             size={size}
-            color={'red'}
-            testID={'FavoriteBar-heartIcon-pressed'}
+            color={'grey'}
+            testID={'FavoriteBar-heartIcon-unpressed'}
           />
-        </View>
-      ) : (
-        <AntDesign
-          name="heart"
-          size={size}
-          color={'grey'}
-          testID={'FavoriteBar-heartIcon-unpressed'}
-        />
-      )}
-    </Pressable>
+        )}
+      </Pressable>
+    </Animated.View>
   );
 };
 const styles = StyleSheet.create({
