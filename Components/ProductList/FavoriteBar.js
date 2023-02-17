@@ -41,24 +41,19 @@ const FavoriteBar = ({item, size}) => {
     handleAnimation();
   };
 
-
   const [isFavourite, setIsFavourite] = useState(false);
 
   const handleAnimation = () => {
     opacityValue.value = withTiming(0, {duration: 0});
-    setTimeout(() => {
-      opacityValue.value = withTiming(1, {duration: 250});
-      if (!isFavourite) {
-        scaleValue.value = withTiming(1.2, {duration: 250});
-      }
-    }, 100);
-    if(!isFavourite)
-    setTimeout(() => {
-      scaleValue.value = withTiming(1, {duration: 100});
-    }, 351);
+    opacityValue.value = withTiming(1, {duration: 250});
+    if (!isFavourite) {
+      scaleValue.value = withTiming(1.2, {duration: 250});
+      setTimeout(() => {
+        scaleValue.value = withTiming(1, {duration: 100});
+      }, 251);
+    }
   };
 
-  
   useEffect(() => {
     let favoriteProduct = getIdIfAlreadyFavorite(id);
     if (favoriteProduct) {
