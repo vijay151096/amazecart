@@ -44,15 +44,13 @@ function LoginAction() {
   //Animated Styling - Translate The Input Boxes
 
   const positioning = useSharedValue(-100);
-
   const prePositioning = useAnimatedStyle(() => {
     return {
       transform: [{translateY: positioning.value}],
     };
   });
-
   useEffect(() => {
-    positioning.value = withTiming(positioning.value + 100, {duration: 3000});
+    positioning.value = withTiming(positioning.value + 100, {duration: 1000});
   }, []);
 
   return (

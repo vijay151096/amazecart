@@ -20,7 +20,7 @@ function LoginIntro() {
   });
 
   useEffect(() => {
-    opacityValue.value = withTiming(1, {duration: 3000});
+    opacityValue.value = withTiming(1, {duration: 1000});
   }, []);
 
   return (

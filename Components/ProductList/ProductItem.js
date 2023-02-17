@@ -5,6 +5,12 @@ import ShadowComponent from '../Core/ShadowComponent';
 import ProductImage from './ProductImage';
 import {useNavigation} from '@react-navigation/native';
 import PromotionLabel from '../Core/PromotionLabel';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
+import {useEffect} from 'react';
 
 const ProductItem = ({item}) => {
   const navigation = useNavigation();
@@ -13,27 +19,42 @@ const ProductItem = ({item}) => {
     navigation.navigate('productDetails', {item: item});
   };
 
+  const positioning = useSharedValue(0.5);
+  const prePositioning = useAnimatedStyle(() => {
+    return {
+      transform: [{scaleY: positioning.value}, {scaleX: positioning.value}],
+    };
+  });
+  useEffect(() => {
+    positioning.value = withTiming(1, {duration: 1000});
+  }, []);
+
   return (
-    <ShadowComponent style={styles.outerContainer}>
-      <Pressable onPress={handlePress} testID={'ProductItem-OuterContainer'}>
-        <View style={styles.favContainer} testID={'ProductItem-favBar'}>
-          <View style={styles.favOuterContainer}>
-            <PromotionLabel />
-            <FavoriteBar item={item} size={20} />
+    <Animated.View style={[styles.screen, prePositioning]}>
+      <ShadowComponent style={[styles.outerContainer]}>
+        <Pressable onPress={handlePress} testID={'ProductItem-OuterContainer'}>
+          <View style={styles.favContainer} testID={'ProductItem-favBar'}>
+            <View style={styles.favOuterContainer}>
+              <PromotionLabel />
+              <FavoriteBar item={item} size={20} />
+            </View>
           </View>
-        </View>
-        <View style={styles.screen} testID={'ProductItem-image'}>
-          <ProductImage image={item.image} />
-        </View>
-        <View style={styles.screen} testID={'ProductItem-details'}>
-          <ProductDetails item={item} />
-        </View>
-      </Pressable>
-    </ShadowComponent>
+          <View style={styles.screen} testID={'ProductItem-image'}>
+            <ProductImage image={item.image} />
+          </View>
+          <View style={styles.screen} testID={'ProductItem-details'}>
+            <ProductDetails item={item} />
+          </View>
+        </Pressable>
+      </ShadowComponent>
+    </Animated.View>
   );
 };
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
   outerContainer: {
     flex: 1,
     borderRadius: 20,

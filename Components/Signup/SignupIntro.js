@@ -17,7 +17,7 @@ function SignupIntro() {
   });
 
   useEffect(() => {
-    opacityValue.value = withTiming(1, {duration: 2000});
+    opacityValue.value = withTiming(1, {duration: 1000});
   }, []);
   return (
     <View style={styles.mainContainer}>
