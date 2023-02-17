@@ -1,24 +1,41 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {lightColor} from '../../Styles/LightColor';
 import BoldTitle from '../Core/BoldTitle';
 import {useNavigation} from '@react-navigation/native';
 import {ThemeContext} from '../../Store/ThemeContextProvider';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
 
 function LoginIntro() {
   const navigation = useNavigation();
   const {themeColors} = useContext(ThemeContext);
+
+  const opacityValue = useSharedValue(0);
+  const opacityFadeOut = useAnimatedStyle(() => {
+    return {opacity: opacityValue.value};
+  });
+
+  useEffect(() => {
+    opacityValue.value = withTiming(1, {duration: 3000});
+  }, []);
+
   return (
     <View style={styles.mainContainer} testID="LoginIntro-mainContainer">
       <BoldTitle>Hey,</BoldTitle>
-      <View style={styles.mainTextContainer} testID="LoginIntro-loginText">
+      <Animated.View
+        style={[styles.mainTextContainer, opacityFadeOut]}
+        testID="LoginIntro-loginText">
         <BoldTitle style={[styles.loginText, {color: themeColors.purple}]}>
           Login{' '}
         </BoldTitle>
         <BoldTitle style={[styles.nowText, {color: themeColors.lightBlue}]}>
           Now.
         </BoldTitle>
-      </View>
+      </Animated.View>
       <View style={styles.signup}>
         <Text style={[styles.signupText, {color: themeColors.darkGrey}]}>
           If you are new /

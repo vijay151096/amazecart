@@ -1,5 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -12,6 +12,11 @@ import {AuthContext} from '../../Store/AuthContextProvider';
 import {lightColor} from '../../Styles/LightColor';
 import SocialSignin from './SocialSignin';
 import {ThemeContext} from '../../Store/ThemeContextProvider';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
 
 function LoginAction() {
   const {login} = useContext(AuthContext);
@@ -36,8 +41,22 @@ function LoginAction() {
     }
   };
 
+  //Animated Styling - Translate The Input Boxes
+
+  const positioning = useSharedValue(-100);
+
+  const prePositioning = useAnimatedStyle(() => {
+    return {
+      transform: [{translateY: positioning.value}],
+    };
+  });
+
+  useEffect(() => {
+    positioning.value = withTiming(positioning.value + 100, {duration: 3000});
+  }, []);
+
   return (
-    <View style={styles.mainContainer}>
+    <Animated.View style={[styles.mainContainer, prePositioning]}>
       <TextInput
         placeholder="Username"
         value={enteredUsername}
@@ -104,7 +123,7 @@ function LoginAction() {
           </Text>
         </Pressable>
       </View>
-    </View>
+    </Animated.View>
   );
 }
 
