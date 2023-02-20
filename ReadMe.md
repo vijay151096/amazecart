@@ -141,6 +141,18 @@ or
 
 ![](./ReadMeImages/login.png)
 
+## Google SignIn
+
+![](ReadMeImages/googlesignin.png)
+
+## GitHub SignIn
+
+![](ReadMeImages/githubsignin.png)
+
+## Login through Browser
+
+![](ReadMeImages/ecommercewebview.png)
+
 ## Signup Page
 
 ![](./ReadMeImages/signup.png)
@@ -153,14 +165,6 @@ or
 
 ![](./ReadMeImages/filterproducts.png)
 
-## Product Details Page
-
-![](./ReadMeImages/productdetails.png)
-
-## Adding the Product to the Cart
-
-![](./ReadMeImages/addproducttoCart.png)
-
 ## Favorite Products
 
 ![](./ReadMeImages/Favorites.png)
@@ -169,6 +173,14 @@ or
 
 ![](./ReadMeImages/FavDetails.png)
 
+## Product Details Page
+
+![](./ReadMeImages/productdetails.png)
+
+## Adding the Product to the Cart
+
+![](./ReadMeImages/addproducttoCart.png)
+
 ## Cart
 
 ![](./ReadMeImages/Carts.png)
@@ -176,18 +188,6 @@ or
 ## Empty Cart
 
 ![](./ReadMeImages/EmptyCart.png)
-
-## Google SignIn
-
-![](ReadMeImages/googlesignin.png)
-
-## GitHub SignIn
-
-![](ReadMeImages/githubsignin.png)
-
-## Login through Browser
-
-![](ReadMeImages/ecommercewebview.png)
 
 ## Donation Screen Using Native Modules
 
