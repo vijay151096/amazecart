@@ -1,13 +1,12 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {lightColor} from '../../Styles/LightColor';
 import {Pressable} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
+import useTheme from '../../Store/Hooks/useTheme';
 
 const ProfileIcon = () => {
   const navigation = useNavigation();
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
   return (
     <Pressable onPress={() => navigation.navigate('profile')}>
       <MaterialCommunityIcons

@@ -9,19 +9,18 @@ import {
   Alert,
 } from 'react-native';
 import {AuthContext} from '../../Store/AuthContextProvider';
-import {lightColor} from '../../Styles/LightColor';
 import SocialSignin from './SocialSignin';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
+import useTheme from '../../Store/Hooks/useTheme';
 
 function LoginAction() {
   const {login} = useContext(AuthContext);
   const navigation = useNavigation();
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
 
   const [enteredUsername, setEnteredUsername] = useState('kminchelle');
   const [enteredPassword, setEnteredPassword] = useState('0lelplR');

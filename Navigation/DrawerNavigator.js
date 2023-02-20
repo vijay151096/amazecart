@@ -2,13 +2,13 @@ import React, {useContext} from 'react';
 import Title from '../Components/Core/Title';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import Donate from '../Screens/Donate';
-import {ThemeContext} from '../Store/ThemeContextProvider';
 import BottomTabNavigator from './BottomTabNavigator';
+import useTheme from '../Store/Hooks/useTheme';
 
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
 
   const drawerHeaderOptions = {
     headerShadowVisible: false,

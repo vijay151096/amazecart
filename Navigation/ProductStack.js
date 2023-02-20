@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ProductDetails from '../Screens/ProductDetails';
 import Cart from '../Screens/Cart';
@@ -6,13 +6,13 @@ import Title from '../Components/Core/Title';
 import DeleteCart from '../Components/Cart/DeleteCart';
 import BoldTitle from '../Components/Core/BoldTitle';
 import Profile from '../Screens/Profile';
-import {ThemeContext} from '../Store/ThemeContextProvider';
 import DrawerNavigator from './DrawerNavigator';
+import useTheme from '../Store/Hooks/useTheme';
 
 const Stack = createNativeStackNavigator();
 
 const ProductStack = () => {
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
 
   const nativeStackHeaderOptions = {
     headerShadowVisible: false,

@@ -1,15 +1,13 @@
 import React, {useContext} from 'react';
 import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
-import {lightColor} from '../../Styles/LightColor';
-
 import {AuthContext} from '../../Store/AuthContextProvider';
 import {useNavigation} from '@react-navigation/native';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
+import useTheme from '../../Store/Hooks/useTheme';
 
 function SocialSignin() {
   const {googleSignIn} = useContext(AuthContext);
   const navigation = useNavigation();
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
 
   const githubNavigate = () => {
     navigation.navigate('githubLogin');

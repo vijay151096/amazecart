@@ -10,16 +10,13 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {lightColor} from '../Styles/LightColor';
-import {ThemeContext} from '../Store/ThemeContextProvider';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import DarkLightTheme from '../Components/Core/DarkLightTheme';
-import LogoutIcon from '../Components/Core/LogoutIcon';
 import {useNavigation} from '@react-navigation/native';
+import useTheme from '../Store/Hooks/useTheme';
 
 function Donate() {
   const {CounterModule} = NativeModules;
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
   const [balance, setBalance] = useState(0);
   const [amount, setAmount] = useState(0);
   const handleDonate = () => {

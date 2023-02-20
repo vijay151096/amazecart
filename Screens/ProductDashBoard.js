@@ -1,17 +1,7 @@
 import React, {useContext, useEffect, useLayoutEffect, useState} from 'react';
 import ProductList from '../Components/ProductList/ProductList';
-import {
-  ActivityIndicator,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
-} from 'react-native';
+import {Pressable, StyleSheet, Text, View, Dimensions} from 'react-native';
 import Filter from '../Components/ProductList/Filter';
-import colors from 'react-native/Libraries/NewAppScreen/components/Colors';
-import {lightColor} from '../Styles/LightColor';
-
 import {FavoriteContext} from '../Store/FavoriteContextProvider';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {CartContext} from '../Store/CartContextProvider';
@@ -20,15 +10,15 @@ import {ProductContext} from '../Store/ProductContextProvider';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import LogoutIcon from '../Components/Core/LogoutIcon';
 import Config from 'react-native-config';
-import {ThemeContext} from '../Store/ThemeContextProvider';
 import DarkLightTheme from '../Components/Core/DarkLightTheme';
+import useTheme from '../Store/Hooks/useTheme';
 
 const ProductDashBoard = ({navigation}) => {
   const {FAKE_STORE_CATEGORIES_URL} = Config;
   const {width} = Dimensions.get('window');
 
   const {cartProducts} = useContext(CartContext);
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
 
   const [products, setProducts] = useState(null);
   const [categories, setCategories] = useState(null);

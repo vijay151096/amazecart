@@ -1,15 +1,14 @@
 import React, {useContext, useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import ImageSection from '../Components/ProductDetails/ImageSection';
-import {lightColor} from '../Styles/LightColor';
 import DetailSection from '../Components/ProductDetails/DetailSection';
 import PriceSection from '../Components/ProductDetails/PriceSection';
 import FavoriteBar from '../Components/ProductList/FavoriteBar';
-import {ThemeContext} from '../Store/ThemeContextProvider';
+import useTheme from '../Store/Hooks/useTheme';
 
 function ProductDetails({navigation, route}) {
   const item = route.params.item;
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => <FavoriteBar item={item} size={30} />,

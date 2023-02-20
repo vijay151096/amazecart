@@ -1,10 +1,9 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {lightColor} from '../../Styles/LightColor';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
+import useTheme from '../../Store/Hooks/useTheme';
 
 function SemiCircle() {
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
   return (
     <View
       accessible={true}

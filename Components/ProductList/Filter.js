@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {FlatList, Pressable, StyleSheet, Text, View} from 'react-native';
+import useTheme from '../../Store/Hooks/useTheme';
 import {ProductContext} from '../../Store/ProductContextProvider';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
 
 const displayFilter = (item, filterStyle, textStyle) => {
   const productItem = item.item;
@@ -29,7 +29,7 @@ const displayFilter = (item, filterStyle, textStyle) => {
 };
 
 const Filter = ({items}) => {
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
   const [selectedFilter, setSelectedFilter] = useState(null);
   const productCtx = useContext(ProductContext);
 

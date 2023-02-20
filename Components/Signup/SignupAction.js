@@ -6,21 +6,19 @@ import {
   StyleSheet,
   TextInput,
   Alert,
-  SafeAreaView,
 } from 'react-native';
 import {AuthContext} from '../../Store/AuthContextProvider';
-import {lightColor} from '../../Styles/LightColor';
 import {useNavigation} from '@react-navigation/native';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
+import useTheme from '../../Store/Hooks/useTheme';
 
 function SignupAction() {
   const {login} = useContext(AuthContext);
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
   const [enteredUsername, setEnteredUsername] = useState('kminchelle');
   const [enteredPassword, setEnteredPassword] = useState('0lelplR');
   const [enteredName, setEnteredName] = useState('Peter Parker');

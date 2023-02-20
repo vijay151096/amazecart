@@ -1,11 +1,10 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {lightColor} from '../../Styles/LightColor';
 import Entypo from 'react-native-vector-icons/Entypo';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
+import useTheme from '../../Store/Hooks/useTheme';
 
 const EmptyCartContent = () => {
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
 
   return (
     <View style={styles.outerContainer} testID={'EmptyCartContainer-EmptyPage'}>

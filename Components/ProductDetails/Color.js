@@ -1,12 +1,10 @@
 import React, {useContext, useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import SizeBox from './SizeBox';
-import {lightColor} from '../../Styles/LightColor';
 import ColorTile from './ColorTile';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
+import useTheme from '../../Store/Hooks/useTheme';
 
 function Color() {
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
   return (
     <View style={styles.outerContainer} testID="Color-mainContainer">
       <Text style={[styles.text, {color: themeColors.lightGrey}]}>

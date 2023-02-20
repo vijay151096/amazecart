@@ -1,11 +1,10 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import {lightColor} from '../../Styles/LightColor';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
+import useTheme from '../../Store/Hooks/useTheme';
 
 const SizeBox = ({boxNo, setSelectBox, selectBox, children}) => {
   const [isSelected, setIsSelected] = useState(false);
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
   const handlePress = () => {
     setSelectBox(boxNo);
   };

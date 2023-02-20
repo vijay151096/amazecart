@@ -1,17 +1,13 @@
-import React, {useContext, useState} from 'react';
-import {StyleSheet, Text, View, Image, ScrollView} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, View, Image, ScrollView} from 'react-native';
 import PromotionLabel from '../Core/PromotionLabel';
-import ProductImage from '../ProductList/ProductImage';
-import Octicons from 'react-native-vector-icons/Octicons';
-import {lightColor} from '../../Styles/LightColor';
-import Entypo from 'react-native-vector-icons/Entypo';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
+import useTheme from '../../Store/Hooks/useTheme';
 
 function ImageSection({image}) {
   const images = [image, image, image, image];
 
   const [activeState, setActiveState] = useState(0);
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
   const getImage = (img, index) => (
     <Image
       key={index}

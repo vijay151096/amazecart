@@ -1,16 +1,16 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Title from '../Components/Core/Title';
 import Login from '../Screens/Login';
 import Signup from '../Screens/Signup';
 import Profile from '../Screens/Profile';
 import GithubWebView from '../Screens/GithubWebView';
-import {ThemeContext} from '../Store/ThemeContextProvider';
+import useTheme from '../Store/Hooks/useTheme';
 
 const AuthStack = createNativeStackNavigator();
 
 const AuthenticationStack = () => {
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
 
   const nativeStackHeaderOptions = {
     headerShadowVisible: false,

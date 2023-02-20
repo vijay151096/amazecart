@@ -3,11 +3,11 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {lightColor} from '../../Styles/LightColor';
 import {Pressable} from 'react-native';
 import {CartContext} from '../../Store/CartContextProvider';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
+import useTheme from '../../Store/Hooks/useTheme';
 
 const DeleteCart = () => {
   const {clearCart} = useContext(CartContext);
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme()
   const pressHandler = () => {
     clearCart();
   };

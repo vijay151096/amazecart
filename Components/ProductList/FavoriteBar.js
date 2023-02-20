@@ -1,21 +1,20 @@
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {Pressable, StyleSheet, View} from 'react-native';
 import {useContext, useState, useEffect} from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Octicons from 'react-native-vector-icons/Octicons';
 import {FavoriteContext} from '../../Store/FavoriteContextProvider';
-import {lightColor} from '../../Styles/LightColor';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
+import useTheme from '../../Store/Hooks/useTheme';
 
 const FavoriteBar = ({item, size}) => {
   const {addProductToFavorite, removeProductFromFavorite, favoriteProducts} =
     useContext(FavoriteContext);
   const {id} = item;
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
   const getIdIfAlreadyFavorite = itemId => {
     return favoriteProducts.find(productId => productId === itemId);
   };

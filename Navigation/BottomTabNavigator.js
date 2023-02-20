@@ -1,16 +1,16 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import ProductDashBoard from '../Screens/ProductDashBoard';
 import Title from '../Components/Core/Title';
 import Favorites from '../Screens/Favorites';
-import {ThemeContext} from '../Store/ThemeContextProvider';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import ShoppingIcon from '../Components/Core/ShoppingIcon';
 import FavoriteIcons from '../Components/Core/FavoriteIcons';
+import useTheme from '../Store/Hooks/useTheme';
 
 const BottomTab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
 
   const bottomTabHeaderOptions = {
     headerShadowVisible: false,

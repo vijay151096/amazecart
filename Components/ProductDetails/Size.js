@@ -1,12 +1,11 @@
-import React, {useContext, useState} from 'react';
-import {View, Text, StyleSheet, FlatList, Pressable} from 'react-native';
-import {lightColor} from '../../Styles/LightColor';
+import React, {useState} from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 import SizeBox from './SizeBox';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
+import useTheme from '../../Store/Hooks/useTheme';
 
 function Size() {
   const [selectBox, setSelectBox] = useState(null);
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
   return (
     <View style={styles.outerContainer} testID="Size-mainContainer">
       <Text

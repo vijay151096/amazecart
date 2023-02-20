@@ -1,10 +1,9 @@
-import React, {useContext} from 'react';
-import {View, Text, StyleSheet, Platform} from 'react-native';
-import {lightColor} from '../../Styles/LightColor';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
+import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
+import useTheme from '../../Store/Hooks/useTheme';
 
 function Title() {
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
   return (
     <View style={styles.innerContainer}>
       <Text style={[styles.heading, {color: themeColors.xColor}]}>X</Text>

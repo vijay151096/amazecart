@@ -6,12 +6,12 @@ import {
 } from '@react-navigation/native';
 import {AuthContext} from '../Store/AuthContextProvider';
 import {ActivityIndicator, View} from 'react-native';
-import {ThemeContext} from '../Store/ThemeContextProvider';
 import ProductStack from './ProductStack';
 import AuthenticationStack from './AuthenticationStack';
+import useTheme from '../Store/Hooks/useTheme';
 
 function MainNavigation() {
-  const {isDarkMode} = useContext(ThemeContext);
+  const {isDarkMode} = useTheme();
   const {isAuthenticated, isGettingTokenFromStorage} = useContext(AuthContext);
 
   if (isGettingTokenFromStorage) {

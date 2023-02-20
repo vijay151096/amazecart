@@ -3,11 +3,12 @@ import {Alert, Pressable, StyleSheet, Text, View} from 'react-native';
 import {lightColor} from '../../Styles/LightColor';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {CartContext} from '../../Store/CartContextProvider';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
+import useTheme from '../../Store/Hooks/useTheme';
+
 const CartPrice = ({cartProds}) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const {cartProducts} = useContext(CartContext);
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
 
   const handlePress = () => {
     Alert.alert('Products Checked Out');

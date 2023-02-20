@@ -1,10 +1,9 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {lightColor} from '../../Styles/LightColor';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
+import useTheme from '../../Store/Hooks/useTheme';
 
 const ColorTile = ({outerColor, innerColor}) => {
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
   return (
     <View
       style={[styles.outeCircle, {backgroundColor: outerColor}]}

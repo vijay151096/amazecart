@@ -1,18 +1,17 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import {lightColor} from '../../Styles/LightColor';
 import BoldTitle from '../Core/BoldTitle';
 import {useNavigation} from '@react-navigation/native';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
+import useTheme from '../../Store/Hooks/useTheme';
 
 function LoginIntro() {
   const navigation = useNavigation();
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
 
   const opacityValue = useSharedValue(0);
   const opacityFadeOut = useAnimatedStyle(() => {

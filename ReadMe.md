@@ -6,6 +6,7 @@
 
 - React Hooks
 - React Context (Store)
+- Custom Hooks
 
 ### Implementing react native concepts
 

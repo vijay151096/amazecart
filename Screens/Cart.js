@@ -6,12 +6,12 @@ import CartPrice from '../Components/Cart/CartPrice';
 import {CartContext} from '../Store/CartContextProvider';
 import {ProductContext} from '../Store/ProductContextProvider';
 import EmptyCartContent from '../Components/Cart/EmptyCartContent';
-import {ThemeContext} from '../Store/ThemeContextProvider';
+import useTheme from '../Store/Hooks/useTheme';
 
 function Cart() {
   const {cartProducts} = useContext(CartContext);
   const {getProduct} = useContext(ProductContext);
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
   const [cartProductJson, setCartProductJson] = useState([]);
 
   useLayoutEffect(() => {

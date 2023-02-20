@@ -4,11 +4,11 @@ import ProductImage from '../ProductList/ProductImage';
 import ProductDescription from '../ProductList/ProductDescription';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {CartContext} from '../../Store/CartContextProvider';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
+import useTheme from '../../Store/Hooks/useTheme';
 
 const CartItem = ({item}) => {
   const [quantity, setQuantity] = useState(item.quantity);
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme()
   const {updateProductInCart} = useContext(CartContext);
 
   const increaseQuantity = () => {

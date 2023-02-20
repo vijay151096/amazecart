@@ -1,10 +1,8 @@
 import {StyleSheet, Text, View} from 'react-native';
-import {lightColor} from '../../Styles/LightColor';
-import {useContext} from 'react';
-import {ThemeContext} from '../../Store/ThemeContextProvider';
+import useTheme from '../../Store/Hooks/useTheme';
 
 const PromotionLabel = ({style}) => {
-  const {themeColors} = useContext(ThemeContext);
+  const {themeColors} = useTheme();
   return (
     <View
       style={[
