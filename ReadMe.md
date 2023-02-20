@@ -21,6 +21,18 @@
 - [Android Native Module](https://reactnative.dev/docs/native-modules-android)
 - [iOS Native Modules](https://reactnative.dev/docs/native-modules-ios)
 
+### Storage
+
+- [Async Storage](https://www.npmjs.com/package/@react-native-async-storage/async-storage)
+- [react-native-keychain](https://www.npmjs.com/package/react-native-keychain)
+  - Keychain Storage for iOS
+  - Keystore Storage for Android
+
+### Flavours & Schemas 
+
+- Different Flavours for android Apps.
+- Different Schemas for iOS Apps 
+
 ### Adding React Native Vector Icons
 
 - Used [React Native Vector Icon](https://www.npmjs.com/package/react-native-vector-icons) Package to render icons.
@@ -44,17 +56,6 @@
     - Registered the application in the developer console.
     - OAuth flow using webview.
 
-### Storage
-
-- [Async Storage](https://www.npmjs.com/package/@react-native-async-storage/async-storage)
-- [react-native-keychain](https://www.npmjs.com/package/react-native-keychain)
-  - Keychain Storage for iOS
-  - Keystore Storage for Android
-
-### Flavours & Schemas 
-
-- Different Flavours for android Apps.
-- Different Schemas for iOS Apps 
 
 ### Testing
 
@@ -196,3 +197,8 @@ or
 ### Note :
 
 - used [fakestore](https://fakestoreapi.com/) Api's to fetch the product related Details
+
+### Design Inspired from :
+
+- [Dribble Ecommerce Style](https://dribbble.com/shots/14093717-Ecommerce-Mobile-App/attachments/5715187?mode=media)
+- [Dribble Login Style](https://dribbble.com/shots/14889725-App-UI)
