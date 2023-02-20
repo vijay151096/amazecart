@@ -20,6 +20,7 @@
 - [App Icon](https://medium.com/@ansonmathew/app-icon-in-react-native-ios-and-android-6165757e3fdb)
 - [Android Native Module](https://reactnative.dev/docs/native-modules-android)
 - [iOS Native Modules](https://reactnative.dev/docs/native-modules-ios)
+- [Animation](https://docs.swmansion.com/react-native-reanimated/)
 
 ### Storage
 
