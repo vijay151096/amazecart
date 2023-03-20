@@ -2,7 +2,7 @@
 
 ## Topics Covered
 
-### Implementing react concepts
+### Implementing React Concepts
 
 - React Hooks
 - React Context (Store)
